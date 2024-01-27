@@ -11,9 +11,9 @@ namespace Hospital.Models;
     
 		public Gender Gender { get; set; }
 
-		public List<Patient>? Patients { get; set; }
+		//public virtual List<Patient>? Patients { get; set; }
 
-		public List<Room>? Rooms { get; set; }
+		//public List<Room>? Rooms { get; set; }
 
 		public DateTime StartWork { get; set; }
 

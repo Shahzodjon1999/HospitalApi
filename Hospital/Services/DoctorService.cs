@@ -6,56 +6,60 @@ namespace Hospital.Services
 {
 	public class DoctorService : IGenericService<Doctor>
 	{
-		private readonly IGenericRepository<Doctor> _doctorRepository;
+		private readonly IMemoryRepository<Doctor> _memoryRepository;
 
-		public DoctorService(IGenericRepository<Doctor> doctorRepository)
+		public DoctorService(IMemoryRepository<Doctor> doctorRepository)
         {
-			_doctorRepository = doctorRepository;
+			_memoryRepository = doctorRepository;
 		}
-
-        public  string Create(Doctor worker)
+		/// <summary>
+		/// This is for create Doctor
+		/// </summary>
+		/// <param name="doctor">worker from Worker model</param>
+		/// <returns>return string</returns>
+        public  string Create(Doctor doctor)
 		{
-			if (string.IsNullOrEmpty(worker.FirstName))
+			if (string.IsNullOrEmpty(doctor.FirstName))
 			{
 				return "The name cannot be empty";
 			}
 			else
 			{
-				_doctorRepository.Create(worker);
-				return $"Created new item with this ID: {worker.Id}";
+				_memoryRepository.Create(doctor);
+				return $"Created new item with this ID: {doctor.Id}";
 			}
 		}
 
 		public string Delete(Guid id)
 		{
-			var _item = _doctorRepository.GetById(id);
+			var _item = _memoryRepository.GetById(id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_doctorRepository.Delete(id);
+			_memoryRepository.Delete(id);
 
 			return "Doctor is deleted";
 		}
 
 		public Doctor GetById(Guid id)
 		{
-			return  _doctorRepository.GetById(id);
+			return  _memoryRepository.GetById(id);
 		}
 
 		public IEnumerable<Doctor> GetDoctors()
 		{
-			return _doctorRepository.GetAll();
+			return _memoryRepository.GetAll();
 		}
 
-		public string Update(Guid guid, Doctor worker)
+		public string Update(Guid guid, Doctor doctor)
 		{
-			var _item = _doctorRepository.GetById(guid);
+			var _item = _memoryRepository.GetById(guid);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_doctorRepository.Update(_item,worker);
+			_memoryRepository.Update(doctor);
 			return "Doctor is updated";
 		}
 	}

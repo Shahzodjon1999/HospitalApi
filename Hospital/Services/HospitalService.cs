@@ -7,11 +7,11 @@ namespace Hospital.Api.Services
 {
 	public class HospitalService : IGenericService<HospitalModel>
 	{
-		private readonly IGenericRepository<HospitalModel> _hospitalRepository;
+		private readonly IMemoryRepository<HospitalModel> _memoryRepository;
 
-		public HospitalService(IGenericRepository<HospitalModel> hospitalRepository)
+		public HospitalService(IMemoryRepository<HospitalModel> hospitalRepository)
 		{
-			_hospitalRepository = hospitalRepository;
+			_memoryRepository = hospitalRepository;
 		}
 
 		public string Create(HospitalModel hospital)
@@ -22,41 +22,41 @@ namespace Hospital.Api.Services
 			}
 			else
 			{
-				_hospitalRepository.Create(hospital);
+				_memoryRepository.Create(hospital);
 				return $"Created new item with this ID: {hospital.Id}";
 			}
 		}
 
 		public string Delete(Guid id)
 		{
-			var _item = _hospitalRepository.GetById(id);
+			var _item = _memoryRepository.GetById(id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_hospitalRepository.Delete(id);
+			_memoryRepository.Delete(id);
 
 			return "Doctor is deleted";
 		}
 
 		public HospitalModel GetById(Guid id)
 		{
-			return _hospitalRepository.GetById(id);
+			return _memoryRepository.GetById(id);
 		}
 
 		public IEnumerable<HospitalModel> GetDoctors()
 		{
-			return _hospitalRepository.GetAll();
+			return _memoryRepository.GetAll();
 		}
 
-		public string Update(Guid guid, HospitalModel worker)
+		public string Update(Guid guid, HospitalModel doctor)
 		{
-			var _item = _hospitalRepository.GetById(guid);
+			var _item = _memoryRepository.GetById(guid);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_hospitalRepository.Update(_item, worker);
+			_memoryRepository.Update(doctor);
 			return "Doctor is updated";
 		}
 	}

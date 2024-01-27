@@ -1,8 +1,9 @@
-﻿using Hospital.Models;
+﻿using Hospital.Abstract;
+using Hospital.Models;
 
 namespace Hospital.InterfaceRepositoryes
 {
-	public interface IGenericRepository<T> where T : class
+	public interface IMemoryRepository<T> where T : EntityBase
 	{
 		IEnumerable<T> GetAll();
 
@@ -10,7 +11,7 @@ namespace Hospital.InterfaceRepositoryes
 
 		bool Create(T item);
 
-		bool Update(T item,T newItem);
+		bool Update(T item);
 
 		bool Delete(Guid id);
 	}

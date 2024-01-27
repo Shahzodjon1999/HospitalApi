@@ -1,8 +1,9 @@
-﻿using Hospital.Models;
+﻿using Hospital.Abstract;
+using Hospital.Models;
 
 namespace Hospital.Interfaces
 {
-	public interface IGenericService<T> where T : class
+	public interface IGenericService<T> where T : EntityBase
 	{
 		IEnumerable<T> GetDoctors();
 
