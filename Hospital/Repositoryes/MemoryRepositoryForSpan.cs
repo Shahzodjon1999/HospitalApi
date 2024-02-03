@@ -3,7 +3,7 @@ using Hospital.InterfaceRepositoryes;
 
 namespace Hospital.Api.Repositoryes
 {
-	public class MemoryRepository<T> : IMemoryRepository<T> where T:EntityBase
+	public class MemoryRepositoryForSpan<T>:IMemoryRepository<T> where T: EntityBase
 	{
 		Dictionary<Guid, T> _items = new Dictionary<Guid, T>();
 
@@ -26,7 +26,7 @@ namespace Hospital.Api.Repositoryes
 		{
 			try
 			{
-			    _items[item.Id] = item;
+				_items[item.Id] = item;
 			}
 			catch (Exception)
 			{

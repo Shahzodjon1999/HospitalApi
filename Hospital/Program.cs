@@ -4,7 +4,6 @@ using Hospital.InterfaceRepositoryes;
 using Hospital.Interfaces;
 using Hospital.Model;
 using Hospital.Models;
-using Hospital.Repositoryes;
 using Hospital.Services;
 
 namespace Hospital
@@ -24,9 +23,13 @@ namespace Hospital
 			builder.Services.AddScoped<IGenericService<Patient>, PatientService>();
 			builder.Services.AddScoped<IGenericService<Worker>, WorkerService>();
 
-			builder.Services.AddSingleton(typeof(IMemoryRepository<>),typeof(MemoryRepository<>));
+			//builder.Services.AddSingleton(typeof(IMemoryRepository<>),typeof(MemoryRepository<>));
 
-			
+			//builder.Services.AddSingleton(typeof(IMemoryRepository<>), typeof(MemoryRepositoryForList<>));
+			//builder.Services.AddSingleton(typeof(IMemoryRepository<>), typeof(MemoryRepositoryForHashSet<>));
+			//builder.Services.AddSingleton(typeof(IMemoryRepository<>), typeof(MemoryRepositoryForStek<>));
+			//builder.Services.AddSingleton(typeof(IMemoryRepository<>), typeof(MemoryRepositoryForQueuse<>));
+			builder.Services.AddSingleton(typeof(IMemoryRepository<>), typeof(MemoryRepositoryForList<>));
 			var app = builder.Build();
 
 			if (app.Environment.IsDevelopment())

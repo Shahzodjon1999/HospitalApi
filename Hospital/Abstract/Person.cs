@@ -2,7 +2,7 @@
 
 namespace Hospital.Abstract;
 
-public class Person : EntityBase
+public abstract class Person : EntityBase
 {
 	public string FirstName { get; set; } = string.Empty;
 

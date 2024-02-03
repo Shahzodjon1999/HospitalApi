@@ -3,6 +3,7 @@ using Hospital.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Numerics;
 using System.Threading.Tasks;
 
 namespace Hospital.Controllers
@@ -19,33 +20,68 @@ namespace Hospital.Controllers
 		}
 
         [HttpGet]
-		public IEnumerable<Doctor> GetDoctor()
+		public IEnumerable<Doctor> GetDoctors()
 		{
-			return _doctorService.GetDoctors();
+			try
+			{
+				return _doctorService.GetDoctors();
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctor");
+			}
 		}
 
 		[HttpGet("GetById")]
-		public Doctor GetDoctor(Guid id)
+		public Doctor GetDoctorById(Guid id)
 		{
-			return _doctorService.GetById(id);
+			try
+			{
+				return _doctorService.GetById(id);
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctorById");
+			}
 		}
 
 		[HttpPost]
 		public string Create([FromBody] Doctor doctor)
 		{
-			return _doctorService.Create(doctor);
+			try
+			{
+				return _doctorService.Create(doctor);
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"You have exception:{ex.Message} in the Controller Method Create");
+			}
 		}
 
 		[HttpPut]
 		public string Update(Guid id,Doctor doctor)
 		{
-			return _doctorService.Update(id, doctor);
+			try
+			{
+				return _doctorService.Update(id, doctor);
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"You have exception:{ex.Message} in the Controller Method Update");
+			}
 		}
 
 		[HttpDelete]
 		public string Delete(Guid id)
 		{
-			return _doctorService.Delete(id);
+			try
+			{
+				return _doctorService.Delete(id);
+			}
+			catch (Exception ex)
+			{
+				throw new Exception($"You have exception:{ex.Message} in the Controller Method Delete");
+			}
 		}
 	}
 }

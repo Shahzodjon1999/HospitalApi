@@ -11,15 +11,15 @@ namespace Hospital.Models;
     
 		public Gender Gender { get; set; }
 
-		//public virtual List<Patient>? Patients { get; set; }
+		public ICollection<Patient>? Patients { get;}
 
-		//public List<Room>? Rooms { get; set; }
+		public ICollection<Room>? Rooms { get;}
 
 		public DateTime StartWork { get; set; }
 
 		public DateTime EndWork { get; set; }
 
-		public int statusFreeOrNot { get; set; }
+		public int HospitalId { get; set; }
 
 	//public delegate void MessageDelegate(string message);
 

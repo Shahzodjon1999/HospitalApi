@@ -1,12 +1,14 @@
 ﻿using Hospital.Abstract;
 using Hospital.InterfaceRepositoryes;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace Hospital.Api.Repositoryes
 {
-	public class MemoryRepository<T> : IMemoryRepository<T> where T:EntityBase
+	public class MemoryRepositoryForCurrencyDictionary<T> : IMemoryRepository<T> where T : EntityBase
 	{
-		Dictionary<Guid, T> _items = new Dictionary<Guid, T>();
 
+		ConcurrentDictionary<Guid, T> _items = new();
 		public IEnumerable<T> GetAll()
 		{
 			return _items.Values;
@@ -26,7 +28,7 @@ namespace Hospital.Api.Repositoryes
 		{
 			try
 			{
-			    _items[item.Id] = item;
+				_items[item.Id] = item;
 			}
 			catch (Exception)
 			{
@@ -37,7 +39,7 @@ namespace Hospital.Api.Repositoryes
 
 		public bool Delete(Guid id)
 		{
-			return _items.Remove(id);
+			return _items.Remove(id,out T thamthink);
 		}
 	}
 }
