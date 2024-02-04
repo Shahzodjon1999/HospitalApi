@@ -1,24 +1,27 @@
 ﻿using Hospital.Abstract;
 using Hospital.Enam;
-using System;
-using System.Collections.Generic;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Hospital.Models;
 
-	public class Doctor:Person
+public class Doctor:Person
 	{
-		public string Positions { get; set;} = string.Empty;
-    
-		public Gender Gender { get; set; }
+	    [BsonElement("positions")]
+	    public string Positions { get; set;} = string.Empty;
 
-		public ICollection<Patient>? Patients { get;}
+	    [BsonElement("gender")]
+	    public Gender Gender { get; set; }
 
-		public ICollection<Room>? Rooms { get;}
+	//public ICollection<Patient>? Patients { get;}
 
+	//public ICollection<Room>? Rooms { get;}
+		[BsonElement("start_work")]
 		public DateTime StartWork { get; set; }
 
+		[BsonElement("end_work")]
 		public DateTime EndWork { get; set; }
 
+		[BsonElement("hospital_id")]
 		public int HospitalId { get; set; }
 
 	//public delegate void MessageDelegate(string message);

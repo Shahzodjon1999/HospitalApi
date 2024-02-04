@@ -1,13 +1,17 @@
 ﻿using Hospital.Abstract;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Hospital.Api.Model
 {
 	public class Appointment : EntityBase
 	{
-        public int PatientId { get; set; }
+		[BsonElement("patient_id")]
+		public int PatientId { get; set; }
 
-        public int DoctorId { get; set; }
+		[BsonElement("doctor_id")]
+		public int DoctorId { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
+		[BsonElement("appointment_date")]
+		public DateTime AppointmentDate { get; set; }
     }
 }

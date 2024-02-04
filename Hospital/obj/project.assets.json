@@ -1201,7 +1201,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "MongoDB.Driver >= 2.23.1",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "Swashbuckle.AspNetCore.Swagger >= 6.5.0"
     ]
   },
   "packageFolders": {
@@ -1253,6 +1254,10 @@
             "version": "[2.23.1, )"
           },
           "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[6.5.0, )"
+          },
+          "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
             "version": "[6.5.0, )"
           }

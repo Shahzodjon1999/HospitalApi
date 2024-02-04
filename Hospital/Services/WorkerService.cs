@@ -1,4 +1,4 @@
-﻿using Hospital.InterfaceRepositoryes;
+﻿using Hospital.Api.InterfaceRepositoryes;
 using Hospital.Interfaces;
 using Hospital.Models;
 
@@ -6,9 +6,9 @@ namespace Hospital.Services
 {
 	public class WorkerService:IGenericService<Worker>
 	{
-		private readonly IMemoryRepository<Worker> _memoryRepository;
+		private readonly IMongoDbRepository<Worker> _memoryRepository;
 
-		public WorkerService(IMemoryRepository<Worker> doctorRepository)
+		public WorkerService(IMongoDbRepository<Worker> doctorRepository)
 		{
 			_memoryRepository = doctorRepository;
 		}
@@ -55,7 +55,7 @@ namespace Hospital.Services
 			{
 				return "Doctor is not found";
 			}
-			_memoryRepository.Update(worker);
+			_memoryRepository.Update(guid,worker);
 			return "Doctor is updated";
 		}
     }
