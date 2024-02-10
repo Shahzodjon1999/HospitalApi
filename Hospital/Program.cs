@@ -17,19 +17,8 @@ namespace Hospital
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			//Register services
-			builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection(nameof(MongoDBSettings)));
-
-			builder.Services.AddSingleton<MongoDbContextForGeneric<EntityBase>>(serviceProvider =>
-			{
-				var settings = serviceProvider.GetRequiredService<IOptions<MongoDBSettings>>().Value;
-				return new MongoDbContextForGeneric<EntityBase>(settings.ConnectionString, settings.DatabaseName);
-			});
-
-
 			builder.Services.AddSingleton(typeof(IMongoDbRepository<>), typeof(MongoRepository<>));
-			//Added
-
+			
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();

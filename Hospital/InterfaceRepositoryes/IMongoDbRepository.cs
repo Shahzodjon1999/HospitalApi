@@ -10,7 +10,7 @@ namespace Hospital.Api.InterfaceRepositoryes
 
 		T Create(T item);
 
-		bool Update(Guid id,T item);
+		Task<bool> Update(Guid id,T item);
 
 		bool Delete(Guid id);
 	}

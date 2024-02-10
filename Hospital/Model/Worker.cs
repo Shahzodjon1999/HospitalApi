@@ -1,23 +1,16 @@
 ﻿using Hospital.Abstract;
-using Hospital.Enam;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+using Hospital.Model;
 namespace Hospital.Models;
 
 public class Worker:Person
 {
-	[BsonElement("role")]
 	public string Role { get; set; } = string.Empty;
 
-	[BsonElement("gender")]
-	public Gender Gender { get; set; }
+	public string Name { get; set; } = string.Empty;
 
-	[BsonElement("cabinet")]
-	public string Cabinet { get; set; } = string.Empty;
+	public Salary? Salary { get; set; }
 
-	[BsonElement("start_work")]
-	public DateTime StartWork { get; set; }
+	public Service? Service { get; set; }
 
-	[BsonElement("end_work")]
-	public DateTime EndWork { get; set; }
+	public DateTime DateSave { get; set; }
 }

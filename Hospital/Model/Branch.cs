@@ -1,20 +1,16 @@
 ﻿using Hospital.Abstract;
-using MongoDB.Bson.Serialization.Attributes;
-using System.Collections.Generic;
+using Hospital.Api.Model;
+using Hospital.Model;
 
 namespace Hospital.Models;
 
 public class Branch:EntityBase
 {
-	// public Branch()
-	// {
-	//Workers = new();
-	//Patients= new();
-	// }
-	[BsonElement("address")]
-	public string Address { get; set; } = string.Empty;
+	public string Location { get; set; } = string.Empty;
 
-	//public List<Patient>? Patients { get; set; }
+	public HospitalModel? HospitalModel { get; set; }
 
-	//public List<Worker>? Workers { get; set; }
+	public Guid HospitalID { get; set; }
+
+	public List<Department>? Departments { get; set; }
 }

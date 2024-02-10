@@ -2,6 +2,7 @@
 using Hospital.Api.InterfaceRepositoryes;
 using Hospital.Api.Model;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Hospital.Api.Repositoryes
@@ -10,7 +11,7 @@ namespace Hospital.Api.Repositoryes
 	{
 		private readonly IMongoCollection<T> _items;
 
-		public MongoRepository(IOptions<MongoDBSettings> settings)
+		public MongoRepository(IOptions<> settings)
 		{
 			var client = new MongoClient(settings.Value.ConnectionString);
 
@@ -36,11 +37,22 @@ namespace Hospital.Api.Repositoryes
 			return item;
 		}
 
-		public bool Update(Guid id, T item)
+		public async Task<bool> Update(Guid id, T item)
 		{
 			var filter = Builders<T>.Filter.Eq("_id", id.ToString());
-			var result = _items.ReplaceOne(filter, item);
-			return result.IsAcknowledged;
+			var result = await _items.Find(filter).FirstOrDefaultAsync() ?? default;
+
+			if (result == null)
+			{
+				throw new NullReferenceException();
+			}
+
+			if (result is not null)
+			{
+			  var s = await _items.ReplaceOneAsync(filter,   cancellationToken:CancellationToken.None);
+			}
+
+			return true;
 		}
 
 		public bool Delete(Guid id)

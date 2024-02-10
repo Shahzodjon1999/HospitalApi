@@ -1,14 +1,16 @@
 ﻿using Hospital.Abstract;
-using MongoDB.Bson.Serialization.Attributes;
+using Hospital.Model;
 
 namespace Hospital.Models
 {
 	public class Room:EntityBase
 	{
-		[BsonElement("name")]
 		public string Name { get; set; } = string.Empty;
 
-		[BsonElement("number_room")]
-		public int NumberRoom { get; set; }
+		public int RoomNumber { get; set; }
+
+		public Floor? Floor { get; set; } 
+
+		public List<Patient>? Patients { get; set; }
 	}
 }
