@@ -1,7 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
-
-namespace Hospital.Abstract;
+﻿namespace Hospital.Abstract;
 
 public abstract class Person : EntityBase
 {

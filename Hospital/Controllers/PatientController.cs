@@ -1,6 +1,5 @@
 ﻿using Hospital.Interfaces;
 using Hospital.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hospital.Controllers

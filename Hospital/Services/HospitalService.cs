@@ -1,15 +1,14 @@
 ﻿using Hospital.Api.InterfaceRepositoryes;
 using Hospital.Interfaces;
 using Hospital.Model;
-using Hospital.Models;
 
 namespace Hospital.Api.Services
 {
 	public class HospitalService : IGenericService<HospitalModel>
 	{
-		private readonly IMongoDbRepository<HospitalModel> _mongodbRepository;
+		private readonly IHospitalDbRepository<HospitalModel> _mongodbRepository;
 
-		public HospitalService(IMongoDbRepository<HospitalModel> mongodbRepository)
+		public HospitalService(IHospitalDbRepository<HospitalModel> mongodbRepository)
 		{
 			_mongodbRepository = mongodbRepository;
 		}

@@ -1,13 +1,4 @@
-using Hospital.Abstract;
-using Hospital.Api.InterfaceRepositoryes;
-using Hospital.Api.Model;
-using Hospital.Api.Repositoryes;
-using Hospital.Api.Services;
-using Hospital.Interfaces;
-using Hospital.Model;
-using Hospital.Models;
-using Hospital.Services;
-using Microsoft.Extensions.Options;
+using Hospital.Api.Infrastructure;
 
 namespace Hospital
 {
@@ -17,16 +8,12 @@ namespace Hospital
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			builder.Services.AddSingleton(typeof(IMongoDbRepository<>), typeof(MongoRepository<>));
-			
+			//Add Sql Server and Dependency injection
+			builder.Services.AddApplication(builder.Configuration);
+
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
-
-			builder.Services.AddScoped<IGenericService<Doctor>,DoctorService>();
-			builder.Services.AddScoped<IGenericService<HospitalModel>, HospitalService>();
-			builder.Services.AddScoped<IGenericService<Patient>, PatientService>();
-			builder.Services.AddScoped<IGenericService<Worker>, WorkerService>();
 
 			var app = builder.Build();
 

@@ -1,7 +1,5 @@
 ﻿using Hospital.Abstract;
 using Hospital.Models;
-using MongoDB.Bson.Serialization.Attributes;
-using System.Collections.Generic;
 
 namespace Hospital.Model;
 

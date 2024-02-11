@@ -1,10 +1,6 @@
 ﻿using Hospital.Interfaces;
 using Hospital.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Numerics;
-using System.Threading.Tasks;
 
 namespace Hospital.Controllers
 {
@@ -15,11 +11,11 @@ namespace Hospital.Controllers
 		private readonly IGenericService<Doctor> _doctorService;
 
 		public DoctorController(IGenericService<Doctor> doctorService)
-        {
+		{
 			_doctorService = doctorService;
 		}
 
-        [HttpGet]
+		[HttpGet]
 		public IEnumerable<Doctor> GetDoctors()
 		{
 			try

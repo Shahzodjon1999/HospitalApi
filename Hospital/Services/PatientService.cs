@@ -6,9 +6,9 @@ namespace Hospital.Api.Services
 {
 	public class PatientService : IGenericService<Patient>
 	{
-		private readonly IMongoDbRepository<Patient> _mongodbRepository;
+		private readonly IHospitalDbRepository<Patient> _mongodbRepository;
 
-		public PatientService(IMongoDbRepository<Patient> mongodbRepository)
+		public PatientService(IHospitalDbRepository<Patient> mongodbRepository)
 		{
 			_mongodbRepository = mongodbRepository;
 		}

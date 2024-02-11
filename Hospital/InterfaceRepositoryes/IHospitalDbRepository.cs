@@ -2,7 +2,7 @@
 
 namespace Hospital.Api.InterfaceRepositoryes
 {
-	public interface IMongoDbRepository<T> where T : EntityBase
+	public interface IHospitalDbRepository<T> where T : EntityBase
 	{
 		IEnumerable<T> GetAll();
 
@@ -10,7 +10,7 @@ namespace Hospital.Api.InterfaceRepositoryes
 
 		T Create(T item);
 
-		Task<bool> Update(Guid id,T item);
+		bool Update(Guid id, T item);
 
 		bool Delete(Guid id);
 	}

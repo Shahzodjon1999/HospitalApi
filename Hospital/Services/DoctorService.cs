@@ -6,9 +6,9 @@ namespace Hospital.Services
 {
 	public class DoctorService : IGenericService<Doctor>
 	{
-		private readonly IMongoDbRepository<Doctor> _memoryRepository;
+		private readonly IHospitalDbRepository<Doctor> _memoryRepository;
 
-		public DoctorService(IMongoDbRepository<Doctor> doctorRepository)
+		public DoctorService(IHospitalDbRepository<Doctor> doctorRepository)
 		{
 			_memoryRepository = doctorRepository;
 		}
