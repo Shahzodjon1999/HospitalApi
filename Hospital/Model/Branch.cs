@@ -1,15 +1,13 @@
-﻿using Hospital.Abstract;
-using Hospital.Api.Model;
-using Hospital.Model;
+﻿using Hospital.Api.Abstract;
 using System.Text.Json.Serialization;
 
-namespace Hospital.Models;
+namespace Hospital.Api.Model;
 
-public class Branch:EntityBase
+public class Branch : EntityBase
 {
 	public string Location { get; set; } = string.Empty;
 
-	public HospitalModel? HospitalModel { get; set; }
+	public Hospital? HospitalModel { get; set; }
 
 	public Guid HospitalID { get; set; }
 

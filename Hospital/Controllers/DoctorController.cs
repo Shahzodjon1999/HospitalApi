@@ -1,26 +1,27 @@
-﻿using Hospital.Interfaces;
-using Hospital.Models;
+﻿using Hospital.Api.InterfaceServices;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Controllers
+namespace Hospital.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class DoctorController : ControllerBase
 	{
-		private readonly IGenericService<Doctor> _doctorService;
+		private readonly IGenericService<DoctorRequest,DoctorResponse> _doctorService;
 
-		public DoctorController(IGenericService<Doctor> doctorService)
+		public DoctorController(IGenericService<DoctorRequest, DoctorResponse> doctorService)
 		{
 			_doctorService = doctorService;
 		}
 
 		[HttpGet]
-		public IEnumerable<Doctor> GetDoctors()
+		public IEnumerable<DoctorResponse> GetDoctors()
 		{
 			try
 			{
-				return _doctorService.GetDoctors();
+				return _doctorService.GetAll();
 			}
 			catch (Exception ex)
 			{
@@ -29,7 +30,7 @@ namespace Hospital.Controllers
 		}
 
 		[HttpGet("GetById")]
-		public Doctor GetDoctorById(Guid id)
+		public DoctorResponse GetDoctorById(Guid id)
 		{
 			try
 			{
@@ -42,7 +43,7 @@ namespace Hospital.Controllers
 		}
 
 		[HttpPost]
-		public string Create([FromBody] Doctor doctor)
+		public string Create([FromBody] DoctorRequest doctor)
 		{
 			try
 			{
@@ -55,7 +56,7 @@ namespace Hospital.Controllers
 		}
 
 		[HttpPut]
-		public string Update(Guid id,Doctor doctor)
+		public string Update(Guid id, DoctorRequest doctor)
 		{
 			try
 			{

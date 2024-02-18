@@ -1,10 +1,10 @@
-﻿using Hospital.Abstract;
+﻿using Hospital.Api.Abstract;
 
 namespace Hospital.Api.InterfaceRepositoryes
 {
 	public interface IHospitalDbRepository<T> where T : EntityBase
 	{
-		IEnumerable<T> GetAll();
+		IQueryable<T> GetAll();
 
 		T GetById(Guid id);
 

@@ -1,19 +1,22 @@
 ﻿using Hospital.Api.InterfaceRepositoryes;
-using Hospital.Interfaces;
-using Hospital.Model;
+using Hospital.Api.InterfaceServices;
+using Hospital.Api.Mapping;
+using Hospital.Api.Model;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 
 namespace Hospital.Api.Services
 {
-	public class HospitalService : IGenericService<HospitalModel>
+	public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
 	{
-		private readonly IHospitalDbRepository<HospitalModel> _mongodbRepository;
+		private readonly IHospitalDbRepository<Model.Hospital> _mongodbRepository;
 
-		public HospitalService(IHospitalDbRepository<HospitalModel> mongodbRepository)
+		public HospitalService(IHospitalDbRepository<Model.Hospital> mongodbRepository)
 		{
 			_mongodbRepository = mongodbRepository;
 		}
 
-		public string Create(HospitalModel hospital)
+		public string Create(HospitalRequest hospital)
 		{
 			if (string.IsNullOrEmpty(hospital.Name))
 			{
@@ -21,8 +24,9 @@ namespace Hospital.Api.Services
 			}
 			else
 			{
-				_mongodbRepository.Create(hospital);
-				return $"Created new item with this ID: {hospital.Id}";
+				var mapHospital = hospital.MapToHospital();
+				_mongodbRepository.Create(mapHospital);
+				return $"Created new item with this ID: {mapHospital.Id}";
 			}
 		}
 
@@ -31,32 +35,35 @@ namespace Hospital.Api.Services
 			var _item = _mongodbRepository.GetById(id);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Paitent is not found";
 			}
 			_mongodbRepository.Delete(id);
 
-			return "Doctor is deleted";
+			return "Paitent is deleted";
 		}
 
-		public HospitalModel GetById(Guid id)
+		public HospitalResponse GetById(Guid id)
 		{
-			return _mongodbRepository.GetById(id);
+			var mapHospitalRespository = _mongodbRepository.GetById(id);
+			return mapHospitalRespository.MapToHospitalResponse();
 		}
 
-		public IEnumerable<HospitalModel> GetDoctors()
+		public IEnumerable<HospitalResponse> GetAll()
 		{
-			return _mongodbRepository.GetAll();
+			//return _mongodbRepository.GetAll();
+			return null;
 		}
 
-		public string Update(Guid guid, HospitalModel doctor)
+		public string Update(Guid guid, HospitalRequest request)
 		{
 			var _item = _mongodbRepository.GetById(guid);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Paitent is not found";
 			}
-			_mongodbRepository.Update(guid,doctor);
-			return "Doctor is updated";
+			var mapHospital = request.MapToHospital();
+			_mongodbRepository.Update(guid, mapHospital);
+			return "Patient is updated";
 		}
 	}
 }

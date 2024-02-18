@@ -1,18 +1,18 @@
-﻿using Hospital.Abstract;
-using Hospital.Models;
+﻿using Hospital.Api.Abstract;
+using Hospital.Api.Entity;
 
-namespace Hospital.Interfaces
+namespace Hospital.Api.InterfaceServices
 {
-	public interface IGenericService<T> where T : EntityBase
+	public interface IGenericService<TRequest,TResponse> where TRequest : EntityBaseRequest where TResponse : EntityBaseResponse
 	{
-		IEnumerable<T> GetDoctors();
+		string Create(TRequest item);
 
-		T GetById(Guid id);
+		IEnumerable<TResponse> GetAll();
 
-		string Create(T worker);
+		TResponse GetById(Guid id);
+
+		string Update(Guid guid, TRequest item);
 
 		string Delete(Guid id);
-
-		string Update(Guid guid,T worker);
 	}
 }

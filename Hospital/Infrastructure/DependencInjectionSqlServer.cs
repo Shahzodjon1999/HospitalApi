@@ -1,11 +1,10 @@
 ﻿using Hospital.Api.Infrastructure.Database;
 using Hospital.Api.InterfaceRepositoryes;
-using Hospital.Api.Repositoryes;
+using Hospital.Api.InterfaceServices;
+using Hospital.Api.Repositories;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 using Hospital.Api.Services;
-using Hospital.Interfaces;
-using Hospital.Model;
-using Hospital.Models;
-using Hospital.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Api.Infrastructure
@@ -18,11 +17,15 @@ namespace Hospital.Api.Infrastructure
 
 			services.AddTransient(typeof(IHospitalDbRepository<>), typeof(HospitalDbRepository<>));
 
-			services.AddTransient<IGenericService<Doctor>, DoctorService>();
-			services.AddTransient<IGenericService<HospitalModel>, HospitalService>();
-			services.AddTransient<IGenericService<Patient>, PatientService>();
-			services.AddTransient<IGenericService<Worker>, WorkerService>();
-
+			services.AddScoped<IGenericService<DoctorRequest,DoctorResponse>, DoctorService>();
+			services.AddScoped<IGenericService<HospitalRequest,HospitalResponse>, HospitalService>();
+			services.AddScoped<IGenericService<PatientRequest,PatientResponse>, PatientService>();
+			services.AddScoped<IGenericService<WorkerRequest,WorkerResponse>, WorkerService>();
+			services.AddScoped<IGenericService<AppointmentRequest, AppointmentResponse>, AppointmentService>();
+			services.AddScoped<IGenericService<BranchRequest, BranchResponse>, BranchService>(); 
+			services.AddScoped<IGenericService<DepartmentRequest, DepartmentResponse>, DepartmentService>(); 
+            services.AddScoped<IGenericService<FloorRequest, FloorResponse>, FloorService>();
+			services.AddScoped<IGenericService<RoomRequest, RoomResponse>, RoomService>();
 			return services;
 		}
 	}

@@ -1,4 +1,4 @@
-﻿namespace Hospital.Enam;
+﻿namespace Hospital.Api.Enam;
 
 public enum Gender
 {

@@ -1,5 +1,4 @@
-﻿using Hospital.Abstract;
-using Hospital.Models;
+﻿using Hospital.Api.Abstract;
 
 namespace Hospital.Api.Model
 {

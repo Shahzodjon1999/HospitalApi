@@ -1,40 +1,41 @@
-﻿using Hospital.Interfaces;
-using Hospital.Models;
+﻿using Hospital.Api.InterfaceServices;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Controllers
+namespace Hospital.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class WorkerController : ControllerBase
 	{
-	   private readonly IGenericService<Worker> _workerService;
+		private readonly IGenericService<WorkerRequest,WorkerResponse> _workerService;
 
-        public WorkerController(IGenericService<Worker> workerService)
-        {
+		public WorkerController(IGenericService<WorkerRequest, WorkerResponse> workerService)
+		{
 			_workerService = workerService;
-		} 
+		}
 
 		[HttpGet]
-		public IEnumerable<Worker> GetDoctor()
+		public IEnumerable<WorkerResponse> GetDoctor()
 		{
-			return _workerService.GetDoctors();
+			return _workerService.GetAll();
 		}
 
 		[HttpGet("GetById")]
-		public Worker GetDoctor(Guid id)
+		public WorkerResponse GetDoctor(Guid id)
 		{
 			return _workerService.GetById(id);
 		}
 
 		[HttpPost]
-		public string Create([FromBody] Worker doctor)
+		public string Create([FromBody] WorkerRequest doctor)
 		{
 			return _workerService.Create(doctor);
 		}
 
 		[HttpPut]
-		public string Update(Guid id,Worker doctor)
+		public string Update(Guid id, WorkerRequest doctor)
 		{
 			return _workerService.Update(id, doctor);
 		}
@@ -44,5 +45,5 @@ namespace Hospital.Controllers
 		{
 			return _workerService.Delete(id);
 		}
-    }
+	}
 }

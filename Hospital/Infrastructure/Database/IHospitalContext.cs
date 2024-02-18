@@ -1,13 +1,11 @@
 ﻿using Hospital.Api.Model;
-using Hospital.Model;
-using Hospital.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Api.Infrastructure.Database
 {
 	public interface IHospitalContext
 	{
-		DbSet<HospitalModel> Hospitals { get; set; }
+		DbSet<Model.Hospital> Hospitals { get; set; }
 
 		DbSet<Doctor> Doctors { get; set; }
 
@@ -16,16 +14,8 @@ namespace Hospital.Api.Infrastructure.Database
 		DbSet<Worker> Workers { get; set; }
 
 		DbSet<Branch> Branches { get; set; }
-
-		DbSet<Salary> Salarys { get; set; }
-	
-		DbSet<Disease> Diseases { get; set; }
-	
-		DbSet<Casher> Cashers { get; set; }
 	
 		DbSet<Appointment> Appointments { get; set; }
-	
-		DbSet<Service> Services { get; set; }
 	
 		DbSet<Floor> Floors { get; set; }
 	

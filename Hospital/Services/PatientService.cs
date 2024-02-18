@@ -1,10 +1,13 @@
 ﻿using Hospital.Api.InterfaceRepositoryes;
-using Hospital.Interfaces;
-using Hospital.Models;
+using Hospital.Api.InterfaceServices;
+using Hospital.Api.Mapping;
+using Hospital.Api.Model;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 
 namespace Hospital.Api.Services
 {
-	public class PatientService : IGenericService<Patient>
+	public class PatientService : IGenericService<PatientRequest,PatientResponse>
 	{
 		private readonly IHospitalDbRepository<Patient> _mongodbRepository;
 
@@ -13,7 +16,7 @@ namespace Hospital.Api.Services
 			_mongodbRepository = mongodbRepository;
 		}
 
-		public string Create(Patient patient)
+		public string Create(PatientRequest patient)
 		{
 			if (string.IsNullOrEmpty(patient.FirstName))
 			{
@@ -21,8 +24,9 @@ namespace Hospital.Api.Services
 			}
 			else
 			{
-				_mongodbRepository.Create(patient);
-				return $"Created new item with this ID: {patient.Id}";
+				var mapPatient = patient.MapToPatient();
+				_mongodbRepository.Create(mapPatient);
+				return $"Created new item with this ID: {mapPatient.Id}";
 			}
 		}
 
@@ -38,24 +42,35 @@ namespace Hospital.Api.Services
 			return "Doctor is deleted";
 		}
 
-		public Patient GetById(Guid id)
+		public PatientResponse GetById(Guid id)
 		{
-			return _mongodbRepository.GetById(id);
+			try
+			{
+				var mapPatientResponse = _mongodbRepository.GetById(id);
+				return mapPatientResponse.MapToPatinetResponse();
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
 		}
 
-		public IEnumerable<Patient> GetDoctors()
+		public IEnumerable<PatientResponse> GetAll()
 		{
-			return _mongodbRepository.GetAll();
+			//return _mongodbRepository.GetAll();
+			return null;
 		}
 
-		public string Update(Guid guid, Patient patient)
+		public string Update(Guid guid, PatientRequest patient)
 		{
 			var _item = _mongodbRepository.GetById(guid);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_mongodbRepository.Update(guid,patient);
+			var mapPatient = patient.MapToPatient();
+			_mongodbRepository.Update(guid,mapPatient);
 			return "Doctor is updated";
 		}
 	}

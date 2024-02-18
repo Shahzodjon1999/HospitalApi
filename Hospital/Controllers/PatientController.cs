@@ -1,40 +1,41 @@
-﻿using Hospital.Interfaces;
-using Hospital.Models;
+﻿using Hospital.Api.InterfaceServices;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Controllers
+namespace Hospital.Api.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
 	public class PatientController : ControllerBase
 	{
-		private readonly IGenericService<Patient> _patientService;
+		private readonly IGenericService<PatientRequest, PatientResponse> _patientService;
 
-		public PatientController(IGenericService<Patient> patientService)
+		public PatientController(IGenericService<PatientRequest, PatientResponse> patientService)
 		{
 			_patientService = patientService;
 		}
 
 		[HttpGet]
-		public IEnumerable<Patient> GetDoctor()
+		public IEnumerable<PatientResponse> GetAll()
 		{
-			return _patientService.GetDoctors();
+			return _patientService.GetAll();
 		}
 
 		[HttpGet("GetById")]
-		public Patient GetDoctor(Guid id)
+		public PatientResponse GetDoctor(Guid id)
 		{
 			return _patientService.GetById(id);
 		}
 
 		[HttpPost]
-		public string Create([FromBody] Patient patient)
+		public string Create([FromBody] PatientRequest patient)
 		{
 			return _patientService.Create(patient);
 		}
 
 		[HttpPut]
-		public string Update(Guid id, Patient doctor)
+		public string Update(Guid id, PatientRequest doctor)
 		{
 			return _patientService.Update(id, doctor);
 		}

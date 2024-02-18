@@ -1,6 +1,6 @@
 using Hospital.Api.Infrastructure;
 
-namespace Hospital
+namespace Hospital.Api
 {
 	public class Program
 	{
@@ -22,7 +22,7 @@ namespace Hospital
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductsAPI v1"));
 			}
-			 
+
 			app.UseAuthorization();
 
 			app.MapControllers();

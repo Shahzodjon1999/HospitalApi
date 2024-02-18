@@ -1,6 +1,6 @@
-﻿namespace Hospital.Enam
+﻿namespace Hospital.Api.Enam
 {
-	public enum PatientStatus 
+	public enum PatientStatus
 	{
 		SahtKasal,
 		SahtNe,

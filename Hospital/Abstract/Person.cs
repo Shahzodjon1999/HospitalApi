@@ -1,4 +1,4 @@
-﻿namespace Hospital.Abstract;
+﻿namespace Hospital.Api.Abstract;
 
 public abstract class Person : EntityBase
 {

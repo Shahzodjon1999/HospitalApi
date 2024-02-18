@@ -1,9 +1,9 @@
-﻿using Hospital.Abstract;
+﻿using Hospital.Api.Abstract;
 using Hospital.Api.Infrastructure.Database;
 using Hospital.Api.InterfaceRepositoryes;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hospital.Api.Repositoryes
+namespace Hospital.Api.Repositories
 {
 	public class HospitalDbRepository<T> : IHospitalDbRepository<T> where T : EntityBase
 	{
@@ -11,30 +11,30 @@ namespace Hospital.Api.Repositoryes
 
 		protected readonly DbSet<T> _dbSet;
 
-        public HospitalDbRepository(HospitalContext context)
-        {
+		public HospitalDbRepository(HospitalContext context)
+		{
 			_context = context;
 			_dbSet = context.Set<T>();
-        }
+		}
 
-        public T Create(T item)
+		public T Create(T item)
 		{
-			 _dbSet.Add(item);
+			_dbSet.Add(item);
 			_context.SaveChanges();
 			return item;
 		}
 
 		public bool Delete(Guid id)
 		{
-		     var item =  GetById(id);
+			var item = GetById(id);
 			_dbSet.Remove(item);
 			_context.SaveChanges();
 			return true;
 		}
 
-		public IEnumerable<T> GetAll()
+		public IQueryable<T> GetAll()
 		{
-			return _dbSet.AsEnumerable();
+			return _dbSet.AsQueryable();
 		}
 
 		public T GetById(Guid id)
@@ -55,4 +55,3 @@ namespace Hospital.Api.Repositoryes
 		}
 	}
 }
- 

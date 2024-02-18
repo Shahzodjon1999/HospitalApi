@@ -1,7 +1,5 @@
-﻿using Hospital.Abstract;
+﻿using Hospital.Api.Abstract;
 using Hospital.Api.Model;
-using Hospital.Model;
-using Hospital.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Api.Infrastructure.Database
@@ -10,28 +8,28 @@ namespace Hospital.Api.Infrastructure.Database
 	{
         public HospitalContext(DbContextOptions options):base(options)
         {
-				Database.EnsureCreated();
+			Database.Migrate();
         }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Ignore<EntityBase>();
 
-			var hospital = new HospitalModel
+			var hospital = new Model.Hospital
 			{
 				Name = "Обласной болница",
 
 				Location = "Абрешим",
 				// I Have Branches List in the Hospital model But I have problem how can I add Branch what do you think about this, Plase Help me?
 			};
-			var hospital1 = new HospitalModel()
+			var hospital1 = new Model.Hospital()
 			{
 				Name = "Гор болница",
 
 				Location = "Гулистон",
 			};
 
-			modelBuilder.Entity<HospitalModel>(entity =>
+			modelBuilder.Entity<Model.Hospital>(entity =>
 			{
 				entity.HasKey(p => p.Id);
 				entity.HasData(hospital, hospital1);
@@ -103,29 +101,14 @@ namespace Hospital.Api.Infrastructure.Database
 			{
 				en.HasKey(p => p.Id);
 			});
-			modelBuilder.Entity<Service>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
 			modelBuilder.Entity<Appointment>(en =>
 			{
 				en.HasKey(p => p.Id);
-			});
-			modelBuilder.Entity<Casher>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
-			modelBuilder.Entity<Disease>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
-			modelBuilder.Entity<Salary>(en =>
-			{
-				en.HasKey(p => p.Id);
+				en.Ignore(d => d.Doctor);
 			});
 		}
 
-        public DbSet<HospitalModel> Hospitals { get; set; }
+        public DbSet<Model.Hospital> Hospitals { get; set; }
 
 		public DbSet<Doctor> Doctors { get; set; }
 
@@ -135,15 +118,7 @@ namespace Hospital.Api.Infrastructure.Database
 
 		public DbSet<Branch> Branches { get; set; }
 
-		public DbSet<Salary> Salarys { get; set; }
-
-		public DbSet<Disease> Diseases { get; set; }
-
-		public DbSet<Casher> Cashers { get; set; }
-
 		public DbSet<Appointment> Appointments { get; set; }
-
-		public DbSet<Service> Services { get; set; }
 
 		public DbSet<Floor> Floors { get; set; }
 

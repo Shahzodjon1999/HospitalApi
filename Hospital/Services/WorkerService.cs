@@ -1,10 +1,13 @@
 ﻿using Hospital.Api.InterfaceRepositoryes;
-using Hospital.Interfaces;
-using Hospital.Models;
+using Hospital.Api.InterfaceServices;
+using Hospital.Api.Mapping;
+using Hospital.Api.Model;
+using Hospital.Api.RequestModel;
+using Hospital.Api.ResponseModel;
 
-namespace Hospital.Services
+namespace Hospital.Api.Services
 {
-	public class WorkerService:IGenericService<Worker>
+	public class WorkerService : IGenericService<WorkerRequest,WorkerResponse>
 	{
 		private readonly IHospitalDbRepository<Worker> _memoryRepository;
 
@@ -13,7 +16,7 @@ namespace Hospital.Services
 			_memoryRepository = doctorRepository;
 		}
 
-		public string Create(Worker worker)
+		public string Create(WorkerRequest worker)
 		{
 			if (string.IsNullOrEmpty(worker.FirstName))
 			{
@@ -21,8 +24,9 @@ namespace Hospital.Services
 			}
 			else
 			{
-				_memoryRepository.Create(worker);
-				return $"Created new item with this ID: {worker.Id}";
+				var mapWorker = worker.MapToWorker();
+				_memoryRepository.Create(mapWorker);
+				return $"Created new item with this ID: {mapWorker.Id}";
 			}
 		}
 
@@ -38,25 +42,28 @@ namespace Hospital.Services
 			return "Doctor is deleted";
 		}
 
-		public Worker GetById(Guid id)
+		public WorkerResponse GetById(Guid id)
 		{
-			return _memoryRepository.GetById(id);
+			var mapWorkerResponse = _memoryRepository.GetById(id);
+			return mapWorkerResponse.MapToWorkerResponse();
 		}
 
-		public IEnumerable<Worker> GetDoctors()
+		public IEnumerable<WorkerResponse> GetAll()
 		{
-			return _memoryRepository.GetAll();
+			//return _memoryRepository.GetAll();
+			return null;
 		}
 
-		public string Update(Guid guid,Worker worker)
+		public string Update(Guid guid, WorkerRequest worker)
 		{
 			var _item = _memoryRepository.GetById(guid);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_memoryRepository.Update(guid,worker);
+			var mapWorker = worker.MapToWorker();
+			_memoryRepository.Update(guid, mapWorker);
 			return "Doctor is updated";
 		}
-    }
+	}
 }

@@ -1,12 +1,10 @@
-﻿using Hospital.Abstract;
-using Hospital.Models;
-using System.Text.Json.Serialization;
+﻿using Hospital.Api.Abstract;
 
-namespace Hospital.Model;
+namespace Hospital.Api.Model;
 
-public class Floor:EntityBase
+public class Floor : EntityBase
 {
-	public string Name { get; set; }=string.Empty;
+	public string Name { get; set; } = string.Empty;
 
 	public int FloorNumber { get; set; }
 
