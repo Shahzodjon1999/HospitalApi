@@ -1,5 +1,6 @@
 ﻿using Hospital.Abstract;
 using Hospital.Models;
+using System.Text.Json.Serialization;
 
 namespace Hospital.Api.Model
 {
@@ -11,6 +12,9 @@ namespace Hospital.Api.Model
 
 		public Guid BranchID { get; set; }
 
+		[JsonIgnore]
 		public List<Doctor>? Doctors { get; set; }
+
+		public List<DepartmentPatient>? DepartmentPatients { get; set; }
 	}
 }

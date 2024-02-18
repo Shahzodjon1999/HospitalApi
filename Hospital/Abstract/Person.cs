@@ -6,11 +6,11 @@ public abstract class Person : EntityBase
 
 	public string LastName { get; set; } = string.Empty;
 
-	public string MidleName { get; set; } = string.Empty;
-
-	public DateTime DataOfBirth { get; set; }
-
 	public string PhoneNumber { get; set; } = string.Empty;
 
 	public string Address { get; set; } = string.Empty;
+
+	public DateTime DateOfBirth { get; set; }
+
+	public DateTime DateRegister { get; set; }
 }

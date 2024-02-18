@@ -1,6 +1,6 @@
-﻿ using Hospital.Abstract;
-using Hospital.Api.Model;
+﻿using Hospital.Abstract;
 using Hospital.Models;
+using System.Text.Json.Serialization;
 
 namespace Hospital.Model;
 
@@ -10,5 +10,6 @@ public class HospitalModel:EntityBase
 
 	public string Location { get; set; } = string.Empty;
 
+	[JsonIgnore]
 	public List<Branch>? Branches { get; set; }
 }

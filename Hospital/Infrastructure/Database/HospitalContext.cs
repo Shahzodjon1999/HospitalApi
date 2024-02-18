@@ -35,32 +35,70 @@ namespace Hospital.Api.Infrastructure.Database
 			{
 				entity.HasKey(p => p.Id);
 				entity.HasData(hospital, hospital1);
+				entity.HasMany<Branch>(b => b.Branches)
+				.WithOne(h => h.HospitalModel)
+				.HasForeignKey(k => k.HospitalID);
 			});
-
 			modelBuilder.Entity<Branch>(en =>
 			{
 				en.HasKey(p => p.Id);
+				en.HasMany(b => b.Departments)
+				.WithOne(d => d.Branch)
+				.HasForeignKey(d => d.BranchID);
 			});
+
 			modelBuilder.Entity<Department>(en =>
 			{
 				en.HasKey(p => p.Id);
+				en.HasMany(d => d.Doctors)
+				.WithOne(d => d.Department)
+				.HasForeignKey(k => k.DepartmentId);
+				
 			});
-			modelBuilder.Entity<Doctor>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
-			modelBuilder.Entity<Patient>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
+
 			modelBuilder.Entity<Room>(en =>
 			{
 				en.HasKey(p => p.Id);
+				en.HasMany(p => p.Patients)
+				.WithOne(r => r.Room)
+				.HasForeignKey(k => k.RoomID);
 			});
 			modelBuilder.Entity<Floor>(en =>
 			{
 				en.HasKey(p => p.Id);
+				en.HasMany(r => r.Rooms)
+				.WithOne(f => f.Floor)
+				.HasForeignKey(k => k.FloorId);
 			});
+
+			modelBuilder.Entity<DoctorPatient>().HasKey(p => new { p.DoctorID, p.PatientId });
+		    modelBuilder.Entity<DoctorPatient>(en =>
+			{
+				en.HasOne(p => p.Doctor)
+				.WithMany(m => m.DoctorPatients)
+				.HasForeignKey(k => k.DoctorID);
+			});
+			modelBuilder.Entity<DoctorPatient>(en =>
+			{
+				en.HasOne(p => p.Patient)
+				.WithMany(p=>p.DoctorPatients)
+				.HasForeignKey(k => k.PatientId);
+			});
+
+			modelBuilder.Entity<DepartmentPatient>().HasKey(k => new { k.DepartmentId, k.PatientId });
+			modelBuilder.Entity<DepartmentPatient>(en =>
+			{
+				en.HasOne(d => d.Department)
+				.WithMany(m => m.DepartmentPatients)
+				.HasForeignKey(k => k.DepartmentId);
+			});
+			modelBuilder.Entity<DepartmentPatient>(en =>
+			{
+				en.HasOne(d => d.Patient)
+				.WithMany(m => m.DepartmentPatients)
+				.HasForeignKey(k => k.PatientId);
+			});
+
 			modelBuilder.Entity<Worker>(en =>
 			{
 				en.HasKey(p => p.Id);
@@ -78,10 +116,6 @@ namespace Hospital.Api.Infrastructure.Database
 				en.HasKey(p => p.Id);
 			});
 			modelBuilder.Entity<Disease>(en =>
-			{
-				en.HasKey(p => p.Id);
-			});
-			modelBuilder.Entity<Medicine>(en =>
 			{
 				en.HasKey(p => p.Id);
 			});
@@ -103,8 +137,6 @@ namespace Hospital.Api.Infrastructure.Database
 
 		public DbSet<Salary> Salarys { get; set; }
 
-	    public DbSet<Medicine> Medicines { get; set; }
-
 		public DbSet<Disease> Diseases { get; set; }
 
 		public DbSet<Casher> Cashers { get; set; }
@@ -118,5 +150,9 @@ namespace Hospital.Api.Infrastructure.Database
 		public DbSet<Room> Rooms { get; set; }
 
 		public DbSet<Department> Departments { get; set; }
+
+		public DbSet<DoctorPatient> DoctorPatients { get ; set; }
+
+		public DbSet<DepartmentPatient> DepartmentPatients { get; set; }
 	}
 }

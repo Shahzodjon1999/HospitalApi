@@ -1,5 +1,6 @@
 ﻿using Hospital.Abstract;
 using Hospital.Models;
+using System.Text.Json.Serialization;
 
 namespace Hospital.Model;
 

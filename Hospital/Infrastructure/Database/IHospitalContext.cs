@@ -18,8 +18,6 @@ namespace Hospital.Api.Infrastructure.Database
 		DbSet<Branch> Branches { get; set; }
 
 		DbSet<Salary> Salarys { get; set; }
-
-		DbSet<Medicine> Medicines { get; set; }
 	
 		DbSet<Disease> Diseases { get; set; }
 	
@@ -34,5 +32,9 @@ namespace Hospital.Api.Infrastructure.Database
 		DbSet<Room> Rooms { get; set; }
 
 		DbSet<Department> Departments { get; set; }
+
+		DbSet<DoctorPatient> DoctorPatients { get; set;}
+
+		DbSet<DepartmentPatient> DepartmentPatients { get; set; }
 	}
 }
