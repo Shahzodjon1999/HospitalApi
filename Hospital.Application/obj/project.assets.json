@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Hospital.Domen/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Hospital.Domen.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hospital.Domen.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Hospital.Domen/1.0.0": {
+      "type": "project",
+      "path": "../Hospital.Domen/Hospital.Domen.csproj",
+      "msbuildProject": "../Hospital.Domen/Hospital.Domen.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Hospital.Domen >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+              "projectPath": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

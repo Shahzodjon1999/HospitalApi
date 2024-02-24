@@ -1147,6 +1147,44 @@
             "rid": "win"
           }
         }
+      },
+      "Hospital.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Hospital.Domen": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Hospital.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hospital.Application.dll": {}
+        }
+      },
+      "Hospital.Domen/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Hospital.Domen.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hospital.Domen.dll": {}
+        }
+      },
+      "Hospital.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Hospital.Application": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15"
+        },
+        "compile": {
+          "bin/placeholder/Hospital.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hospital.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -3307,10 +3345,27 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Hospital.Application/1.0.0": {
+      "type": "project",
+      "path": "../Hospital.Application/Hospital.Application.csproj",
+      "msbuildProject": "../Hospital.Application/Hospital.Application.csproj"
+    },
+    "Hospital.Domen/1.0.0": {
+      "type": "project",
+      "path": "../Hospital.Domen/Hospital.Domen.csproj",
+      "msbuildProject": "../Hospital.Domen/Hospital.Domen.csproj"
+    },
+    "Hospital.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Hospital.Infrastructure/Hospital.Infrastructure.csproj",
+      "msbuildProject": "../Hospital.Infrastructure/Hospital.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Hospital.Application >= 1.0.0",
+      "Hospital.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.15",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.15",
@@ -3350,7 +3405,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
+              "projectPath": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
+            },
+            "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
+              "projectPath": "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

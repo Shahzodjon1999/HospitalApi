@@ -1,85 +1,84 @@
-﻿using Hospital.Api.InterfaceServices;
-using Hospital.Api.RequestModel;
-using Hospital.Api.ResponseModel;
+﻿using Hospital.Application.InterfaceServices;
+using Hospital.Application.RequestModel;
+using Hospital.Application.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Api.Controllers
+namespace Hospital.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class RoomController : ControllerBase
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class RoomController : ControllerBase
+	private readonly IGenericService<RoomRequest, RoomResponse> _service;
+
+	public RoomController(IGenericService<RoomRequest, RoomResponse> service)
 	{
-		private readonly IGenericService<RoomRequest, RoomResponse> _service;
+		_service = service;
+	}
 
-		public RoomController(IGenericService<RoomRequest, RoomResponse> service)
+
+	[HttpGet]
+	public IEnumerable<RoomResponse> GetAll()
+	{
+		try
 		{
-			_service = service;
+			return _service.GetAll();
 		}
-
-
-		[HttpGet]
-		public IEnumerable<RoomResponse> GetAll()
+		catch (Exception ex)
 		{
-			try
-			{
-				return _service.GetAll();
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller");
 		}
+	}
 
-		[HttpGet("GetById")]
-		public RoomResponse GetDoctorById(Guid id)
+	[HttpGet("GetById")]
+	public RoomResponse GetDoctorById(Guid id)
+	{
+		try
 		{
-			try
-			{
-				return _service.GetById(id);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method ");
-			}
+			return _service.GetById(id);
 		}
-
-		[HttpPost]
-		public string Create([FromBody] RoomRequest request)
+		catch (Exception ex)
 		{
-			try
-			{
-				return _service.Create(request);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Create");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method ");
 		}
+	}
 
-		[HttpPut]
-		public string Update(Guid id, RoomRequest request)
+	[HttpPost]
+	public string Create([FromBody] RoomRequest request)
+	{
+		try
 		{
-			try
-			{
-				return _service.Update(id, request);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Update");
-			}
+			return _service.Create(request);
 		}
-
-		[HttpDelete]
-		public string Delete(Guid id)
+		catch (Exception ex)
 		{
-			try
-			{
-				return _service.Delete(id);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Delete");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Create");
+		}
+	}
+
+	[HttpPut]
+	public string Update(Guid id, RoomRequest request)
+	{
+		try
+		{
+			return _service.Update(id, request);
+		}
+		catch (Exception ex)
+		{
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Update");
+		}
+	}
+
+	[HttpDelete]
+	public string Delete(Guid id)
+	{
+		try
+		{
+			return _service.Delete(id);
+		}
+		catch (Exception ex)
+		{
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Delete");
 		}
 	}
 }

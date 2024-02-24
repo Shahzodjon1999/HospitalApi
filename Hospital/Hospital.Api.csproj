@@ -21,4 +21,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hospital.Application\Hospital.Application.csproj" />
+    <ProjectReference Include="..\Hospital.Infrastructure\Hospital.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

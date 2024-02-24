@@ -1,84 +1,83 @@
-﻿using Hospital.Api.InterfaceServices;
-using Hospital.Api.RequestModel;
-using Hospital.Api.ResponseModel;
+﻿using Hospital.Application.InterfaceServices;
+using Hospital.Application.RequestModel;
+using Hospital.Application.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Api.Controllers
+namespace Hospital.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class AppointmentController : ControllerBase
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class AppointmentController : ControllerBase
+	private readonly IGenericService<AppointmentRequest,AppointmentResponse> _doctorService;
+
+	public AppointmentController(IGenericService<AppointmentRequest, AppointmentResponse> doctorService)
 	{
-		private readonly IGenericService<AppointmentRequest,AppointmentResponse> _doctorService;
+		_doctorService = doctorService;
+	}
 
-		public AppointmentController(IGenericService<AppointmentRequest, AppointmentResponse> doctorService)
+	[HttpGet]
+	public IEnumerable<AppointmentResponse> GetDoctors()
+	{
+		try
 		{
-			_doctorService = doctorService;
+			return _doctorService.GetAll();
 		}
-
-		[HttpGet]
-		public IEnumerable<AppointmentResponse> GetDoctors()
+		catch (Exception ex)
 		{
-			try
-			{
-				return _doctorService.GetAll();
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctor");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctor");
 		}
+	}
 
-		[HttpGet("GetById")]
-		public AppointmentResponse GetDoctorById(Guid id)
+	[HttpGet("GetById")]
+	public AppointmentResponse GetDoctorById(Guid id)
+	{
+		try
 		{
-			try
-			{
-				return _doctorService.GetById(id);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctorById");
-			}
+			return _doctorService.GetById(id);
 		}
-
-		[HttpPost]
-		public string Create([FromBody] AppointmentRequest request)
+		catch (Exception ex)
 		{
-			try
-			{
-				return _doctorService.Create(request);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Create");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method GetDoctorById");
 		}
+	}
 
-		[HttpPut]
-		public string Update(Guid id, AppointmentRequest request)
+	[HttpPost]
+	public string Create([FromBody] AppointmentRequest request)
+	{
+		try
 		{
-			try
-			{
-				return _doctorService.Update(id, request);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Update");
-			}
+			return _doctorService.Create(request);
 		}
-
-		[HttpDelete]
-		public string Delete(Guid id)
+		catch (Exception ex)
 		{
-			try
-			{
-				return _doctorService.Delete(id);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"You have exception:{ex.Message} in the Controller Method Delete");
-			}
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Create");
+		}
+	}
+
+	[HttpPut]
+	public string Update(Guid id, AppointmentRequest request)
+	{
+		try
+		{
+			return _doctorService.Update(id, request);
+		}
+		catch (Exception ex)
+		{
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Update");
+		}
+	}
+
+	[HttpDelete]
+	public string Delete(Guid id)
+	{
+		try
+		{
+			return _doctorService.Delete(id);
+		}
+		catch (Exception ex)
+		{
+			throw new Exception($"You have exception:{ex.Message} in the Controller Method Delete");
 		}
 	}
 }

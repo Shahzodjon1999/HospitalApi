@@ -1,49 +1,48 @@
-﻿using Hospital.Api.InterfaceServices;
-using Hospital.Api.RequestModel;
-using Hospital.Api.ResponseModel;
+﻿using Hospital.Application.InterfaceServices;
+using Hospital.Application.RequestModel;
+using Hospital.Application.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Hospital.Api.Controllers
+namespace Hospital.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class PatientController : ControllerBase
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class PatientController : ControllerBase
+	private readonly IGenericService<PatientRequest, PatientResponse> _patientService;
+
+	public PatientController(IGenericService<PatientRequest, PatientResponse> patientService)
 	{
-		private readonly IGenericService<PatientRequest, PatientResponse> _patientService;
+		_patientService = patientService;
+	}
 
-		public PatientController(IGenericService<PatientRequest, PatientResponse> patientService)
-		{
-			_patientService = patientService;
-		}
+	[HttpGet]
+	public IEnumerable<PatientResponse> GetAll()
+	{
+		return _patientService.GetAll();
+	}
 
-		[HttpGet]
-		public IEnumerable<PatientResponse> GetAll()
-		{
-			return _patientService.GetAll();
-		}
+	[HttpGet("GetById")]
+	public PatientResponse GetDoctor(Guid id)
+	{
+		return _patientService.GetById(id);
+	}
 
-		[HttpGet("GetById")]
-		public PatientResponse GetDoctor(Guid id)
-		{
-			return _patientService.GetById(id);
-		}
+	[HttpPost]
+	public string Create([FromBody] PatientRequest patient)
+	{
+		return _patientService.Create(patient);
+	}
 
-		[HttpPost]
-		public string Create([FromBody] PatientRequest patient)
-		{
-			return _patientService.Create(patient);
-		}
+	[HttpPut]
+	public string Update(Guid id, PatientRequest doctor)
+	{
+		return _patientService.Update(id, doctor);
+	}
 
-		[HttpPut]
-		public string Update(Guid id, PatientRequest doctor)
-		{
-			return _patientService.Update(id, doctor);
-		}
-
-		[HttpDelete]
-		public string Delete(Guid id)
-		{
-			return _patientService.Delete(id);
-		}
+	[HttpDelete]
+	public string Delete(Guid id)
+	{
+		return _patientService.Delete(id);
 	}
 }

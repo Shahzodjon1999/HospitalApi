@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Hospital.Api/1.0.0": {
         "dependencies": {
+          "Hospital.Application": "1.0.0",
+          "Hospital.Infrastructure": "1.0.0",
           "Microsoft.EntityFrameworkCore": "7.0.15",
           "Microsoft.EntityFrameworkCore.Design": "7.0.15",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15",
@@ -687,6 +689,29 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "Hospital.Application/1.0.0": {
+        "dependencies": {
+          "Hospital.Domen": "1.0.0"
+        },
+        "runtime": {
+          "Hospital.Application.dll": {}
+        }
+      },
+      "Hospital.Domen/1.0.0": {
+        "runtime": {
+          "Hospital.Domen.dll": {}
+        }
+      },
+      "Hospital.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Hospital.Application": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.15",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.15"
+        },
+        "runtime": {
+          "Hospital.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1157,6 +1182,21 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "Hospital.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hospital.Domen/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Hospital.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

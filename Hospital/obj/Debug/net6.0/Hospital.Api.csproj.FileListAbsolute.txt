@@ -64,6 +64,12 @@ D:\Hospital\Hospital\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Cac
 D:\Hospital\Hospital\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Hospital\Hospital\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 D:\Hospital\Hospital\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Application.dll
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Domen.dll
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Infrastructure.dll
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Application.pdb
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Infrastructure.pdb
+D:\Hospital\Hospital\bin\Debug\net6.0\Hospital.Domen.pdb
 D:\Hospital\Hospital\obj\Debug\net6.0\Hospital.Api.csproj.AssemblyReference.cache
 D:\Hospital\Hospital\obj\Debug\net6.0\Hospital.Api.GeneratedMSBuildEditorConfig.editorconfig
 D:\Hospital\Hospital\obj\Debug\net6.0\Hospital.Api.AssemblyInfoInputs.cache
