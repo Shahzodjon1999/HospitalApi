@@ -1,4 +1,5 @@
 using Hospital.Infrastructure;
+using Serilog;
 
 namespace Hospital.Api;
 
@@ -14,6 +15,9 @@ public class Program
 		builder.Services.AddControllers();
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
+		//add serilog
+	     Log.Logger = new LoggerConfiguration()
+			.ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
 		var app = builder.Build();
 

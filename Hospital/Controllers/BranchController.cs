@@ -21,7 +21,7 @@ public class BranchController : ControllerBase
 	public IEnumerable<BranchResponse> GetAll()
 	{
 		try
-		{
+		{ 
 			return _service.GetAll();
 		}
 		catch (Exception ex)

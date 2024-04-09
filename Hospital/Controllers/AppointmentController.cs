@@ -2,6 +2,7 @@
 using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Hospital.Api.Controllers;
 
@@ -30,11 +31,13 @@ public class AppointmentController : ControllerBase
 	}
 
 	[HttpGet("GetById")]
-	public AppointmentResponse GetDoctorById(Guid id)
+	public AppointmentResponse GetById(Guid id)
 	{
 		try
 		{
-			return _doctorService.GetById(id);
+            var getDoctor = _doctorService.GetById(id);
+            Log.Information("In the AppointmentController method GetById result=>{@getDoctor}",getDoctor);
+			return getDoctor;
 		}
 		catch (Exception ex)
 		{
