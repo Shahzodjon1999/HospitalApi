@@ -19,11 +19,26 @@ public static class BranchMap
 	public static BranchResponse MapToBranchResponse(this Branch branch)
 	{
 		return new BranchResponse
-		{
+        {
 			Id= branch.Id,
-			Departments=branch.Departments,
 			HospitalID=branch.HospitalID,
 			Location= branch.Location,
 		};
 	}
+
+    public static IEnumerable<BranchResponse> MapToBranchResponsList(this IQueryable<Branch> branches)
+    {
+        List<BranchResponse> branchlist = new List<BranchResponse>();
+        foreach (var item in branches)
+        {
+            var result = new BranchResponse
+            {
+                Id = item.Id,
+				Location=item.Location,
+				HospitalID = item.HospitalID,
+            };
+            branchlist.Add(result);
+        }
+        return branchlist;
+    }
 }

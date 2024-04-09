@@ -1,0 +1,9 @@
+2024-02-28 21:28:15.912 +05:00 [INF] In the AppointmentController method GetDoctors() result=>null
+2024-02-28 21:32:55.884 +05:00 [INF] In the AppointmentController method GetById result=>{"DoctorId":"ae9f2c3c-2872-4d30-94ab-5bc983fa292f","AppointmentDate":"2024-02-24T10:05:21.5110000","Id":"0e41a5d2-e81d-4c3e-a9ba-d281bf7e053b","$type":"AppointmentResponse"}
+2024-02-28 21:34:39.498 +05:00 [INF] In the AppointmentController method GetById result=>{"Location":"Ба назди Эхсон","HospitalID":"d0964406-5e4c-4c05-b45b-2bfb851263e5","Departments":null,"Id":"a8b0bcda-6708-4daa-a799-14b45be565c4","$type":"BranchResponse"}
+2024-02-28 22:10:44.447 +05:00 [INF] In the method GetById result=>{"Name":"Гор болница","Location":"Гулистон","Branches":null,"Id":"d0964406-5e4c-4c05-b45b-2bfb851263e5","$type":"HospitalResponse"}
+2024-02-28 22:11:30.799 +05:00 [ERR] You have Error In the  method GetById()=>Object reference not set to an instance of an object.
+2024-02-28 22:11:44.635 +05:00 [INF] In the method GetById result=>{"Name":"Гор болница","Location":"Гулистон","Branches":null,"Id":"d0964406-5e4c-4c05-b45b-2bfb851263e5","$type":"HospitalResponse"}
+2024-02-28 22:18:42.148 +05:00 [INF] In the method GetById result=>null
+2024-02-28 22:29:48.563 +05:00 [INF] In the method Delete Id=>"d0964406-5e4c-4c05-b45b-2bfb851263e5"
+2024-02-28 22:30:17.501 +05:00 [INF] In the method Update request=>{"DoctorId":"3fa85f64-5717-4562-b3fc-2c963f66afa6","AppointmentDate":"2024-02-28T17:30:04.2540000Z","$type":"AppointmentRequest"} and Id=>"d0964406-5e4c-4c05-b45b-2bfb851263e5"

@@ -25,4 +25,20 @@ public static class AppointmentMap
 			Id=appointment.Id
 		};
 	}
+
+    public static IEnumerable<AppointmentResponse> MapToAppointmentResponsList(this IQueryable<Appointment> appointments)
+    {
+        List<AppointmentResponse> appointmentlist = new List<AppointmentResponse>();
+        foreach (var item in appointments)
+        {
+            var result = new AppointmentResponse
+            {
+                Id = item.Id,
+                AppointmentDate=item.AppointmentDate,
+				DoctorId=item.DoctorId,
+            };
+            appointmentlist.Add(result);
+        }
+        return appointmentlist;
+    }
 }

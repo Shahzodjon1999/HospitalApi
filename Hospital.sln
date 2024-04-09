@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Api", "Hospital\Hospital.Api.csproj", "{FB8E2FAB-D4AA-4035-AB54-900065E0E309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Domen", "Hospital.Domen\Hospital.Domen.csproj", "{7C8E159F-1811-4E82-8EDA-623BF06AD2B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Domen", "Hospital.Domen\Hospital.Domen.csproj", "{7C8E159F-1811-4E82-8EDA-623BF06AD2B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Application", "Hospital.Application\Hospital.Application.csproj", "{071AC450-1D5F-49A5-958A-E11F80654C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Application", "Hospital.Application\Hospital.Application.csproj", "{071AC450-1D5F-49A5-958A-E11F80654C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Infrastructure", "Hospital.Infrastructure\Hospital.Infrastructure.csproj", "{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital.Infrastructure", "Hospital.Infrastructure\Hospital.Infrastructure.csproj", "{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital.Api", "Hospital.Api\Hospital.Api.csproj", "{1CB9A19F-ACE0-461B-8CA0-385890AD0312}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FB8E2FAB-D4AA-4035-AB54-900065E0E309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB8E2FAB-D4AA-4035-AB54-900065E0E309}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB8E2FAB-D4AA-4035-AB54-900065E0E309}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB8E2FAB-D4AA-4035-AB54-900065E0E309}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C8E159F-1811-4E82-8EDA-623BF06AD2B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C8E159F-1811-4E82-8EDA-623BF06AD2B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C8E159F-1811-4E82-8EDA-623BF06AD2B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CB9A19F-ACE0-461B-8CA0-385890AD0312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB9A19F-ACE0-461B-8CA0-385890AD0312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB9A19F-ACE0-461B-8CA0-385890AD0312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB9A19F-ACE0-461B-8CA0-385890AD0312}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

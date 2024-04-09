@@ -1,6 +1,7 @@
 ﻿using Hospital.Domen.Abstract;
 using Hospital.Domen.Model;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace Hospital.Infrastructure.Database;
 
@@ -8,7 +9,8 @@ public class HospitalContext : DbContext, IHospitalContext
 {
     public HospitalContext(DbContextOptions options) : base(options)
     {
-        Database.Migrate();
+        //Database.Migrate();
+        Log.Information("This is Hospital Context ");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -106,7 +108,13 @@ public class HospitalContext : DbContext, IHospitalContext
             en.HasKey(p => p.Id);
             en.Ignore(d => d.Doctor);
         });
+        modelBuilder.Entity<User>(en =>
+        {
+            en.HasKey(p => p.Id);
+        });
     }
+
+    public DbSet<User> Users { get; set; }
 
     public DbSet<Domen.Model.Hospital> Hospitals { get; set; }
 

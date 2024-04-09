@@ -29,7 +29,21 @@ public static class DoctorMap
 			Id=doctor.Id,
 			DepartmentId= doctor.DepartmentId,
 			DoctorPatients=doctor.DoctorPatients,
-			Positions=doctor.Positions
 		};
 	}
+    public static IEnumerable<DoctorResponse> MapToDoctorResponsList(this IQueryable<Doctor> branches)
+    {
+        List<DoctorResponse> departmentlist = new List<DoctorResponse>();
+        foreach (var item in branches)
+        {
+            var result = new DoctorResponse
+            {
+                Id = item.Id,
+                DepartmentId=item.DepartmentId,
+				DoctorPatients= item.DoctorPatients,
+            };
+            departmentlist.Add(result);
+        }
+        return departmentlist;
+    }
 }

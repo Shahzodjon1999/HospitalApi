@@ -35,4 +35,26 @@ public static class WorkerMap
 			Role=worker.Role,
 		};
 	}
+
+	public static IEnumerable<WorkerResponse> MapToWorkerResponsList(this IQueryable<Worker> workers)
+	{
+		List<WorkerResponse> workersList = new List<WorkerResponse>();
+		foreach (var item in workers)
+		{
+           var result = new WorkerResponse
+            {
+                Id = item.Id,
+                DateOfBirth = item.DateOfBirth,
+                DateRegister = item.DateRegister,
+                Address = item.Address,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                PhoneNumber = item.PhoneNumber,
+                Role = item.Role,
+            };
+			workersList.Add(result);
+        }
+		return workersList;
+	}
+
 }

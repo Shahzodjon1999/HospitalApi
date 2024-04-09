@@ -22,8 +22,23 @@ public static class RoomMap
 		{
 			Id = item.Id,
 			FloorId= item.FloorId,
-			Patients= item.Patients,
 			RoomNumber= item.RoomNumber,
 		};
 	}
+
+    public static IEnumerable<RoomResponse> MapToRoomResponsList(this IQueryable<Room> rooms)
+    {
+        List<RoomResponse> roomlist = new List<RoomResponse>();
+        foreach (var item in rooms)
+        {
+            var result = new RoomResponse
+            {
+                Id = item.Id,
+                FloorId = item.FloorId,
+                RoomNumber = item.RoomNumber,
+            };
+            roomlist.Add(result);
+        }
+        return roomlist;
+    }
 }

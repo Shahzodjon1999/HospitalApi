@@ -41,9 +41,9 @@ public class FloorService:IGenericService<FloorRequest,FloorResponse>
 	{
 		try
 		{
-			var getFloor = _repository.GetById(id);
-			if (getFloor != null)
-				return getFloor.MapToFloorResponse();
+			var getFloors = _repository.GetById(id);
+			if (getFloors != null)
+				return getFloors.MapToFloorResponse();
 			return null;
 		}
 		catch (Exception)
@@ -57,16 +57,9 @@ public class FloorService:IGenericService<FloorRequest,FloorResponse>
 	{
 		try
 		{
-			//var getAppointment = _repository.GetAll();
-			//foreach (var item in getAppointment)
-			//{
-			// var res2 = item.MapToAppointmentResponse();
-			//	return IEnumerable<AppointmentResponse>(res2);
-			//}
-
-			// IEnumerable<AppointmentResponse>(getAppointment);
-			//if (getAppointment != null)
-			//	return getAppointment.Ma;
+			var getAppointment = _repository.GetAll();
+			if (getAppointment != null)
+				return getAppointment.MapToFloorResponsList();
 			return null;
 		}
 		catch (Exception)

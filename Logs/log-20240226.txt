@@ -1,0 +1,7 @@
+2024-02-26 21:45:34.655 +05:00 [INF] In the AppointmentController method GetDoctors() result=>null
+2024-02-26 21:46:35.419 +05:00 [INF] In the AppointmentController method GetById result=>{"DoctorId":"ae9f2c3c-2872-4d30-94ab-5bc983fa292f","AppointmentDate":"2024-02-24T10:05:21.5110000","Id":"0e41a5d2-e81d-4c3e-a9ba-d281bf7e053b","$type":"AppointmentResponse"}
+2024-02-26 22:30:00.253 +05:00 [INF] In the AppointmentController method GetDoctors() result=>null
+2024-02-26 22:31:11.729 +05:00 [INF] In the AppointmentController method GetById result=>{"DoctorId":"ae9f2c3c-2872-4d30-94ab-5bc983fa292f","AppointmentDate":"2024-02-24T10:05:21.5110000","Id":"0e41a5d2-e81d-4c3e-a9ba-d281bf7e053b","$type":"AppointmentResponse"}
+2024-02-26 22:33:56.046 +05:00 [INF] In the AppointmentController method GetById result=>null
+2024-02-26 22:34:56.695 +05:00 [INF] In the AppointmentController method Create request=>{"DoctorId":"3fa85f64-5717-4562-b3fc-2c963f66afa6","AppointmentDate":"2024-02-26T17:34:54.6540000Z","$type":"AppointmentRequest"}
+2024-02-26 22:34:58.214 +05:00 [ERR] You have Error In the AppointmentController method Create()=>An error occurred while saving the entity changes. See the inner exception for details.

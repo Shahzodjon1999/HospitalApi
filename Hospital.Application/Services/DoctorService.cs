@@ -9,11 +9,11 @@ namespace Hospital.Application.Services
 {
 	public class DoctorService : IGenericService<DoctorRequest,DoctorResponse>
 	{
-		private readonly IHospitalDbRepository<Doctor> _memoryRepository;
+		private readonly IHospitalDbRepository<Doctor> _repository;
 
 		public DoctorService(IHospitalDbRepository<Doctor> doctorRepository)
 		{
-			_memoryRepository = doctorRepository;
+			_repository = doctorRepository;
 		}
 
 		public string Create(DoctorRequest doctor)
@@ -25,19 +25,19 @@ namespace Hospital.Application.Services
 			else
 			{
 				var mapDoctor = doctor.MapToDoctor();
-				_memoryRepository.Create(mapDoctor);
+				_repository.Create(mapDoctor);
 				return $"Created new item with this ID: {mapDoctor.Id}";
 			}
 		}
 
 		public string Delete(Guid id)
 		{
-			var _item = _memoryRepository.GetById(id);
+			var _item = _repository.GetById(id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			_memoryRepository.Delete(id);
+			_repository.Delete(id);
 
 			return "Doctor is deleted";
 		}
@@ -46,7 +46,11 @@ namespace Hospital.Application.Services
 		{
 			try
 			{
-				var mapDoctorResponse = _memoryRepository.GetById(id);
+				var mapDoctorResponse = _repository.GetById(id);
+				if (mapDoctorResponse is null)
+				{
+					return null;
+				}
 				return mapDoctorResponse.MapToDoctorResponse();
 			}
 			catch (Exception)
@@ -58,19 +62,28 @@ namespace Hospital.Application.Services
 
 		public IEnumerable<DoctorResponse> GetAll()
 		{
-			//return _memoryRepository.GetAll();
-			return null;
-		}
+            try
+            {
+                var getDoctors = _repository.GetAll();
+                if (getDoctors != null)
+                    return getDoctors.MapToDoctorResponsList();
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 		public string Update(Guid guid, DoctorRequest doctor)
 		{
-			var _item = _memoryRepository.GetById(guid);
+			var _item = _repository.GetById(guid);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
 			var mapDoctor = doctor.MapToDoctor();
-			_memoryRepository.Update(guid, mapDoctor);
+			_repository.Update(guid, mapDoctor);
 			return "Doctor is updated";
 		}
 	}

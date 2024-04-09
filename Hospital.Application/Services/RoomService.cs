@@ -57,16 +57,9 @@ public class RoomService:IGenericService<RoomRequest,RoomResponse>
 	{
 		try
 		{
-			//var getAppointment = _repository.GetAll();
-			//foreach (var item in getAppointment)
-			//{
-			// var res2 = item.MapToAppointmentResponse();
-			//	return IEnumerable<AppointmentResponse>(res2);
-			//}
-
-			// IEnumerable<AppointmentResponse>(getAppointment);
-			//if (getAppointment != null)
-			//	return getAppointment.Ma;
+			var getRooms = _repository.GetAll();
+			if (getRooms != null)
+				return getRooms.MapToRoomResponsList();
 			return null;
 		}
 		catch (Exception)

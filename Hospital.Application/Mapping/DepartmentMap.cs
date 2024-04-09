@@ -19,12 +19,25 @@ public static class DepartmentMap
 	public static DepartmentResponse MapToDepartmentResponse(this Department item)
 	{
 		return new DepartmentResponse
-		{
+        {
 			Id = item.Id,
 			BranchID= item.BranchID,
-			DepartmentPatients= item.DepartmentPatients,
-			Doctors= item.Doctors,
 			Name= item.Name,
 		};
 	}
+    public static IEnumerable<DepartmentResponse> MapToDepartmentResponsList(this IQueryable<Department> branches)
+    {
+        List<DepartmentResponse> departmentlist = new List<DepartmentResponse>();
+        foreach (var item in branches)
+        {
+            var result = new DepartmentResponse
+            {
+                Id = item.Id,
+                BranchID=item.BranchID,
+				Name= item.Name,
+            };
+            departmentlist.Add(result);
+        }
+        return departmentlist;
+    }
 }

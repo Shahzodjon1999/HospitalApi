@@ -23,7 +23,22 @@ public static class FloorMap
 			Id = item.Id,
 			FloorNumber = item.FloorNumber,
 			Name=item.Name,
-			Rooms=item.Rooms,
 		};
 	}
+
+    public static IEnumerable<FloorResponse> MapToFloorResponsList(this IQueryable<Floor> appointments)
+    {
+        List<FloorResponse> appointmentlist = new List<FloorResponse>();
+        foreach (var item in appointments)
+        {
+            var result = new FloorResponse
+            {
+                Id = item.Id,
+                FloorNumber = item.FloorNumber,
+                Name = item.Name,
+            };
+            appointmentlist.Add(result);
+        }
+        return appointmentlist;
+    }
 }

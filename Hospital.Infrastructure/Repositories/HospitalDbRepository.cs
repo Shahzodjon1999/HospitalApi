@@ -19,38 +19,79 @@ public class HospitalDbRepository<T> : IHospitalDbRepository<T> where T : Entity
 
 	public T Create(T item)
 	{
-		_dbSet.Add(item);
-		_context.SaveChanges();
-		return item;
+		try
+		{
+            _dbSet.Add(item);
+            _context.SaveChanges();
+            return item;
+        }
+		catch (Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public bool Delete(Guid id)
 	{
-		var item = GetById(id);
-		_dbSet.Remove(item);
-		_context.SaveChanges();
-		return true;
+		try
+		{
+            var item = GetById(id);
+            _dbSet.Remove(item);
+            _context.SaveChanges();
+            return true;
+        }
+		catch (Exception)
+		{
+
+			throw;
+		}
 	}
 
 	public IQueryable<T> GetAll()
 	{
-		return _dbSet.AsQueryable();
+		try
+		{
+            return _dbSet.AsQueryable();
+        }
+		catch (Exception)
+		{
+			throw;
+		}
+		
 	}
 
 	public T GetById(Guid id)
 	{
-		return _dbSet.FirstOrDefault(p => p.Id == id);
+		try
+		{
+            return _dbSet.FirstOrDefault(p => p.Id == id);
+        }
+		catch (Exception)
+		{
+
+			throw;
+		}
+		
 	}
 
 	public bool Update(Guid id, T item)
 	{
-		var itemResult = GetById(id);
+		try
+		{
+            var itemResult = GetById(id);
 
-		_context.Entry(itemResult).State = EntityState.Detached;
-		item.Id = id;
-		_context.Entry(item).State = EntityState.Modified;
-		_context.SaveChanges();
+            _context.Entry(itemResult).State = EntityState.Detached;
+            item.Id = id;
+            _context.Entry(item).State = EntityState.Modified;
+            _context.SaveChanges();
 
-		return true;
+            return true;
+        }
+		catch (Exception)
+		{
+
+			throw;
+		}
 	}
 }

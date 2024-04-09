@@ -9,11 +9,11 @@ namespace Hospital.Application.Services;
 
 public class PatientService : IGenericService<PatientRequest,PatientResponse>
 {
-	private readonly IHospitalDbRepository<Patient> _mongodbRepository;
+	private readonly IHospitalDbRepository<Patient> _repository;
 
-	public PatientService(IHospitalDbRepository<Patient> mongodbRepository)
+	public PatientService(IHospitalDbRepository<Patient> repository)
 	{
-		_mongodbRepository = mongodbRepository;
+		_repository = repository;
 	}
 
 	public string Create(PatientRequest patient)
@@ -25,19 +25,19 @@ public class PatientService : IGenericService<PatientRequest,PatientResponse>
 		else
 		{
 			var mapPatient = patient.MapToPatient();
-			_mongodbRepository.Create(mapPatient);
+			_repository.Create(mapPatient);
 			return $"Created new item with this ID: {mapPatient.Id}";
 		}
 	}
 
 	public string Delete(Guid id)
 	{
-		var _item = _mongodbRepository.GetById(id);
+		var _item = _repository.GetById(id);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
-		_mongodbRepository.Delete(id);
+		_repository.Delete(id);
 
 		return "Doctor is deleted";
 	}
@@ -46,7 +46,9 @@ public class PatientService : IGenericService<PatientRequest,PatientResponse>
 	{
 		try
 		{
-			var mapPatientResponse = _mongodbRepository.GetById(id);
+			var mapPatientResponse = _repository.GetById(id);
+			if (mapPatientResponse is null)
+				return null;
 			return mapPatientResponse.MapToPatinetResponse();
 		}
 		catch (Exception)
@@ -58,19 +60,28 @@ public class PatientService : IGenericService<PatientRequest,PatientResponse>
 
 	public IEnumerable<PatientResponse> GetAll()
 	{
-		//return _mongodbRepository.GetAll();
-		return null;
-	}
+        try
+        {
+            var getPatients = _repository.GetAll();
+            if (getPatients != null)
+                return getPatients.MapToPatientResponsList();
+            return null;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 
 	public string Update(Guid guid, PatientRequest patient)
 	{
-		var _item = _mongodbRepository.GetById(guid);
+		var _item = _repository.GetById(guid);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
 		var mapPatient = patient.MapToPatient();
-		_mongodbRepository.Update(guid,mapPatient);
+		_repository.Update(guid,mapPatient);
 		return "Doctor is updated";
 	}
 }
