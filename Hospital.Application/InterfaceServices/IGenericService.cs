@@ -4,7 +4,7 @@ namespace Hospital.Application.InterfaceServices;
 
 public interface IGenericService<TRequest,TResponse> where TRequest : EntityBaseRequest where TResponse : EntityBaseResponse
 {
-	string Create(TRequest item);
+	string Create(TRequest item); 
 
 	IEnumerable<TResponse> GetAll();
 

@@ -17,7 +17,7 @@ namespace Hospital.Infrastructure;
     {
         services.AddDbContext<HospitalContext>(op => op.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        services.AddTransient(typeof(IHospitalDbRepository<>), typeof(HospitalDbRepository<>));
+        services.AddScoped(typeof(IHospitalDbRepository<>), typeof(HospitalDbRepository<>));
 
         services.AddScoped<IGenericService<DoctorRequest, DoctorResponse>, DoctorService>();
         services.AddScoped<IGenericService<HospitalRequest, HospitalResponse>, HospitalService>();
@@ -28,6 +28,7 @@ namespace Hospital.Infrastructure;
         services.AddScoped<IGenericService<DepartmentRequest, DepartmentResponse>, DepartmentService>();
         services.AddScoped<IGenericService<FloorRequest, FloorResponse>, FloorService>();
         services.AddScoped<IGenericService<RoomRequest, RoomResponse>, RoomService>();
+        services.AddScoped<AuthService>();
         return services;
     }
 }

@@ -57,16 +57,9 @@ namespace Hospital.Application.Services
 		{
 			try
 			{
-				//var getBranch = _repository.GetAll();
-				//foreach (var item in getBranch)
-				//{
-				// var res2 = item.MapToAppointmentResponse();
-				//	return IEnumerable<AppointmentResponse>(res2);
-				//}
-
-				// IEnumerable<AppointmentResponse>(getBranch);
-				//if (getBranch != null)
-				//	return getBranch.Ma;
+				var getBranchs = _repository.GetAll();
+				if (getBranchs != null)
+					return getBranchs.MapToBranchResponsList();
 				return null;
 			}
 			catch (Exception)

@@ -1,19 +1,18 @@
 ﻿using Hospital.Domen.Abstract;
 using System.Text.Json.Serialization;
 
-namespace Hospital.Domen.Model
+namespace Hospital.Domen.Model;
+
+public class Department:EntityBase
 {
-	public class Department:EntityBase
-	{
-		public string Name { get; set; }=string.Empty;
+	public string Name { get; set; }=string.Empty;
 
-		public Branch? Branch { get; set; }
-
-		public Guid BranchID { get; set; }
-
-		[JsonIgnore]
-		public List<Doctor>? Doctors { get; set; }
-
-		public List<DepartmentPatient>? DepartmentPatients { get; set; }
-	}
+	[JsonIgnore]
+	public Branch? Branch { get; set; }
+    [JsonIgnore]
+    public Guid BranchID { get; set; }
+	[JsonIgnore]
+	public List<Doctor>? Doctors { get; set; }
+    [JsonIgnore]
+    public List<DepartmentPatient>? DepartmentPatients { get; set; }
 }

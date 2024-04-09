@@ -29,8 +29,6 @@ public static class PatientMap
 		{
 			Id=patient.Id,
 			Disease = patient.Disease,
-			DepartmentPatients=patient.DepartmentPatients,
-			DoctorPatients=patient.DoctorPatients,
 			RoomID=patient.RoomID,
 			State=patient.State,
 			LastName=patient.LastName,
@@ -41,4 +39,27 @@ public static class PatientMap
 			PhoneNumber = patient.PhoneNumber,
 		};
 	}
+
+    public static IEnumerable<PatientResponse> MapToPatientResponsList(this IQueryable<Patient> patients)
+    {
+        List<PatientResponse> patientlist = new List<PatientResponse>();
+        foreach (var patient in patients)
+        {
+            var result = new PatientResponse
+            {
+                Id = patient.Id,
+                Disease = patient.Disease,
+                RoomID = patient.RoomID,
+                State = patient.State,
+                LastName = patient.LastName,
+                Address = patient.Address,
+                DateOfBirth = patient.DateOfBirth,
+                DateRegister = patient.DateRegister,
+                FirstName = patient.FirstName,
+                PhoneNumber = patient.PhoneNumber,
+            };
+            patientlist.Add(result);
+        }
+        return patientlist;
+    }
 }

@@ -6,11 +6,10 @@ namespace Hospital.Domen.Model;
 public class Branch : EntityBase
 {
 	public string Location { get; set; } = string.Empty;
-
+	[JsonIgnore]
 	public Hospital? HospitalModel { get; set; }
-
+	[JsonIgnore]
 	public Guid HospitalID { get; set; }
-
 	[JsonIgnore]
 	public List<Department>? Departments { get; set; }
 }

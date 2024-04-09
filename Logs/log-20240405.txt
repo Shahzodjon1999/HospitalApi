@@ -1,0 +1,6 @@
+2024-04-05 00:16:51.186 +05:00 [INF] In the method GetAll() result=>[{"FirstName":"string","LastName":"string","PhoneNumber":"string","Address":"string","DateOfBirth":"2024-04-04T10:33:10.7750000","DateRegister":"2024-04-04T10:33:10.7750000","Role":"string","Id":"7d8d7a11-ed6a-4225-819a-b63519570b47","$type":"WorkerResponse"}]
+2024-04-05 08:23:16.957 +05:00 [INF] In the method Create request=>{"Login":"admin","Password":"123","RefreshToken":"string","Role":"Admin","IsBlocked":true,"$type":"UserRequest"}
+2024-04-05 08:23:17.811 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-05 08:30:04.450 +05:00 [INF] In the method Create request=>{"Login":"Admin","Password":"123","RefreshToken":"string","Role":"Admin","IsBlocked":true,"$type":"UserRequest"}
+2024-04-05 11:59:59.648 +05:00 [INF] In the method GetAll() result=>[]
+2024-04-05 14:57:49.058 +05:00 [INF] In the method GetAll() result=>[]

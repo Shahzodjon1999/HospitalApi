@@ -7,7 +7,7 @@ using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
-	public class DepartmentService:IGenericService<DepartmentRequest, DepartmentResponse>
+    public class DepartmentService:IGenericService<DepartmentRequest, DepartmentResponse>
 	{
 		private readonly IHospitalDbRepository<Department> _repository;
 
@@ -57,16 +57,9 @@ namespace Hospital.Application.Services
 		{
 			try
 			{
-				//var getAppointment = _repository.GetAll();
-				//foreach (var item in getAppointment)
-				//{
-				// var res2 = item.MapToAppointmentResponse();
-				//	return IEnumerable<AppointmentResponse>(res2);
-				//}
-
-				// IEnumerable<AppointmentResponse>(getAppointment);
-				//if (getAppointment != null)
-				//	return getAppointment.Ma;
+				var getDepartments = _repository.GetAll();
+				if (getDepartments != null)
+					return getDepartments.MapToDepartmentResponsList();
 				return null;
 			}
 			catch (Exception)

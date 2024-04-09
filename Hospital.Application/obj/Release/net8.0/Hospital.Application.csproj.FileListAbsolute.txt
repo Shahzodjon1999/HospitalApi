@@ -1,0 +1,16 @@
+D:\Hospital\Hospital.Application\bin\Release\net8.0\Hospital.Application.deps.json
+D:\Hospital\Hospital.Application\bin\Release\net8.0\Hospital.Application.dll
+D:\Hospital\Hospital.Application\bin\Release\net8.0\Hospital.Application.pdb
+D:\Hospital\Hospital.Application\bin\Release\net8.0\Hospital.Domen.dll
+D:\Hospital\Hospital.Application\bin\Release\net8.0\Hospital.Domen.pdb
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.csproj.AssemblyReference.cache
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.AssemblyInfoInputs.cache
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.AssemblyInfo.cs
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.csproj.CoreCompileInputs.cache
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.sourcelink.json
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.EB8C294B.Up2Date
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.dll
+D:\Hospital\Hospital.Application\obj\Release\net8.0\refint\Hospital.Application.dll
+D:\Hospital\Hospital.Application\obj\Release\net8.0\Hospital.Application.pdb
+D:\Hospital\Hospital.Application\obj\Release\net8.0\ref\Hospital.Application.dll

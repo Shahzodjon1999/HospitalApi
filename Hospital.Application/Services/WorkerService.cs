@@ -9,11 +9,11 @@ namespace Hospital.Application.Services;
 
 public class WorkerService : IGenericService<WorkerRequest,WorkerResponse>
 {
-	private readonly IHospitalDbRepository<Worker> _memoryRepository;
+	private readonly IHospitalDbRepository<Worker> _repository;
 
-	public WorkerService(IHospitalDbRepository<Worker> doctorRepository)
+	public WorkerService(IHospitalDbRepository<Worker> repository)
 	{
-		_memoryRepository = doctorRepository;
+		_repository = repository;
 	}
 
 	public string Create(WorkerRequest worker)
@@ -25,44 +25,48 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerResponse>
 		else
 		{
 			var mapWorker = worker.MapToWorker();
-			_memoryRepository.Create(mapWorker);
+			_repository.Create(mapWorker);
 			return $"Created new item with this ID: {mapWorker.Id}";
 		}
 	}
 
 	public string Delete(Guid id)
 	{
-		var _item = _memoryRepository.GetById(id);
+		var _item = _repository.GetById(id);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
-		_memoryRepository.Delete(id);
+		_repository.Delete(id);
 
 		return "Doctor is deleted";
 	}
 
 	public WorkerResponse GetById(Guid id)
 	{
-		var mapWorkerResponse = _memoryRepository.GetById(id);
+		var mapWorkerResponse = _repository.GetById(id);
+		if (mapWorkerResponse is null)
+			return null;
 		return mapWorkerResponse.MapToWorkerResponse();
 	}
 
 	public IEnumerable<WorkerResponse> GetAll()
 	{
-		//return _memoryRepository.GetAll();
+		var getWorkers = _repository.GetAll();
+		if (getWorkers is not null)
+			return getWorkers.MapToWorkerResponsList();
 		return null;
 	}
 
 	public string Update(Guid guid, WorkerRequest worker)
 	{
-		var _item = _memoryRepository.GetById(guid);
+		var _item = _repository.GetById(guid);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
 		var mapWorker = worker.MapToWorker();
-		_memoryRepository.Update(guid, mapWorker);
+		_repository.Update(guid, mapWorker);
 		return "Doctor is updated";
 	}
 }

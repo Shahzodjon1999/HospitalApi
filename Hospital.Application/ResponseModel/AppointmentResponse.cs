@@ -1,11 +1,15 @@
 ﻿using Hospital.Application.Entity;
+using Hospital.Domen.Model;
+using System.Text.Json.Serialization;
 
-namespace Hospital.Application.ResponseModel
+namespace Hospital.Application.ResponseModel;
+
+public class AppointmentResponse: EntityBaseResponse
 {
-	public class AppointmentResponse:EntityBaseResponse
-	{
-		public Guid DoctorId { get; set; }
+    [JsonIgnore]
+    public Doctor? Doctor { get; set; }
 
-		public DateTime AppointmentDate { get; set; }
-	}
+    public Guid DoctorId { get; set; }
+
+    public DateTime AppointmentDate { get; set; }
 }

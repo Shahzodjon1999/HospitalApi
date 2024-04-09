@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Hospital.Application.ResponseModel
 {
-	public class BranchResponse:EntityBaseResponse
+	public class BranchResponse : EntityBaseResponse
 	{
 		public string Location { get; set; } = string.Empty;
 
