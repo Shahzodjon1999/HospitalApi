@@ -1,8 +1,10 @@
 ﻿ using Hospital.Application.Authentication;
 using Hospital.Application.Contract;
 using Hospital.Application.InterfaceRepositoryes;
+using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,11 +12,11 @@ using System.Security.Claims;
 
 namespace Hospital.Application.Services
 {
-    public class AuthService
+    public class AuthService 
     {
-        private readonly IHospitalDbRepository<User> _repository;
+        private readonly IUserRepository _repository;
 
-        public AuthService(IHospitalDbRepository<User> repository)
+        public AuthService(IUserRepository repository)
         {
             _repository = repository;
         }
@@ -24,7 +26,6 @@ namespace Hospital.Application.Services
             var user = _repository.GetAll().FirstOrDefault(k=>k.Login==login && k.Password==password);
 
             return await GeneratedJWt(user);
-            
         }
 
         public async Task<UserSessionToken> RefreshToken(string refreshToken)
@@ -59,7 +60,7 @@ namespace Hospital.Application.Services
             var refreshToken = Guid.NewGuid().ToString();
 
             user.RefreshToken = refreshToken;
-            //_repository.SaveChangesAsync();
+            _repository.Update(user);
             return new UserSessionToken
             {
                 AccessToken = accessToken,

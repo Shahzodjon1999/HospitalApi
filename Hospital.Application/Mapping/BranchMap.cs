@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -11,17 +12,27 @@ public static class BranchMap
 		return new Branch
 		{
 			Id=Guid.NewGuid(),
-			HospitalID=request.HospitalID,
+            HospitalID=request.HospitalID,
 			Location=request.Location,
 		};
 	}
+    public static Branch MapToBranchUpdate(this BranchUpdateRequest request)
+    {
+        return new Branch
+        {
+            Id = request.Id,
+            HospitalID =request.HospitalId,
+            Location = request.Location,
+        };
+    }
 
-	public static BranchResponse MapToBranchResponse(this Branch branch)
+    public static BranchResponse MapToBranchResponse(this Branch branch)
 	{
 		return new BranchResponse
         {
 			Id= branch.Id,
-			HospitalID=branch.HospitalID,
+			Name= branch.Name,
+            HospitalName=branch.HospitalModel.Name,
 			Location= branch.Location,
 		};
 	}
@@ -34,8 +45,9 @@ public static class BranchMap
             var result = new BranchResponse
             {
                 Id = item.Id,
+				Name= item.Name,
+               HospitalName=item.HospitalModel.Name,
 				Location=item.Location,
-				HospitalID = item.HospitalID,
             };
             branchlist.Add(result);
         }

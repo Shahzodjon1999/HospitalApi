@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -15,13 +16,22 @@ public static class FloorMap
 			Name = request.Name,
 		};
 	}
+    public static Floor MapToFloorUpdate(this FloorUpdateRequest request)
+    {
+        return new Floor
+        {
+            Id = request.Id,
+            FloorNumber = request.FloorId,
+            Name = request.Name,
+        };
+    }
 
-	public static FloorResponse MapToFloorResponse(this Floor item)
+    public static FloorResponse MapToFloorResponse(this Floor item)
 	{
 		return new FloorResponse
 		{
 			Id = item.Id,
-			FloorNumber = item.FloorNumber,
+            FloorNumber = item.FloorNumber,
 			Name=item.Name,
 		};
 	}

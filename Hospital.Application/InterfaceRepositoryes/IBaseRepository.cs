@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.InterfaceRepositoryes;
 
-public interface IHospitalDbRepository<T> where T : EntityBase
+public interface IBaseRepository<T> where T : EntityBase
 {
 	IQueryable<T> GetAll();
 
@@ -10,7 +10,7 @@ public interface IHospitalDbRepository<T> where T : EntityBase
 
 	T Create(T item);
 
-	bool Update(Guid id, T item);
+	bool Update(T item);
 
 	bool Delete(Guid id);
 }

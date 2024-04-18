@@ -5,6 +5,7 @@ namespace Hospital.Domen.Model;
 
 public class Doctor : Person
 {
+    public Guid AuthId { get; set; }
 	public string Positions { get; set; } = string.Empty;
 
 	[JsonIgnore]
@@ -13,4 +14,5 @@ public class Doctor : Person
     public Guid DepartmentId { get; set; }
     [JsonIgnore]
     public List<DoctorPatient>? DoctorPatients { get; set; }
+    public List<Appointment>? Appointments { get; set; }
 }

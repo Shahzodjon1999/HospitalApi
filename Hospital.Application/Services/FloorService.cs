@@ -1,22 +1,28 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
-public class FloorService:IGenericService<FloorRequest,FloorResponse>
+public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorResponse>
 {
-	private readonly IHospitalDbRepository<Floor> _repository;
+	private readonly IFloorRepository _repository;
 
-	public FloorService(IHospitalDbRepository<Floor> repository)
-	{
-		_repository = repository;
-	}
+	private readonly IMapper _mapper;
 
-	public string Create(FloorRequest item)
+
+    public FloorService(IFloorRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
+
+    public string Create(FloorRequest item)
 	{
 		try
 		{
@@ -57,9 +63,10 @@ public class FloorService:IGenericService<FloorRequest,FloorResponse>
 	{
 		try
 		{
-			var getAppointment = _repository.GetAll();
-			if (getAppointment != null)
-				return getAppointment.MapToFloorResponsList();
+			var getFloors = _repository.GetAll();
+			if (getFloors != null)
+				return _mapper.Map<IEnumerable<FloorResponse>>(getFloors);
+				//return getAppointment.MapToFloorResponsList();
 			return null;
 		}
 		catch (Exception)
@@ -68,17 +75,17 @@ public class FloorService:IGenericService<FloorRequest,FloorResponse>
 		}
 	}
 
-	public string Update(Guid guid, FloorRequest item)
+	public string Update(FloorUpdateRequest updateRequest)
 	{
 		try
 		{
-			var _item = _repository.GetById(guid);
+			var _item = _repository.GetById(updateRequest.Id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			var getMapFloor = item.MapToFloor();
-			_repository.Update(guid, getMapFloor);
+			var getMapFloor = updateRequest.MapToFloorUpdate();
+			_repository.Update(getMapFloor);
 			return "Doctor is updated";
 		}
 		catch (Exception)

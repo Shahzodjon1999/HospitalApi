@@ -1,8 +1,7 @@
-﻿namespace Hospital.Domen.Enam
+﻿namespace Hospital.Domen.Enam;
+
+public enum PatientStatus
 {
-	public enum PatientStatus
-	{
-		SahtKasal,
-		SahtNe,
-	}
+	SahtKasal,
+	SahtNe,
 }

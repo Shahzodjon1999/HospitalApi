@@ -1,33 +1,50 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
-public class PatientService : IGenericService<PatientRequest,PatientResponse>
+public class PatientService : IGenericService<PatientRequest,PatientUpdateRequest,PatientResponse>
 {
-	private readonly IHospitalDbRepository<Patient> _repository;
+	private readonly IPatientRepository _repository;
 
-	public PatientService(IHospitalDbRepository<Patient> repository)
-	{
-		_repository = repository;
-	}
+	private readonly IMapper _mapper;
 
-	public string Create(PatientRequest patient)
+    public PatientService(IPatientRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
+
+    public string Create(PatientRequest patient)
 	{
 		if (string.IsNullOrEmpty(patient.FirstName))
 		{
 			return "The name cannot be empty";
 		}
-		else
-		{
 			var mapPatient = patient.MapToPatient();
 			_repository.Create(mapPatient);
-			return $"Created new item with this ID: {mapPatient.Id}";
-		}
+
+			//if (patient.DoctorIds.Any())
+			//{
+			//	foreach (var doctorId in patient.DoctorIds)
+			//	{
+			//		var test = new DoctorPatient
+			//		{
+			//			DoctorId = doctorId,
+			//			PatientId = mapPatient.Id
+			//		};
+
+   //                  _doctorrepo.Create(test);
+   //             }
+			//}
+
+		return $"Created new item with this ID: {mapPatient.Id}";
+		
 	}
 
 	public string Delete(Guid id)
@@ -64,7 +81,8 @@ public class PatientService : IGenericService<PatientRequest,PatientResponse>
         {
             var getPatients = _repository.GetAll();
             if (getPatients != null)
-                return getPatients.MapToPatientResponsList();
+				return _mapper.Map<IEnumerable<PatientResponse>>(getPatients);
+			// return getPatients.MapToPatientResponsList();
             return null;
         }
         catch (Exception)
@@ -73,15 +91,15 @@ public class PatientService : IGenericService<PatientRequest,PatientResponse>
         }
     }
 
-	public string Update(Guid guid, PatientRequest patient)
+	public string Update(PatientUpdateRequest patient)
 	{
-		var _item = _repository.GetById(guid);
+		var _item = _repository.GetById(patient.Id);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
-		var mapPatient = patient.MapToPatient();
-		_repository.Update(guid,mapPatient);
+		var mapPatient = patient.MapToPatientUpdate();
+		_repository.Update(mapPatient);
 		return "Doctor is updated";
 	}
 }

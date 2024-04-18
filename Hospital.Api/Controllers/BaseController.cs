@@ -8,11 +8,11 @@ using Serilog;
 namespace Hospital.Api.Controllers;
 
 [ApiController]
-public abstract class BaseController<TRequest,TResponse> : ControllerBase where TRequest:EntityBaseRequest where TResponse:EntityBaseResponse
+public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : ControllerBase where TRequest:EntityBaseRequest where  TUpdateRequest:EntityBaseUpdateRequest where TResponse:EntityBaseResponse
 {
-    private readonly IGenericService<TRequest, TResponse> _doctorService;
+    protected readonly IGenericService<TRequest, TUpdateRequest, TResponse> _doctorService;
 
-    public BaseController(IGenericService<TRequest, TResponse> doctorService)
+    public BaseController(IGenericService<TRequest, TUpdateRequest, TResponse> doctorService)
     {
         _doctorService = doctorService;
     }
@@ -36,7 +36,6 @@ public abstract class BaseController<TRequest,TResponse> : ControllerBase where 
     }
 
     [HttpGet("Id")]
-    [Authorize]
     public ActionResult<TResponse> GetById(Guid id)
     {
         try
@@ -74,12 +73,12 @@ public abstract class BaseController<TRequest,TResponse> : ControllerBase where 
     }
 
     [HttpPut]
-    public ActionResult<string> Update(Guid id, TRequest request)
+    public ActionResult<string> Update(TUpdateRequest updateRequest)
     {
         try
         {
-            Log.Information("In the method Update request=>{@request} and Id=>{@id}", request, id);
-            return _doctorService.Update(id, request);
+            Log.Information("In the method Update request=>{@request} and Id=>{@id}", updateRequest);
+            return _doctorService.Update(updateRequest);
         }
         catch (Exception ex)
         {

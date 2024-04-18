@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.ResponseModel;
 
-public class WorkerResponse:EntityBaseResponse
+public record WorkerResponse:EntityBaseResponse
 {
 	public string FirstName { get; set; } = string.Empty;
 
@@ -15,6 +15,8 @@ public class WorkerResponse:EntityBaseResponse
 	public DateTime DateOfBirth { get; set; }
 
 	public DateTime DateRegister { get; set; }
+
+	public double Maney { get; set; }
 
 	public string Role { get; set; } = string.Empty;
 }

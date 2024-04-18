@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Hospital.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class createDb : Migration
+    public partial class CreatedMigrate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,6 +19,7 @@ namespace Hospital.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -57,6 +58,7 @@ namespace Hospital.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    WorkerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Login = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -79,6 +81,8 @@ namespace Hospital.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SelaryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AuthId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -98,6 +102,7 @@ namespace Hospital.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RoomNumber = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     FloorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -116,6 +121,7 @@ namespace Hospital.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HospitalID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -205,6 +211,7 @@ namespace Hospital.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AuthId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Positions = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -229,16 +236,16 @@ namespace Hospital.Infrastructure.Migrations
                 name: "DoctorPatients",
                 columns: table => new
                 {
-                    DoctorID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PatientId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DoctorPatients", x => new { x.DoctorID, x.PatientId });
+                    table.PrimaryKey("PK_DoctorPatients", x => new { x.DoctorId, x.PatientId });
                     table.ForeignKey(
-                        name: "FK_DoctorPatients_Doctors_DoctorID",
-                        column: x => x.DoctorID,
+                        name: "FK_DoctorPatients_Doctors_DoctorId",
+                        column: x => x.DoctorId,
                         principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -255,8 +262,8 @@ namespace Hospital.Infrastructure.Migrations
                 columns: new[] { "Id", "Location", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("635b969d-7944-42ad-9d73-3607af481fbd"), "Абрешим", "Обласной болница" },
-                    { new Guid("7e8ccf20-a556-4814-a40a-79068fa3f49b"), "Гулистон", "Гор болница" }
+                    { new Guid("8b841ba0-d826-4975-8706-ffd025988376"), "Гулистон", "Гор болница" },
+                    { new Guid("b75af299-9a19-44f4-88bb-7dc3c4b1fc6c"), "Абрешим", "Обласной болница" }
                 });
 
             migrationBuilder.CreateIndex(

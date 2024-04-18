@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Application.Repositories;
 
-public class HospitalDbRepository<T> : IHospitalDbRepository<T> where T : EntityBase
+public abstract class BaseRepository<T> : IBaseRepository<T> where T : EntityBase
 {
 	protected readonly HospitalContext _context;
 
 	protected readonly DbSet<T> _dbSet;
 
-	public HospitalDbRepository(HospitalContext context)
+	public BaseRepository(HospitalContext context)
 	{
 		_context = context;
 		_dbSet = context.Set<T>();
@@ -48,7 +48,7 @@ public class HospitalDbRepository<T> : IHospitalDbRepository<T> where T : Entity
 		}
 	}
 
-	public IQueryable<T> GetAll()
+	public virtual IQueryable<T> GetAll()
 	{
 		try
 		{
@@ -75,14 +75,14 @@ public class HospitalDbRepository<T> : IHospitalDbRepository<T> where T : Entity
 		
 	}
 
-	public bool Update(Guid id, T item)
+	public bool Update(T item)
 	{
 		try
 		{
-            var itemResult = GetById(id);
+            var itemResult = GetById(item.Id);
 
             _context.Entry(itemResult).State = EntityState.Detached;
-            item.Id = id;
+            item.Id = item.Id;
             _context.Entry(item).State = EntityState.Modified;
             _context.SaveChanges();
 

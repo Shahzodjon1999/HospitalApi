@@ -11,7 +11,9 @@ public class PatientRequest : EntityBaseRequest
 
 	public string PhoneNumber { get; set; } = string.Empty;
 
-	public string Address { get; set; } = string.Empty;
+    public List<Guid>? DoctorIds { get; set; }
+
+    public string Address { get; set; } = string.Empty;
 
 	public DateTime DateOfBirth { get; set; }
 

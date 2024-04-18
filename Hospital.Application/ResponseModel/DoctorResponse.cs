@@ -1,14 +1,25 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Domen.Model;
-using System.Text.Json.Serialization;
 
 namespace Hospital.Application.ResponseModel;
 
-public class DoctorResponse:EntityBaseResponse
+public record DoctorResponse:EntityBaseResponse
 {
-	public string Positions { get; set; } = string.Empty;
+    public string FirstName { get; set; } = string.Empty;
 
-	public Guid DepartmentId { get; set; }
-    [JsonIgnore]
-    public List<DoctorPatient>? DoctorPatients { get; set; }
+    public string LastName { get; set; } = string.Empty;
+
+    public string PhoneNumber { get; set; } = string.Empty;
+
+    public string Address { get; set; } = string.Empty;
+
+    public DateTime DateOfBirth { get; set; }
+
+    public DateTime DateRegister { get; set; }
+
+    public string Positions { get; set; } = string.Empty;
+
+    public Department? Department { get; set; }
+
+    public string DepartmentName { get; set; }=string.Empty;
 }

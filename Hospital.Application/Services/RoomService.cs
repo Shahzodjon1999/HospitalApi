@@ -1,22 +1,24 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
-public class RoomService:IGenericService<RoomRequest,RoomResponse>
+public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomResponse>
 {
-	private readonly IHospitalDbRepository<Room> _repository;
+	private readonly IRoomRepository _repository;
+	private readonly IMapper _mapper;
+    public RoomService(IRoomRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
 
-	public RoomService(IHospitalDbRepository<Room> repository)
-	{
-		_repository = repository;
-	}
-
-	public string Create(RoomRequest item)
+    public string Create(RoomRequest item)
 	{
 		try
 		{
@@ -59,7 +61,8 @@ public class RoomService:IGenericService<RoomRequest,RoomResponse>
 		{
 			var getRooms = _repository.GetAll();
 			if (getRooms != null)
-				return getRooms.MapToRoomResponsList();
+				return _mapper.Map<IEnumerable<RoomResponse>>(getRooms);
+				//return getRooms.MapToRoomResponsList();
 			return null;
 		}
 		catch (Exception)
@@ -68,17 +71,17 @@ public class RoomService:IGenericService<RoomRequest,RoomResponse>
 		}
 	}
 
-	public string Update(Guid guid, RoomRequest item)
+	public string Update(RoomUpdateRequest item)
 	{
 		try
 		{
-			var _item = _repository.GetById(guid);
+			var _item = _repository.GetById(item.Id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			var getMapRoom = item.MapToRoom();
-			_repository.Update(guid, getMapRoom);
+			var getMapRoom = item.MapToRoomUpdate();
+			_repository.Update(getMapRoom);
 			return "Doctor is updated";
 		}
 		catch (Exception)

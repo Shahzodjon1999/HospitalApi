@@ -1,22 +1,24 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
-public class WorkerService : IGenericService<WorkerRequest,WorkerResponse>
+public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,WorkerResponse>
 {
-	private readonly IHospitalDbRepository<Worker> _repository;
+	private readonly IWorkerRepository _repository;
+	private readonly IMapper _mapper;
+    public WorkerService(IWorkerRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
 
-	public WorkerService(IHospitalDbRepository<Worker> repository)
-	{
-		_repository = repository;
-	}
-
-	public string Create(WorkerRequest worker)
+    public string Create(WorkerRequest worker)
 	{
 		if (string.IsNullOrEmpty(worker.FirstName))
 		{
@@ -54,19 +56,20 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerResponse>
 	{
 		var getWorkers = _repository.GetAll();
 		if (getWorkers is not null)
-			return getWorkers.MapToWorkerResponsList();
+			//return _mapper.Map<IEnumerable<WorkerResponse>>(getWorkers);
+				return getWorkers.MapToWorkerResponsList();
 		return null;
 	}
 
-	public string Update(Guid guid, WorkerRequest worker)
+	public string Update(WorkerUpdateRequest request)
 	{
-		var _item = _repository.GetById(guid);
+		var _item = _repository.GetById(request.Id);
 		if (_item is null)
 		{
 			return "Doctor is not found";
 		}
-		var mapWorker = worker.MapToWorker();
-		_repository.Update(guid, mapWorker);
+		var mapWorker = request.MapToWorkerUpdate();
+		_repository.Update(mapWorker);
 		return "Doctor is updated";
 	}
 }

@@ -6,6 +6,9 @@ D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Hospital.Api.runtimeconfi
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Hospital.Api.pdb
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\FluentValidation.dll
+D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\FluentValidation.AspNetCore.dll
+D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\FluentValidation.DependencyInjectionExtensions.dll
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Humanizer.dll
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Hospital\Hospital.Api\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll

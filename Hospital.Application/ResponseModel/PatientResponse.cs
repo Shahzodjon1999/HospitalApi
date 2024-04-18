@@ -1,11 +1,10 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Domen.Enam;
 using Hospital.Domen.Model;
-using System.Text.Json.Serialization;
 
 namespace Hospital.Application.ResponseModel;
 
-public class PatientResponse:EntityBaseResponse
+public record PatientResponse:EntityBaseResponse
 {
 	public string FirstName { get; set; } = string.Empty;
 
@@ -21,11 +20,8 @@ public class PatientResponse:EntityBaseResponse
 
 	public string Disease { get; set; } = string.Empty;
 
+	public int? RoomNumber { get; set; }
 	public PatientStatus State { get; set; }
-
-	public Guid RoomID { get; set; }
-    [JsonIgnore]
-    public List<DoctorPatient>? DoctorPatients { get; set; }
-    [JsonIgnore]
-    public List<DepartmentPatient>? DepartmentPatients { get; set; }
+	public List<DepartmentPatient>? DepartmentPatients { get; set;}
+	public List<DoctorPatient>? DoctorPatients { get; set;}
 }

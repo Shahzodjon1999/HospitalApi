@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -23,13 +24,29 @@ public static class PatientMap
 		};
 	}
 
-	public static PatientResponse MapToPatinetResponse(this Patient patient)
+    public static Patient MapToPatientUpdate(this PatientUpdateRequest request)
+    {
+        return new Patient
+        {
+            Id = request.Id,
+            Address = request.Address,
+            DateOfBirth = request.DateOfBirth,
+            DateRegister = request.DateRegister,
+            Disease = request.Disease,
+            RoomID = request.RoomId,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            PhoneNumber = request.PhoneNumber,
+            State = request.State,
+        };
+    }
+
+    public static PatientResponse MapToPatinetResponse(this Patient patient)
 	{
 		return new PatientResponse
 		{
 			Id=patient.Id,
 			Disease = patient.Disease,
-			RoomID=patient.RoomID,
 			State=patient.State,
 			LastName=patient.LastName,
 			Address=patient.Address,
@@ -37,7 +54,8 @@ public static class PatientMap
 			DateRegister=patient.DateRegister,
 			FirstName=patient.FirstName,
 			PhoneNumber = patient.PhoneNumber,
-		};
+            RoomNumber = patient.Room.RoomNumber
+        };
 	}
 
     public static IEnumerable<PatientResponse> MapToPatientResponsList(this IQueryable<Patient> patients)
@@ -49,7 +67,6 @@ public static class PatientMap
             {
                 Id = patient.Id,
                 Disease = patient.Disease,
-                RoomID = patient.RoomID,
                 State = patient.State,
                 LastName = patient.LastName,
                 Address = patient.Address,
@@ -57,6 +74,7 @@ public static class PatientMap
                 DateRegister = patient.DateRegister,
                 FirstName = patient.FirstName,
                 PhoneNumber = patient.PhoneNumber,
+                RoomNumber = patient.Room.RoomNumber
             };
             patientlist.Add(result);
         }

@@ -13,12 +13,13 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Appointments] (
         [Id] uniqueidentifier NOT NULL,
         [DoctorId] uniqueidentifier NOT NULL,
+        [Name] nvarchar(max) NOT NULL,
         [AppointmentDate] datetime2 NOT NULL,
         CONSTRAINT [PK_Appointments] PRIMARY KEY ([Id])
     );
@@ -27,7 +28,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Floors] (
@@ -41,7 +42,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Hospitals] (
@@ -55,11 +56,12 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Users] (
         [Id] uniqueidentifier NOT NULL,
+        [WorkerId] uniqueidentifier NOT NULL,
         [Login] nvarchar(max) NOT NULL,
         [Password] nvarchar(max) NOT NULL,
         [RefreshToken] nvarchar(max) NOT NULL,
@@ -78,11 +80,13 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Workers] (
         [Id] uniqueidentifier NOT NULL,
+        [SelaryId] uniqueidentifier NOT NULL,
+        [AuthId] uniqueidentifier NOT NULL,
         [Role] nvarchar(max) NOT NULL,
         [FirstName] nvarchar(max) NOT NULL,
         [LastName] nvarchar(max) NOT NULL,
@@ -97,12 +101,13 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Rooms] (
         [Id] uniqueidentifier NOT NULL,
         [RoomNumber] int NOT NULL,
+        [Status] int NOT NULL,
         [FloorId] uniqueidentifier NOT NULL,
         CONSTRAINT [PK_Rooms] PRIMARY KEY ([Id]),
         CONSTRAINT [FK_Rooms_Floors_FloorId] FOREIGN KEY ([FloorId]) REFERENCES [Floors] ([Id]) ON DELETE CASCADE
@@ -112,11 +117,12 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Branches] (
         [Id] uniqueidentifier NOT NULL,
+        [Name] nvarchar(max) NOT NULL,
         [Location] nvarchar(max) NOT NULL,
         [HospitalID] uniqueidentifier NOT NULL,
         CONSTRAINT [PK_Branches] PRIMARY KEY ([Id]),
@@ -127,7 +133,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Patients] (
@@ -149,7 +155,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Departments] (
@@ -164,7 +170,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [DepartmentPatients] (
@@ -180,11 +186,12 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [Doctors] (
         [Id] uniqueidentifier NOT NULL,
+        [AuthId] uniqueidentifier NOT NULL,
         [Positions] nvarchar(max) NOT NULL,
         [DepartmentId] uniqueidentifier NOT NULL,
         [FirstName] nvarchar(max) NOT NULL,
@@ -201,15 +208,15 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE TABLE [DoctorPatients] (
-        [DoctorID] uniqueidentifier NOT NULL,
+        [DoctorId] uniqueidentifier NOT NULL,
         [PatientId] uniqueidentifier NOT NULL,
         [Id] uniqueidentifier NOT NULL,
-        CONSTRAINT [PK_DoctorPatients] PRIMARY KEY ([DoctorID], [PatientId]),
-        CONSTRAINT [FK_DoctorPatients_Doctors_DoctorID] FOREIGN KEY ([DoctorID]) REFERENCES [Doctors] ([Id]) ON DELETE CASCADE,
+        CONSTRAINT [PK_DoctorPatients] PRIMARY KEY ([DoctorId], [PatientId]),
+        CONSTRAINT [FK_DoctorPatients_Doctors_DoctorId] FOREIGN KEY ([DoctorId]) REFERENCES [Doctors] ([Id]) ON DELETE CASCADE,
         CONSTRAINT [FK_DoctorPatients_Patients_PatientId] FOREIGN KEY ([PatientId]) REFERENCES [Patients] ([Id]) ON DELETE CASCADE
     );
 END;
@@ -217,14 +224,14 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
         SET IDENTITY_INSERT [Hospitals] ON;
     EXEC(N'INSERT INTO [Hospitals] ([Id], [Location], [Name])
-    VALUES (''635b969d-7944-42ad-9d73-3607af481fbd'', N''Абрешим'', N''Обласной болница''),
-    (''7e8ccf20-a556-4814-a40a-79068fa3f49b'', N''Гулистон'', N''Гор болница'')');
+    VALUES (''8b841ba0-d826-4975-8706-ffd025988376'', N''Гулистон'', N''Гор болница''),
+    (''b75af299-9a19-44f4-88bb-7dc3c4b1fc6c'', N''Абрешим'', N''Обласной болница'')');
     IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
         SET IDENTITY_INSERT [Hospitals] OFF;
 END;
@@ -232,7 +239,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_Branches_HospitalID] ON [Branches] ([HospitalID]);
@@ -241,7 +248,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_DepartmentPatients_PatientId] ON [DepartmentPatients] ([PatientId]);
@@ -250,7 +257,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_Departments_BranchID] ON [Departments] ([BranchID]);
@@ -259,7 +266,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_DoctorPatients_PatientId] ON [DoctorPatients] ([PatientId]);
@@ -268,7 +275,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_Doctors_DepartmentId] ON [Doctors] ([DepartmentId]);
@@ -277,7 +284,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_Patients_RoomID] ON [Patients] ([RoomID]);
@@ -286,7 +293,7 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     CREATE INDEX [IX_Rooms_FloorId] ON [Rooms] ([FloorId]);
@@ -295,11 +302,11 @@ GO
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20240405032901_createDb'
+    WHERE [MigrationId] = N'20240414010150_CreatedMigrate'
 )
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20240405032901_createDb', N'8.0.0');
+    VALUES (N'20240414010150_CreatedMigrate', N'8.0.0');
 END;
 GO
 

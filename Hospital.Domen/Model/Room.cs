@@ -6,6 +6,8 @@ namespace Hospital.Domen.Model;
 public class Room : EntityBase
 {
 	public int RoomNumber { get; set; }
+
+    public int Status { get; set; }
     [JsonIgnore]
     public Floor? Floor { get; set; }
     [JsonIgnore]

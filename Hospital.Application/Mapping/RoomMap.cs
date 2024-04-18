@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -15,13 +16,21 @@ public static class RoomMap
 			RoomNumber= request.RoomNumber,
 		};
 	}
-
-	public static RoomResponse MapToRoomResponse(this Room item)
+    public static Room MapToRoomUpdate(this RoomUpdateRequest request)
+    {
+        return new Room
+        {
+            Id = request.Id,
+            FloorId = request.FloorId,
+            RoomNumber = request.RoomNumber,
+        };
+    }
+    public static RoomResponse MapToRoomResponse(this Room item)
 	{
 		return new RoomResponse
 		{
 			Id = item.Id,
-			FloorId= item.FloorId,
+            FloorNumber= item.Floor.FloorNumber,
 			RoomNumber= item.RoomNumber,
 		};
 	}
@@ -34,7 +43,7 @@ public static class RoomMap
             var result = new RoomResponse
             {
                 Id = item.Id,
-                FloorId = item.FloorId,
+                FloorNumber = item.Floor.FloorNumber,
                 RoomNumber = item.RoomNumber,
             };
             roomlist.Add(result);

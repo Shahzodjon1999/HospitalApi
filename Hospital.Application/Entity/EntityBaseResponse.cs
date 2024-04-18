@@ -1,6 +1,6 @@
 ﻿namespace Hospital.Application.Entity;
 
-public abstract class EntityBaseResponse
+public abstract record EntityBaseResponse
 {
 	public Guid Id { get; set; }
 }

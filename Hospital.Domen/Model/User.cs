@@ -2,7 +2,7 @@
 
 namespace Hospital.Domen.Model;
 
-public class User:Person
+public class User : Person
 {
     public string Login { get; set; } = string.Empty;
 
@@ -10,7 +10,9 @@ public class User:Person
 
     public string RefreshToken { get; set; } = string.Empty;
 
-    public string Role { get; set; }=string.Empty;
+    public string Role { get; set; } = string.Empty;
 
     public bool IsBlocked { get; set; }
+
+    public List<Worker>? Workers {get;set;}
 }

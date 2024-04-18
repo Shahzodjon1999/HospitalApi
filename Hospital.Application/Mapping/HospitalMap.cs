@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -15,8 +16,17 @@ public static class HospitalMap
 			Name=request.Name,
 		};
 	}
+    public static Domen.Model.Hospital MapToHospitalUpdate(this HospitalUpdateRequest request)
+    {
+        return new Domen.Model.Hospital
+        {
+            Id = request.Id,
+            Location = request.Location,
+            Name = request.Name,
+        };
+    }
 
-	public static HospitalResponse MapToHospitalResponse(this Domen.Model.Hospital hospital)
+    public static HospitalResponse MapToHospitalResponse(this Domen.Model.Hospital hospital)
 	{
 		return new HospitalResponse
 		{

@@ -46,7 +46,6 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithOne(d => d.Branch)
             .HasForeignKey(d => d.BranchID);
         });
-
         modelBuilder.Entity<Department>(en =>
         {
             en.HasKey(p => p.Id);
@@ -55,7 +54,6 @@ public class HospitalContext : DbContext, IHospitalContext
             .HasForeignKey(k => k.DepartmentId);
 
         });
-
         modelBuilder.Entity<Room>(en =>
         {
             en.HasKey(p => p.Id);
@@ -70,13 +68,31 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithOne(f => f.Floor)
             .HasForeignKey(k => k.FloorId);
         });
+        modelBuilder.Entity<Worker>(en =>
+        {
+            en.HasKey(p => p.Id);
+        });
+        modelBuilder.Entity<Appointment>(en =>
+        {
+            en.HasKey(p => p.Id);
+            en.HasOne(s => s.Doctor)
+            .WithMany(s=>s.Appointments)
+            .HasForeignKey(s=>s.DoctorId);
+        });
+        modelBuilder.Entity<User>(en =>
+        {
+            en.HasKey(p => p.Id);
+            en.HasMany(w => w.Workers)
+            .WithOne(u => u.User)
+            .HasForeignKey(k => k.UserId);
+        });
 
-        modelBuilder.Entity<DoctorPatient>().HasKey(p => new { p.DoctorID, p.PatientId });
+        modelBuilder.Entity<DoctorPatient>().HasKey(p => new { p.DoctorId, p.PatientId });
         modelBuilder.Entity<DoctorPatient>(en =>
         {
             en.HasOne(p => p.Doctor)
             .WithMany(m => m.DoctorPatients)
-            .HasForeignKey(k => k.DoctorID);
+            .HasForeignKey(k => k.DoctorId);
         });
         modelBuilder.Entity<DoctorPatient>(en =>
         {
@@ -98,19 +114,12 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithMany(m => m.DepartmentPatients)
             .HasForeignKey(k => k.PatientId);
         });
-
-        modelBuilder.Entity<Worker>(en =>
+        modelBuilder.Entity<Salary>(en =>
         {
             en.HasKey(p => p.Id);
-        });
-        modelBuilder.Entity<Appointment>(en =>
-        {
-            en.HasKey(p => p.Id);
-            en.Ignore(d => d.Doctor);
-        });
-        modelBuilder.Entity<User>(en =>
-        {
-            en.HasKey(p => p.Id);
+            en.HasMany(w => w.Workers)
+            .WithOne(s => s.Salary)
+            .HasForeignKey(k => k.SalaryId);
         });
     }
 
@@ -137,4 +146,6 @@ public class HospitalContext : DbContext, IHospitalContext
     public DbSet<DoctorPatient> DoctorPatients { get; set; }
 
     public DbSet<DepartmentPatient> DepartmentPatients { get; set; }
+
+    public DbSet<Salary> Salarys { get; set; }
 }
