@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "94TCK4YqR7jrav2GHYHHsXI/pTWOfctrq0zj0ZMzsFz2FsqwnPxVFcaSWBbURNUa6/mvRSm4OohWp6D1qRrHog==",
+  "dgSpecHash": "0JBk2kxJXfcZo+0iT029kr+PaTuIbYucMUGqb1nhxzkGhRrKvQhCit1ioiSD86xrJlM/6BP+wwHShaaHpk9D5A==",
   "success": true,
   "projectFilePath": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -75,6 +79,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.dependencymodel\\8.0.0\\microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.3\\microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.0.3\\microsoft.identitymodel.jsonwebtokens.7.0.3.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.3\\microsoft.identitymodel.logging.7.0.3.nupkg.sha512",

@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "aTmTF/Z6RW3KNv0Tj6dvk51lCBu24JrXHi/yBrYaU8oX91qFr5GnNBCry8vugBe/PUSIbUeE9NNyc5EOJgiXJw==",
+  "dgSpecHash": "cBNt+nMABc16JJgzMLGqgBBM/Nb9lb17WxXs209LUIg9B8DvJ+LRMekDRHRSpB7f8U6bomRy97L7KumiwvpRww==",
   "success": true,
   "projectFilePath": "D:\\Hospital\\Hospital.Api\\Hospital.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

@@ -1,20 +1,24 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
-    public class DepartmentService:IGenericService<DepartmentRequest, DepartmentResponse>
+    public class DepartmentService:IGenericService<DepartmentRequest,DepartmentUpdateRequest, DepartmentResponse>
 	{
-		private readonly IHospitalDbRepository<Department> _repository;
+		private readonly IDepartmentRepository _repository;
+        private readonly IMapper _mapper;
 
-		public DepartmentService(IHospitalDbRepository<Department> repository)
+        public DepartmentService(IDepartmentRepository repository, IMapper mapper)
         {
 			_repository = repository;
-		}
+            _mapper = mapper;
+        }
 
         public string Create(DepartmentRequest item)
 		{
@@ -59,7 +63,8 @@ namespace Hospital.Application.Services
 			{
 				var getDepartments = _repository.GetAll();
 				if (getDepartments != null)
-					return getDepartments.MapToDepartmentResponsList();
+					return _mapper.Map<IEnumerable<DepartmentResponse>>(getDepartments);
+					//return getDepartments.MapToDepartmentResponsList();
 				return null;
 			}
 			catch (Exception)
@@ -68,17 +73,17 @@ namespace Hospital.Application.Services
 			}
 		}
 
-		public string Update(Guid guid, DepartmentRequest item)
+		public string Update(DepartmentUpdateRequest updateRequest)
 		{
 			try
 			{
-				var _item = _repository.GetById(guid);
+				var _item = _repository.GetById(updateRequest.Id);
 				if (_item is null)
 				{
 					return "Doctor is not found";
 				}
-				var getMapDepartment = item.MapToDepartment();
-				_repository.Update(guid, getMapDepartment);
+				var getMapDepartment = updateRequest.MapToDepartmentUpdate();
+				_repository.Update(getMapDepartment);
 				return "Doctor is updated";
 			}
 			catch (Exception)

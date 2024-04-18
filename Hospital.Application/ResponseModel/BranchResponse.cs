@@ -1,16 +1,13 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Domen.Model;
-using System.Text.Json.Serialization;
 
-namespace Hospital.Application.ResponseModel
+namespace Hospital.Application.ResponseModel;
+
+public record BranchResponse : EntityBaseResponse
 {
-	public class BranchResponse : EntityBaseResponse
-	{
-		public string Location { get; set; } = string.Empty;
+	public string HospitalName { get; set; }=string.Empty;
+	public string Name { get; set; }=string.Empty;
+	public string Location { get; set; } = string.Empty;
 
-		public Guid HospitalID { get; set; }
-
-		[JsonIgnore]
-		public List<Department>? Departments { get; set; }
-	}
+	public List<Department>? Departments { get; set; }
 }

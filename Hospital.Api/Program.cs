@@ -1,4 +1,6 @@
+using FluentValidation.AspNetCore;
 using Hospital.Application.Authentication;
+using Hospital.Application.AutoMapping;
 using Hospital.Application.Middlewares;
 using Hospital.Infrastructure;
 using Microsoft.Extensions.Options;
@@ -12,7 +14,8 @@ public class Program
 	public static void Main(string[] args)
 	{
 		var builder = WebApplication.CreateBuilder(args);
-
+		//Added AutoMapping
+        builder.Services.AddAutoMapper(typeof(HospitAutoMap));
         //add serilog
         Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger();
 
@@ -22,7 +25,13 @@ public class Program
 		//Add Sql Server and Dependency injection
 		builder.Services.AddApplication(builder.Configuration);
 
-		builder.Services.AddControllers();
+		//Add validation
+        builder.Services.AddControllers()
+		.AddFluentValidation(options => {
+			options.ImplicitlyValidateChildProperties = true;
+			options.ImplicitlyValidateRootCollectionElements = true;
+
+		});
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
 		//addedSwagerConfigure

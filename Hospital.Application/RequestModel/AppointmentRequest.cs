@@ -4,7 +4,8 @@ namespace Hospital.Application.RequestModel;
 
 public class AppointmentRequest:EntityBaseRequest
 {
-	public Guid DoctorId { get; set; }
-
+    public string Name { get; set; } = string.Empty;
+    public Guid DoctorId { get; set; }
+	 
 	public DateTime AppointmentDate { get; set; }
 }

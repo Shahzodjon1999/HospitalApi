@@ -1,18 +1,21 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 
 namespace Hospital.Application.Services;
 
-public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
+public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateRequest,HospitalResponse>
 {
-	private readonly IHospitalDbRepository<Domen.Model.Hospital> _repository;
-
-	public HospitalService(IHospitalDbRepository<Domen.Model.Hospital> repository)
+	private readonly IHospitalRepository _repository;
+    private readonly IMapper _mapper;
+    public HospitalService(IHospitalRepository repository,IMapper mapper)
 	{
 		_repository = repository;
+		_mapper=mapper;
 	}
 
 	public string Create(HospitalRequest hospital)
@@ -23,9 +26,11 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
 		}
 		else
 		{
-			var mapHospital = hospital.MapToHospital();
-			_repository.Create(mapHospital);
-			return $"Created new item with this ID: {mapHospital.Id}";
+			//var mapHospital = hospital.MapToHospital();
+			var autoMap = _mapper.Map<Domen.Model.Hospital>(hospital);
+
+            _repository.Create(autoMap);
+			return $"Created new item with this ID: {autoMap.Id}";
 		}
 	}
 
@@ -46,8 +51,9 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
 		var mapHospitalRespository = _repository.GetById(id);
 		if (mapHospitalRespository is null)
 			return null;
-		return mapHospitalRespository.MapToHospitalResponse();
-	}
+		//return _mapper.Map<HospitalResponse>(mapHospitalRespository);
+        return mapHospitalRespository.MapToHospitalResponse();
+    }
 
 	public IEnumerable<HospitalResponse> GetAll()
 	{
@@ -55,7 +61,8 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
         {
             var getHospitals = _repository.GetAll();
             if (getHospitals != null)
-                return getHospitals.MapToHospitalResponsList();
+				return _mapper.Map<IEnumerable<HospitalResponse>>(getHospitals);
+                //return getHospitals.MapToHospitalResponsList();
             return null;
         }
         catch (Exception)
@@ -64,15 +71,16 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalResponse>
         }
     }
 
-	public string Update(Guid guid, HospitalRequest request)
+	public string Update(HospitalUpdateRequest request)
 	{
-		var _item = _repository.GetById(guid);
+		var _item = _repository.GetById(request.Id);
 		if (_item is null)
 		{
 			return "Paitent is not found";
 		}
-		var mapHospital = request.MapToHospital();
-		_repository.Update(guid, mapHospital);
+		var mapHospital = request.MapToHospitalUpdate();
+		//var autoMap = _mapper.Map<Domen.Model.Hospital>(request);
+		_repository.Update(mapHospital);
 		return "Patient is updated";
 	}
 }

@@ -1,20 +1,23 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
-	public class BranchService : IGenericService<BranchRequest, BranchResponse>
+    public class BranchService : IGenericService<BranchRequest,BranchUpdateRequest, BranchResponse>
 	{
-		private readonly IHospitalDbRepository<Branch> _repository;
+		private readonly IBranchRepository _repository;
+        private readonly IMapper _mapper;
 
-		public BranchService(IHospitalDbRepository<Branch> repository)
+        public BranchService(IBranchRepository repository,IMapper mapper)
         {
 			_repository = repository;
-		}
+            _mapper = mapper;
+        }
 
 		public string Create(BranchRequest item)
 		{
@@ -59,7 +62,8 @@ namespace Hospital.Application.Services
 			{
 				var getBranchs = _repository.GetAll();
 				if (getBranchs != null)
-					return getBranchs.MapToBranchResponsList();
+					return _mapper.Map<IEnumerable<BranchResponse>>(getBranchs);
+					//return getBranchs.MapToBranchResponsList();
 				return null;
 			}
 			catch (Exception)
@@ -68,17 +72,17 @@ namespace Hospital.Application.Services
 			}
 		}
 
-		public string Update(Guid guid, BranchRequest item)
+		public string Update(BranchUpdateRequest item)
 		{
 			try
 			{
-				var _item = _repository.GetById(guid);
+				var _item = _repository.GetById(item.Id);
 				if (_item is null)
 				{
 					return "Doctor is not found";
 				}
-				var getMapBranch = item.MapToBranch();
-				_repository.Update(guid, getMapBranch);
+				var getMapBranch = item.MapToBranchUpdate();
+				_repository.Update(getMapBranch);
 				return "Doctor is updated";
 			}
 			catch (Exception)

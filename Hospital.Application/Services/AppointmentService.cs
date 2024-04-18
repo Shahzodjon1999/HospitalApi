@@ -1,22 +1,26 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
+using Hospital.Application.UpdateRequestModel;
 using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
-    public class AppointmentService : IGenericService<AppointmentRequest, AppointmentResponse>
+    public class AppointmentService : IGenericService<AppointmentRequest, AppointmentUpdateRequest, AppointmentResponse>
 	{
-		private readonly IHospitalDbRepository<Appointment> _repository;
+		private readonly IAppointmentRepository _repository;
+		private readonly IMapper _mapper;
 
-		public AppointmentService(IHospitalDbRepository<Appointment> repository)
-		{
-			_repository = repository;
-		}
+        public AppointmentService(IAppointmentRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
 
-		public string Create(AppointmentRequest item)
+        public string Create(AppointmentRequest item)
 		{
 			try
 			{
@@ -59,8 +63,9 @@ namespace Hospital.Application.Services
 			{
 				var getAppointments = _repository.GetAll();
 				if (getAppointments != null)
-					return getAppointments.MapToAppointmentResponsList();
-				return null;
+					return _mapper.Map<IEnumerable<AppointmentResponse>>(getAppointments);
+
+                return null;
 			}
 			catch (Exception)
 			{
@@ -68,17 +73,17 @@ namespace Hospital.Application.Services
 			}
 		}
 
-		public string Update(Guid guid, AppointmentRequest item)
+		public string Update(AppointmentUpdateRequest updateRequest)
 		{
 			try
 			{
-				var _item = _repository.GetById(guid);
+				var _item = _repository.GetById(updateRequest.Id);
 				if (_item is null)
 				{
 					return "Doctor is not found";
 				}
-				var mapToAppointment = item.MapToAppointment();
-				_repository.Update(guid, mapToAppointment);
+				var mapToAppointment = updateRequest.MapToAppointmentUpdate();
+				_repository.Update(mapToAppointment);
 				return "Doctor is updated";
 			}
 			catch (Exception)

@@ -1,22 +1,25 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using AutoMapper;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
-	public class DoctorService : IGenericService<DoctorRequest,DoctorResponse>
+    public class DoctorService : IGenericService<DoctorRequest,DoctorUpdateRequest, DoctorResponse>
 	{
-		private readonly IHospitalDbRepository<Doctor> _repository;
+		private readonly IDoctorRepository _repository;
 
-		public DoctorService(IHospitalDbRepository<Doctor> doctorRepository)
-		{
-			_repository = doctorRepository;
-		}
+		private readonly IMapper _mapper;
+        public DoctorService(IDoctorRepository doctorRepository, IMapper mapper)
+        {
+            _repository = doctorRepository;
+            _mapper = mapper;
+        }
 
-		public string Create(DoctorRequest doctor)
+        public string Create(DoctorRequest doctor)
 		{
 			if (string.IsNullOrEmpty(doctor.FirstName))
 			{
@@ -26,7 +29,8 @@ namespace Hospital.Application.Services
 			{
 				var mapDoctor = doctor.MapToDoctor();
 				_repository.Create(mapDoctor);
-				return $"Created new item with this ID: {mapDoctor.Id}";
+							
+                return $"Created new item with this ID: {mapDoctor.Id}";
 			}
 		}
 
@@ -66,7 +70,8 @@ namespace Hospital.Application.Services
             {
                 var getDoctors = _repository.GetAll();
                 if (getDoctors != null)
-                    return getDoctors.MapToDoctorResponsList();
+					return _mapper.Map<IEnumerable<DoctorResponse>>(getDoctors);
+                    //return getDoctors.MapToDoctorResponsList();
                 return null;
             }
             catch (Exception)
@@ -75,15 +80,15 @@ namespace Hospital.Application.Services
             }
         }
 
-		public string Update(Guid guid, DoctorRequest doctor)
+		public string Update(DoctorUpdateRequest doctor)
 		{
-			var _item = _repository.GetById(guid);
+			var _item = _repository.GetById(doctor.Id);
 			if (_item is null)
 			{
 				return "Doctor is not found";
 			}
-			var mapDoctor = doctor.MapToDoctor();
-			_repository.Update(guid, mapDoctor);
+			var mapDoctor = doctor.MapToDoctorUpdate();
+			_repository.Update(mapDoctor);
 			return "Doctor is updated";
 		}
 	}

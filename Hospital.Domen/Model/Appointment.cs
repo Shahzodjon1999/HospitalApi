@@ -5,10 +5,11 @@ namespace Hospital.Domen.Model;
 
 public class Appointment : EntityBase
 {
-    [JsonIgnore]
-    public Doctor? Doctor { get; set; }
+    public  Doctor? Doctor { get; set; }
 	
 	public Guid DoctorId { get; set; }
 
+    public string Name { get; set; }=string.Empty;
+
 	public DateTime AppointmentDate { get; set; }
-    }
+}

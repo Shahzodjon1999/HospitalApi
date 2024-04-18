@@ -1,6 +1,8 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
+using System.Numerics;
 
 namespace Hospital.Application.Mapping;
 
@@ -16,19 +18,40 @@ public static class DoctorMap
 			Address=doctor.Address,
 			DateOfBirth=doctor.DateOfBirth,
 			DateRegister=doctor.DateRegister,
-			DepartmentId=doctor.DepartmentId,
 			PhoneNumber=doctor.PhoneNumber,
 			Positions=doctor.Positions,
+            DepartmentId=doctor.DepartmentId,
 		};
 	}
-
-	public static DoctorResponse MapToDoctorResponse(this Doctor doctor)
+   
+    public static Doctor MapToDoctorUpdate(this DoctorUpdateRequest doctor)
+    {
+        return new Doctor()
+        {
+            Id = doctor.Id,
+            FirstName = doctor.FirstName,
+            LastName = doctor.LastName,
+            Address = doctor.Address,
+            DateOfBirth = doctor.DateOfBirth,
+            DateRegister = doctor.DateRegister,
+            PhoneNumber = doctor.PhoneNumber,
+            Positions = doctor.Positions,
+            DepartmentId= doctor.DepartmentId,
+        };
+    }
+    public static DoctorResponse MapToDoctorResponse(this Doctor doctor)
 	{
 		return new DoctorResponse()
 		{
 			Id=doctor.Id,
-			DepartmentId= doctor.DepartmentId,
-			DoctorPatients=doctor.DoctorPatients,
+            FirstName = doctor.FirstName,
+            LastName = doctor.LastName,
+            Address = doctor.Address,
+            DateOfBirth = doctor.DateOfBirth,
+            DateRegister = doctor.DateRegister,
+            PhoneNumber = doctor.PhoneNumber,
+            Positions =doctor.Positions,
+            DepartmentName=doctor.Department.Name
 		};
 	}
     public static IEnumerable<DoctorResponse> MapToDoctorResponsList(this IQueryable<Doctor> branches)
@@ -39,8 +62,14 @@ public static class DoctorMap
             var result = new DoctorResponse
             {
                 Id = item.Id,
-                DepartmentId=item.DepartmentId,
-				DoctorPatients= item.DoctorPatients,
+                FirstName = item.FirstName,
+                LastName = item.LastName,
+                Address = item.Address,
+                DateOfBirth = item.DateOfBirth,
+                DateRegister = item.DateRegister,
+                PhoneNumber = item.PhoneNumber,
+                Positions = item.Positions,
+                DepartmentName = item.Department.Name
             };
             departmentlist.Add(result);
         }

@@ -34,7 +34,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
 
                     b.ToTable("Appointments");
                 });
@@ -49,6 +55,10 @@ namespace Hospital.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -107,6 +117,9 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("AuthId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -141,7 +154,7 @@ namespace Hospital.Infrastructure.Migrations
 
             modelBuilder.Entity("Hospital.Domen.Model.DoctorPatient", b =>
                 {
-                    b.Property<Guid>("DoctorID")
+                    b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PatientId")
@@ -150,7 +163,7 @@ namespace Hospital.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("DoctorID", "PatientId");
+                    b.HasKey("DoctorId", "PatientId");
 
                     b.HasIndex("PatientId");
 
@@ -196,13 +209,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("635b969d-7944-42ad-9d73-3607af481fbd"),
+                            Id = new Guid("27f1362a-2d95-4946-a428-bfe6a855d8da"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("7e8ccf20-a556-4814-a40a-79068fa3f49b"),
+                            Id = new Guid("fb38d341-fee1-4df9-9410-ca1d3163f7bc"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -265,11 +278,31 @@ namespace Hospital.Infrastructure.Migrations
                     b.Property<int>("RoomNumber")
                         .HasColumnType("int");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FloorId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Salary", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Bonus")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Salarys");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.User", b =>
@@ -356,9 +389,30 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("SalaryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("SalaryId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Workers");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Appointment", b =>
+                {
+                    b.HasOne("Hospital.Domen.Model.Doctor", "Doctor")
+                        .WithMany("Appointments")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Branch", b =>
@@ -417,7 +471,7 @@ namespace Hospital.Infrastructure.Migrations
                 {
                     b.HasOne("Hospital.Domen.Model.Doctor", "Doctor")
                         .WithMany("DoctorPatients")
-                        .HasForeignKey("DoctorID")
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -454,6 +508,25 @@ namespace Hospital.Infrastructure.Migrations
                     b.Navigation("Floor");
                 });
 
+            modelBuilder.Entity("Hospital.Domen.Model.Worker", b =>
+                {
+                    b.HasOne("Hospital.Domen.Model.Salary", "Salary")
+                        .WithMany("Workers")
+                        .HasForeignKey("SalaryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Hospital.Domen.Model.User", "User")
+                        .WithMany("Workers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Salary");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Hospital.Domen.Model.Branch", b =>
                 {
                     b.Navigation("Departments");
@@ -468,6 +541,8 @@ namespace Hospital.Infrastructure.Migrations
 
             modelBuilder.Entity("Hospital.Domen.Model.Doctor", b =>
                 {
+                    b.Navigation("Appointments");
+
                     b.Navigation("DoctorPatients");
                 });
 
@@ -491,6 +566,16 @@ namespace Hospital.Infrastructure.Migrations
             modelBuilder.Entity("Hospital.Domen.Model.Room", b =>
                 {
                     b.Navigation("Patients");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Salary", b =>
+                {
+                    b.Navigation("Workers");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.User", b =>
+                {
+                    b.Navigation("Workers");
                 });
 #pragma warning restore 612, 618
         }

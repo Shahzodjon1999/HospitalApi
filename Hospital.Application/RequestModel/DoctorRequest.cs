@@ -18,5 +18,5 @@ public class DoctorRequest : EntityBaseRequest
 
 	public string Positions { get; set; } = string.Empty;
 
-	public Guid DepartmentId { get; set; }
+    public Guid DepartmentId { get; set; }
 }

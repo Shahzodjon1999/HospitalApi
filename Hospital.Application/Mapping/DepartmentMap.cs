@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.RequestModel;
+using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 
@@ -15,13 +16,22 @@ public static class DepartmentMap
 			Name = request.Name,
 		};
 	}
-
-	public static DepartmentResponse MapToDepartmentResponse(this Department item)
+    public static Department MapToDepartmentUpdate(this DepartmentUpdateRequest request)
+    {
+        return new Department
+        {
+            Id = request.Id,
+            BranchID = request.BranchId,
+            Name = request.Name,
+        };
+    }
+  
+    public static DepartmentResponse MapToDepartmentResponse(this Department item)
 	{
 		return new DepartmentResponse
         {
 			Id = item.Id,
-			BranchID= item.BranchID,
+            BranchName=item.Branch.Name,
 			Name= item.Name,
 		};
 	}
@@ -33,8 +43,8 @@ public static class DepartmentMap
             var result = new DepartmentResponse
             {
                 Id = item.Id,
-                BranchID=item.BranchID,
-				Name= item.Name,
+                BranchName = item.Branch.Name,
+                Name = item.Name,
             };
             departmentlist.Add(result);
         }
