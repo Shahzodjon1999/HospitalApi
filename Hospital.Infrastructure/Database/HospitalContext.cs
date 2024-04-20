@@ -1,7 +1,6 @@
 ﻿using Hospital.Domen.Abstract;
 using Hospital.Domen.Model;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
 
 namespace Hospital.Infrastructure.Database;
 
@@ -9,8 +8,7 @@ public class HospitalContext : DbContext, IHospitalContext
 {
     public HospitalContext(DbContextOptions options) : base(options)
     {
-        //Database.Migrate();
-        Log.Information("This is Hospital Context ");
+      //Database.Migrate();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,7 +20,6 @@ public class HospitalContext : DbContext, IHospitalContext
             Name = "Обласной болница",
 
             Location = "Абрешим",
-            // I Have Branches List in the Hospital model But I have problem how can I add Branch what do you think about this, Plase Help me?
         };
         var hospital1 = new Domen.Model.Hospital()
         {
@@ -68,23 +65,12 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithOne(f => f.Floor)
             .HasForeignKey(k => k.FloorId);
         });
-        modelBuilder.Entity<Worker>(en =>
-        {
-            en.HasKey(p => p.Id);
-        });
         modelBuilder.Entity<Appointment>(en =>
         {
             en.HasKey(p => p.Id);
             en.HasOne(s => s.Doctor)
             .WithMany(s=>s.Appointments)
             .HasForeignKey(s=>s.DoctorId);
-        });
-        modelBuilder.Entity<User>(en =>
-        {
-            en.HasKey(p => p.Id);
-            en.HasMany(w => w.Workers)
-            .WithOne(u => u.User)
-            .HasForeignKey(k => k.UserId);
         });
 
         modelBuilder.Entity<DoctorPatient>().HasKey(p => new { p.DoctorId, p.PatientId });
@@ -108,22 +94,35 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithMany(m => m.DepartmentPatients)
             .HasForeignKey(k => k.DepartmentId);
         });
-        modelBuilder.Entity<DepartmentPatient>(en =>
+
+        modelBuilder.Entity<Role>(en =>
         {
-            en.HasOne(d => d.Patient)
-            .WithMany(m => m.DepartmentPatients)
-            .HasForeignKey(k => k.PatientId);
+            en.HasKey(id => id.Id);
+        });
+        modelBuilder.Entity<Worker>(en =>
+        {
+            en.HasKey(e => e.Id);
+        });
+        modelBuilder.Entity<Auth>(en =>
+        {
+            en.HasKey(id => id.Id);
+            en.HasOne(w => w.Role)
+            .WithOne()
+            .HasForeignKey<Auth>(k => k.RoleId);
+            en.HasOne(w => w.Worker)
+            .WithOne()
+            .HasForeignKey<Auth>(k => k.WorkerId);
         });
         modelBuilder.Entity<Salary>(en =>
         {
             en.HasKey(p => p.Id);
-            en.HasMany(w => w.Workers)
+            en.HasOne(w => w.Worker)
             .WithOne(s => s.Salary)
-            .HasForeignKey(k => k.SalaryId);
+            .HasForeignKey<Salary>(k => k.WorkerId);
         });
     }
 
-    public DbSet<User> Users { get; set; }
+    public DbSet<Auth> Auths { get; set; }
 
     public DbSet<Domen.Model.Hospital> Hospitals { get; set; }
 
@@ -148,4 +147,6 @@ public class HospitalContext : DbContext, IHospitalContext
     public DbSet<DepartmentPatient> DepartmentPatients { get; set; }
 
     public DbSet<Salary> Salarys { get; set; }
+
+    public DbSet<Role> Roles { get; set; }
 }

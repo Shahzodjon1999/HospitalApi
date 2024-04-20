@@ -1,10 +1,8 @@
-﻿ using Hospital.Application.Authentication;
+﻿using Hospital.Application.Authentication;
 using Hospital.Application.Contract;
 using Hospital.Application.InterfaceRepositoryes;
-using Hospital.Application.InterfaceServices;
 using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
-using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -14,9 +12,9 @@ namespace Hospital.Application.Services
 {
     public class AuthService 
     {
-        private readonly IUserRepository _repository;
+        private readonly IAuthRepository _repository;
 
-        public AuthService(IUserRepository repository)
+        public AuthService(IAuthRepository repository)
         {
             _repository = repository;
         }
@@ -36,7 +34,7 @@ namespace Hospital.Application.Services
 
         }
 
-        private async Task<UserSessionToken> GeneratedJWt(User user)
+        private async Task<UserSessionToken> GeneratedJWt(Auth user)
         {
             if (user is null)
                 throw new ArgumentException("Invalid Login and Password");
@@ -46,7 +44,7 @@ namespace Hospital.Application.Services
             {
                 new Claim(ClaimTypes.Name,user.Login),
                 new Claim("Id",user.Id.ToString()),
-                new Claim(ClaimTypes.Role,user.Role),
+                new Claim(ClaimTypes.Role,user.Role.Name),
             };
 
             var jwt = new JwtSecurityToken(
@@ -64,12 +62,12 @@ namespace Hospital.Application.Services
             return new UserSessionToken
             {
                 AccessToken = accessToken,
-                Role = user.Role,
+                Role = user.Role.Name,
                 RefreshToken = refreshToken
             };
         }
       
-        public string Create(UserRequest user)
+        public string Create(AuthRequest user)
         {
             if (string.IsNullOrEmpty(user.Login))
             {

@@ -18,7 +18,6 @@ public static class WorkerMap
 			FirstName=worker.FirstName,
 			LastName=worker.LastName,
 			PhoneNumber=worker.PhoneNumber,
-			Role=worker.Role,
 		};
 	}
     public static Worker MapToWorkerUpdate(this WorkerUpdateRequest worker)
@@ -32,7 +31,6 @@ public static class WorkerMap
             FirstName = worker.FirstName,
             LastName = worker.LastName,
             PhoneNumber = worker.PhoneNumber,
-            Role = worker.Role,
         };
     }
 
@@ -47,8 +45,7 @@ public static class WorkerMap
 			FirstName=worker.FirstName,
 			LastName=worker.LastName,
 			PhoneNumber=worker.PhoneNumber,
-			Role=worker.Role,
-		};
+        };
 	}
 
 	public static IEnumerable<WorkerResponse> MapToWorkerResponsList(this IQueryable<Worker> workers)
@@ -65,8 +62,7 @@ public static class WorkerMap
                 FirstName = item.FirstName,
                 LastName = item.LastName,
                 PhoneNumber = item.PhoneNumber,
-                Role = item.Role,
-            };
+           };
 			workersList.Add(result);
         }
 		return workersList;

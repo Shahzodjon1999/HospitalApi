@@ -3,7 +3,7 @@ using Hospital.Domen.Enam;
 
 namespace Hospital.Application.RequestModelUpdate;
 
-public class PatientUpdateRequest:EntityBaseUpdateRequest
+public record PatientUpdateRequest:EntityBaseUpdateRequest
 {
     public string FirstName { get; set; } = string.Empty;
 

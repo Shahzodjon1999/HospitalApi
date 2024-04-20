@@ -1,12 +1,12 @@
-﻿namespace Hospital.Domen.Model;
+﻿using Hospital.Domen.Abstract;
 
-public class Salary
+namespace Hospital.Domen.Model;
+
+public class Salary:EntityBase
 {
-    public Guid Id { get; set; }
-
 	public double Amount { get; set; }
 
-    public List<Worker>? Workers { get; set; }
-
+    public Worker? Worker { get; set; }
+	public Guid WorkerId { get; set; }
 	public double Bonus { get; set; }
 }

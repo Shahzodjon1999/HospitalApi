@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Hospital\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|d:\\hospital\\hospital.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|solutionrelative:hospital.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|d:\\hospital\\hospital.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|solutionrelative:hospital.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}|Hospital.Infrastructure\\Hospital.Infrastructure.csproj|d:\\hospital\\hospital.infrastructure\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}|Hospital.Infrastructure\\Hospital.Infrastructure.csproj|solutionrelative:hospital.infrastructure\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +35,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Hospital\\Hospital.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Hospital.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Hospital\\Hospital.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Hospital.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAnwBoAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T19:48:03.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Hospital\\Hospital.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Hospital.Application\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Hospital\\Hospital.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "Hospital.Application\\Services\\AuthService.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAgwCwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T19:48:03.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "D:\\Hospital\\Hospital.Infrastructure\\Repositories\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "Hospital.Infrastructure\\Repositories\\BaseRepository.cs",
+              "ToolTip": "D:\\Hospital\\Hospital.Infrastructure\\Repositories\\BaseRepository.cs",
+              "RelativeToolTip": "Hospital.Infrastructure\\Repositories\\BaseRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAgwCAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T19:44:14.591Z",
+              "EditorCaption": ""
             }
           ]
         }

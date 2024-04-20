@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.RequestModelUpdate;
 
-public class DepartmentUpdateRequest : EntityBaseUpdateRequest
+public record DepartmentUpdateRequest : EntityBaseUpdateRequest
 {
     public Guid BranchId { get; set; }
     public string Name { get; set; } = string.Empty;

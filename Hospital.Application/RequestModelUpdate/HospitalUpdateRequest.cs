@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.RequestModelUpdate;
 
-public class HospitalUpdateRequest:EntityBaseUpdateRequest
+public record HospitalUpdateRequest:EntityBaseUpdateRequest
 {
     public string Name { get; set; } = string.Empty;
 

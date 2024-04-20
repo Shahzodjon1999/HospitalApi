@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.RequestModelUpdate;
 
-public class WorkerUpdateRequest:EntityBaseUpdateRequest
+public record WorkerUpdateRequest:EntityBaseUpdateRequest
 {
     public string FirstName { get; set; } = string.Empty;
 
@@ -16,5 +16,5 @@ public class WorkerUpdateRequest:EntityBaseUpdateRequest
 
     public DateTime DateRegister { get; set; }
 
-    public string Role { get; set; } = string.Empty;
+    public Guid? RoleId { get; set; }
 }

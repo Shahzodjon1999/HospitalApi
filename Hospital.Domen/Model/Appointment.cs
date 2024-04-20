@@ -1,5 +1,4 @@
 ﻿using Hospital.Domen.Abstract;
-using System.Text.Json.Serialization;
 
 namespace Hospital.Domen.Model;
 

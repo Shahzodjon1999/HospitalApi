@@ -1,8 +1,9 @@
 ﻿using Hospital.Domen.Abstract;
+using System.Text.Json.Serialization;
 
 namespace Hospital.Domen.Model;
 
-public class User : Person
+public class Auth: EntityBase
 {
     public string Login { get; set; } = string.Empty;
 
@@ -10,9 +11,14 @@ public class User : Person
 
     public string RefreshToken { get; set; } = string.Empty;
 
-    public string Role { get; set; } = string.Empty;
-
     public bool IsBlocked { get; set; }
 
-    public List<Worker>? Workers {get;set;}
+    [JsonIgnore]
+    public Role? Role { get; set; }
+    public Guid RoleId { get; set; }
+
+    [JsonIgnore]
+    public Worker? Worker { get; set; }
+
+    public Guid WorkerId { get; set; }
 }

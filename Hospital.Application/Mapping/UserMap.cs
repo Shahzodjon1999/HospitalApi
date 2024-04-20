@@ -5,16 +5,16 @@ namespace Hospital.Application.Mapping
 {
     public static class UserMap
     {
-        public static User MapToUser(this UserRequest userRequest)
+        public static Auth MapToUser(this AuthRequest userRequest)
         {
-            return new User
+            return new Auth
             {
                 Id = Guid.NewGuid(),
                 Login = userRequest.Login,
                 Password= userRequest.Password,
-                Role=userRequest.Role,
-                RefreshToken = userRequest.RefreshToken,
                 IsBlocked = userRequest.IsBlocked,
+                RoleId = userRequest.RoleId,
+                WorkerId = userRequest.WorkerId,
             };
         }
     }

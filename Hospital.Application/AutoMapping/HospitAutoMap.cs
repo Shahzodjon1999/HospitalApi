@@ -36,5 +36,8 @@ public class HospitAutoMap: Profile
 
         CreateMap<Worker, WorkerResponse>()
             .ForMember(n=>n.Maney,m=>m.MapFrom(m=>m.Salary.Amount));
+
+        CreateMap<Role, RoleResponse>();
+        CreateMap<Salary, SalaryResponse>();
     }
 }

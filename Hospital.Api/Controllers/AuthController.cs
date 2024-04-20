@@ -20,7 +20,7 @@ namespace Hospital.Api.Controllers
         }
 
         [HttpPost("LogIn")]
-        public async Task<IActionResult> LogIn([FromBody] AuthRequest request)
+        public async Task<IActionResult> LogIn([FromBody] AuthGetTokenRequest request)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace Hospital.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<string>> Create([FromBody] UserRequest userRequest)
+        public async Task<ActionResult<string>> Create([FromBody] AuthRequest userRequest)
         {
             try
             {

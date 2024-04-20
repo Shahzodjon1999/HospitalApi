@@ -543,3 +543,4 @@ D:\Hospital\Hospital.Api\obj\Release\net8.0\ref\Hospital.Api.dll
 D:\Hospital\Hospital.Api\bin\Release\net8.0\FluentValidation.dll
 D:\Hospital\Hospital.Api\bin\Release\net8.0\FluentValidation.AspNetCore.dll
 D:\Hospital\Hospital.Api\bin\Release\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Hospital\Hospital.Api\bin\Release\net8.0\AutoMapper.dll

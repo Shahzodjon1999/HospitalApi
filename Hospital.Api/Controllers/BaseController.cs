@@ -1,6 +1,5 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Application.InterfaceServices;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Serilog;

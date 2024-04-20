@@ -9,10 +9,13 @@ public class Department:EntityBase
 
 	[JsonIgnore]
 	public Branch? Branch { get; set; }
+
     [JsonIgnore]
     public Guid BranchID { get; set; }
+
 	[JsonIgnore]
 	public List<Doctor>? Doctors { get; set; }
+
     [JsonIgnore]
     public List<DepartmentPatient>? DepartmentPatients { get; set; }
 }

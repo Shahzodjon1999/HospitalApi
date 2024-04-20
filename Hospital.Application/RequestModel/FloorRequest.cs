@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.RequestModel;
 
-public class FloorRequest : EntityBaseRequest
+public record FloorRequest : EntityBaseRequest
 {
 	public string Name { get; set; } = string.Empty;
 
