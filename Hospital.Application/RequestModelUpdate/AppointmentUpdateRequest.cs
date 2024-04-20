@@ -2,7 +2,7 @@
 
 namespace Hospital.Application.UpdateRequestModel;
 
-public class AppointmentUpdateRequest:EntityBaseUpdateRequest
+public record AppointmentUpdateRequest:EntityBaseUpdateRequest
 {
     public Guid DoctorId { get; set; }
     public string Name { get; set; }

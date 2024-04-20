@@ -2,8 +2,8 @@
 
 namespace Hospital.Application.RequestModel;
 
-public class RoomRequest : EntityBaseRequest
-    {
+public record RoomRequest : EntityBaseRequest
+{
 	public int RoomNumber { get; set; }
 
 	public Guid FloorId { get; set; }

@@ -5,7 +5,6 @@ using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.UpdateRequestModel;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
@@ -54,7 +53,6 @@ namespace Hospital.Application.Services
 			{
 				throw;
 			}
-		
 		}
 
 		public IEnumerable<AppointmentResponse> GetAll()
@@ -64,7 +62,6 @@ namespace Hospital.Application.Services
 				var getAppointments = _repository.GetAll();
 				if (getAppointments != null)
 					return _mapper.Map<IEnumerable<AppointmentResponse>>(getAppointments);
-
                 return null;
 			}
 			catch (Exception)
@@ -80,11 +77,11 @@ namespace Hospital.Application.Services
 				var _item = _repository.GetById(updateRequest.Id);
 				if (_item is null)
 				{
-					return "Doctor is not found";
+					return "Appointment is not found";
 				}
 				var mapToAppointment = updateRequest.MapToAppointmentUpdate();
 				_repository.Update(mapToAppointment);
-				return "Doctor is updated";
+				return "Appointment is updated";
 			}
 			catch (Exception)
 			{

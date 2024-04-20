@@ -1,0 +1,16 @@
+2024-04-18 18:28:54.785 +05:00 [INF] This is Hospital Context 
+2024-04-18 18:28:59.344 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-18 18:30:34.356 +05:00 [INF] This is Hospital Context 
+2024-04-18 18:30:38.026 +05:00 [INF] In the method GetAll() result=>[{"DoctorName":"Aliiiiiiiiiiiiiiiii","Name":"","AppointmentDate":"2024-04-17T16:19:15.1910000","Id":"d587d895-ab24-4406-8b00-26560892d68a","$type":"AppointmentResponse"}]
+2024-04-18 18:34:11.478 +05:00 [INF] This is Hospital Context 
+2024-04-18 18:34:15.681 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-18 18:55:03.507 +05:00 [INF] This is Hospital Context 
+2024-04-18 18:55:06.168 +05:00 [INF] This is Auth Conntroller Error: Invalid column name 'WorkerId'.

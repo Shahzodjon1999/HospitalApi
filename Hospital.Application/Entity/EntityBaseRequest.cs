@@ -1,5 +1,5 @@
 ﻿namespace Hospital.Application.Entity;
 
-public abstract class EntityBaseRequest
+public abstract record EntityBaseRequest
 {
 }

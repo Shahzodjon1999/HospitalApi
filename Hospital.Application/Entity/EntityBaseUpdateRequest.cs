@@ -1,6 +1,6 @@
 ﻿namespace Hospital.Application.Entity;
 
-public abstract class EntityBaseUpdateRequest
+public abstract record EntityBaseUpdateRequest
 {
     public Guid Id { get; set; }
 }

@@ -5,9 +5,9 @@ using Hospital.Infrastructure.Database;
 
 namespace Hospital.Infrastructure.Repositories;
 
-public class UserRepository:BaseRepository<User>,IUserRepository
+public class SalaryRepository : BaseRepository<Salary>, ISalaryRepository
 {
-    public UserRepository(HospitalContext context):base(context)
+    public SalaryRepository(HospitalContext context) : base(context)
     {
     }
 }

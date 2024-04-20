@@ -6,6 +6,7 @@ using Hospital.Infrastructure;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 namespace Hospital.Api;
 
@@ -30,8 +31,8 @@ public class Program
 		.AddFluentValidation(options => {
 			options.ImplicitlyValidateChildProperties = true;
 			options.ImplicitlyValidateRootCollectionElements = true;
-
-		});
+            options.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        });
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
 		//addedSwagerConfigure

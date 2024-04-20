@@ -1,9 +1,11 @@
 ﻿using Hospital.Application.Entity;
+using Hospital.Domen.Model;
+using System.Text.Json.Serialization;
 
 namespace Hospital.Application.RequestModel;
 
-public class WorkerRequest : EntityBaseRequest
-    {
+public record WorkerRequest : EntityBaseRequest
+{
 	public string FirstName { get; set; } = string.Empty;
 
 	public string LastName { get; set; } = string.Empty;
@@ -15,6 +17,4 @@ public class WorkerRequest : EntityBaseRequest
 	public DateTime DateOfBirth { get; set; }
 
 	public DateTime DateRegister { get; set; }
-
-	public string Role { get; set; } = string.Empty;
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital.Infrastructure.Migrations
 {
     [DbContext(typeof(HospitalContext))]
-    [Migration("20240418104151_CreateDbContextForSalary")]
-    partial class CreateDbContextForSalary
+    [Migration("20240420180348_CreateDbContext2")]
+    partial class CreateDbContext2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,51 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Auth", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("RoleId1")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WorkerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId")
+                        .IsUnique();
+
+                    b.HasIndex("RoleId1")
+                        .IsUnique()
+                        .HasFilter("[RoleId1] IS NOT NULL");
+
+                    b.HasIndex("WorkerId")
+                        .IsUnique();
+
+                    b.ToTable("Auths");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Branch", b =>
@@ -150,6 +195,8 @@ namespace Hospital.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthId");
+
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Doctors");
@@ -212,13 +259,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("27f1362a-2d95-4946-a428-bfe6a855d8da"),
+                            Id = new Guid("846cc547-7a5d-4979-a59d-28b315ac5acc"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("fb38d341-fee1-4df9-9410-ca1d3163f7bc"),
+                            Id = new Guid("eb450346-dad9-4f2d-b5fb-c4cf44758655"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -269,6 +316,24 @@ namespace Hospital.Infrastructure.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("Hospital.Domen.Model.Role", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
             modelBuilder.Entity("Hospital.Domen.Model.Room", b =>
                 {
                     b.Property<Guid>("Id")
@@ -308,58 +373,6 @@ namespace Hospital.Infrastructure.Migrations
                     b.ToTable("Salarys");
                 });
 
-            modelBuilder.Entity("Hospital.Domen.Model.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateRegister")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsBlocked")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefreshToken")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("Hospital.Domen.Model.Worker", b =>
                 {
                     b.Property<Guid>("Id")
@@ -370,6 +383,9 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("AuthId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -388,21 +404,12 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("SalaryId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SalaryId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Workers");
                 });
@@ -416,6 +423,29 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Auth", b =>
+                {
+                    b.HasOne("Hospital.Domen.Model.Role", "Role")
+                        .WithOne()
+                        .HasForeignKey("Hospital.Domen.Model.Auth", "RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Hospital.Domen.Model.Role", null)
+                        .WithOne("Auths")
+                        .HasForeignKey("Hospital.Domen.Model.Auth", "RoleId1");
+
+                    b.HasOne("Hospital.Domen.Model.Worker", "Worker")
+                        .WithOne("Auth")
+                        .HasForeignKey("Hospital.Domen.Model.Auth", "WorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("Worker");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Branch", b =>
@@ -461,11 +491,19 @@ namespace Hospital.Infrastructure.Migrations
 
             modelBuilder.Entity("Hospital.Domen.Model.Doctor", b =>
                 {
+                    b.HasOne("Hospital.Domen.Model.Auth", "Auth")
+                        .WithMany()
+                        .HasForeignKey("AuthId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Hospital.Domen.Model.Department", "Department")
                         .WithMany("Doctors")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Auth");
 
                     b.Navigation("Department");
                 });
@@ -519,15 +557,7 @@ namespace Hospital.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Hospital.Domen.Model.User", "User")
-                        .WithMany("Workers")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Salary");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Branch", b =>
@@ -566,6 +596,11 @@ namespace Hospital.Infrastructure.Migrations
                     b.Navigation("DoctorPatients");
                 });
 
+            modelBuilder.Entity("Hospital.Domen.Model.Role", b =>
+                {
+                    b.Navigation("Auths");
+                });
+
             modelBuilder.Entity("Hospital.Domen.Model.Room", b =>
                 {
                     b.Navigation("Patients");
@@ -576,9 +611,9 @@ namespace Hospital.Infrastructure.Migrations
                     b.Navigation("Workers");
                 });
 
-            modelBuilder.Entity("Hospital.Domen.Model.User", b =>
+            modelBuilder.Entity("Hospital.Domen.Model.Worker", b =>
                 {
-                    b.Navigation("Workers");
+                    b.Navigation("Auth");
                 });
 #pragma warning restore 612, 618
         }

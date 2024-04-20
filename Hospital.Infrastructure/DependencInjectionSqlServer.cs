@@ -21,8 +21,6 @@ namespace Hospital.Infrastructure;
     {
         services.AddDbContext<HospitalContext>(op => op.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-        //services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-
         services.AddScoped<IAppointmentRepository, AppointmentRepository>();
         services.AddScoped<IBranchRepository, BranchRepository>();
         services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -32,8 +30,9 @@ namespace Hospital.Infrastructure;
         services.AddScoped<IPatientRepository,PatientRepository>();
         services.AddScoped<IRoomRepository,RoomRepository>();
         services.AddScoped<IWorkerRepository, WorkerRepository>();
-        services.AddScoped<IUserRepository, UserRepository>();
-
+        services.AddScoped<IAuthRepository, AuthRepository>();
+        services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<ISalaryRepository, SalaryRepository>();
 
         services.AddScoped<IGenericService<DoctorRequest,DoctorUpdateRequest,DoctorResponse>, DoctorService>();
         services.AddScoped<IGenericService<HospitalRequest,HospitalUpdateRequest,HospitalResponse>, HospitalService>();
@@ -44,6 +43,8 @@ namespace Hospital.Infrastructure;
         services.AddScoped<IGenericService<DepartmentRequest,DepartmentUpdateRequest, DepartmentResponse>, DepartmentService>();
         services.AddScoped<IGenericService<FloorRequest,FloorUpdateRequest,FloorResponse>, FloorService>();
         services.AddScoped<IGenericService<RoomRequest,RoomUpdateRequest,RoomResponse>, RoomService>();
+        services.AddScoped<IGenericService<RoleRequest,RoleUpdateRequest,RoleResponse>, RoleService>();
+        services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
         services.AddScoped<AuthService>();
         return services;
     }

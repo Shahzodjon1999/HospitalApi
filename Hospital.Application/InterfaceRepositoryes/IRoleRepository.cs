@@ -2,6 +2,6 @@
 
 namespace Hospital.Application.InterfaceRepositoryes;
 
-public interface IUserRepository:IBaseRepository<User>
+public interface IRoleRepository:IBaseRepository<Role>
 {
 }

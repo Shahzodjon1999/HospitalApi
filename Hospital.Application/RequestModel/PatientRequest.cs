@@ -3,15 +3,13 @@ using Hospital.Domen.Enam;
 
 namespace Hospital.Application.RequestModel;
 
-public class PatientRequest : EntityBaseRequest
+public record PatientRequest : EntityBaseRequest
 {
 	public string FirstName { get; set; } = string.Empty;
 
 	public string LastName { get; set; } = string.Empty;
 
 	public string PhoneNumber { get; set; } = string.Empty;
-
-    public List<Guid>? DoctorIds { get; set; }
 
     public string Address { get; set; } = string.Empty;
 

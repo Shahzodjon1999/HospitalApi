@@ -1,0 +1,25 @@
+2024-04-20 16:57:11.716 +05:00 [INF] This is Hospital Context 
+2024-04-20 16:57:16.689 +05:00 [INF] In the method GetAll() result=>[{"DoctorName":"Aliiiiiiiiiiiiiiiii","Name":"","AppointmentDate":"2024-04-17T16:19:15.1910000","Id":"d587d895-ab24-4406-8b00-26560892d68a","$type":"AppointmentResponse"}]
+2024-04-20 16:58:04.503 +05:00 [INF] This is Hospital Context 
+2024-04-20 16:58:28.187 +05:00 [INF] This is Hospital Context 
+2024-04-20 16:58:49.697 +05:00 [INF] This is Hospital Context 
+2024-04-20 21:14:09.574 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 21:14:11.292 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 21:17:02.587 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 21:18:20.320 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 21:37:05.892 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 21:41:46.385 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 21:46:41.030 +05:00 [INF] In the method Create request=>{"Name":"admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 21:58:11.849 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 22:03:25.840 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 22:15:03.707 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 22:51:09.646 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 23:05:01.654 +05:00 [INF] In the method Create request=>{"Name":"Admin","Status":true,"$type":"RoleRequest"}
+2024-04-20 23:08:07.461 +05:00 [INF] In the method Create request=>{"Name":"Client","Status":true,"$type":"RoleRequest"}
+2024-04-20 23:14:25.988 +05:00 [INF] In the method Create request=>{"Login":"admin","Password":"123","RoleId":"8abe2f52-fae5-4424-ae9a-e824f94982d8","Role":null,"IsBlocked":true,"$type":"AuthRequest"}
+2024-04-20 23:14:27.540 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 23:21:05.862 +05:00 [INF] In the method Create request=>{"FirstName":"Ali","LastName":"Valiev","PhoneNumber":"+992927758499","Address":"Panjakent","DateOfBirth":"2024-04-20T18:20:21.6230000Z","DateRegister":"2024-04-20T18:20:21.6230000Z","RoleId":"8abe2f52-fae5-4424-ae9a-e824f94982d8","Role":null,"$type":"WorkerRequest"}
+2024-04-20 23:21:07.525 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 23:23:16.645 +05:00 [INF] In the method Create request=>{"FirstName":"Ali","LastName":"Valiev","PhoneNumber":"+992927759499","Address":"Panjakent","DateOfBirth":"2024-04-20T18:22:35.3640000Z","DateRegister":"2024-04-20T18:22:35.3640000Z","RoleId":"8abe2f52-fae5-4424-ae9a-e824f94982d8","Role":null,"$type":"WorkerRequest"}
+2024-04-20 23:23:18.146 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-20 23:24:08.570 +05:00 [INF] In the method Create request=>{"FirstName":"Ali","LastName":"Valiev","PhoneNumber":"+992927759499","Address":"Panjakent","DateOfBirth":"2024-04-20T18:22:35.3640000Z","DateRegister":"2024-04-20T18:22:35.3640000Z","RoleId":"8abe2f52-fae5-4424-ae9a-e824f94982d8","Role":null,"$type":"WorkerRequest"}
