@@ -5,6 +5,7 @@ using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
@@ -24,7 +25,7 @@ public class SalaryService : IGenericService<SalaryRequest, SalaryUpdateRequest,
         {
             if (item != null)
             {
-                var getSalary = item.MapToSalary();
+                var getSalary = _mapper.Map<Salary>(item);
                 _repository.Create(getSalary);
                 return $"Created new item with this ID: {getSalary.Id}";
             }
@@ -79,7 +80,7 @@ public class SalaryService : IGenericService<SalaryRequest, SalaryUpdateRequest,
         {
             var getSalaryById = _repository.GetById(id);
             if (getSalaryById != null)
-                return getSalaryById.MapToSalaryResponse();
+                return _mapper.Map<SalaryResponse>(getSalaryById);
             return null;
         }
         catch (Exception)
@@ -95,11 +96,11 @@ public class SalaryService : IGenericService<SalaryRequest, SalaryUpdateRequest,
             var _item = _repository.GetById(item.Id);
             if (_item is null)
             {
-                return "Appointment is not found";
+                return "Salary is not found";
             }
-            var mapSalary = item.MapToSalaryUpdate();
+            var mapSalary = _mapper.Map<Salary>(item);
             _repository.Update(mapSalary);
-            return "Appointment is updated";
+            return "Salary is updated";
         }
         catch (Exception)
         {

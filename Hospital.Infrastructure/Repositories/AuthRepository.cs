@@ -16,6 +16,6 @@ public class AuthRepository:BaseRepository<Auth>,IAuthRepository
     }
     public override IQueryable<Auth> GetAll()
     {
-        return _context.Auths.Include(d => d.Worker).Include(r=>r.Role);
+        return _context.Auths.Include(d => d.Worker).ThenInclude(r=>r.Role);
     }
 }

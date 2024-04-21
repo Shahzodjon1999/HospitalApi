@@ -17,7 +17,7 @@ public class ApplicationKeyMiddleware
     }
     public async Task InvokeAsync(HttpContext httpContext)
     {
-        //if (httpContext.Request.Headers.TryGetValue("AppKey", out StringValues key) && key.FirstOrDefault() == Program.TOOL_NAME) 
+        //if (httpContext.Request.Headers.TryGetValue("AppKey", out StringValues key) && key.FirstOrDefault() == Program.apkey) 
         //{
             await _next(httpContext);
         //}

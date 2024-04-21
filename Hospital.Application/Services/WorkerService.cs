@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
@@ -26,7 +26,7 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,W
 		}
 		else
 		{
-			var mapWorker = worker.MapToWorker();
+			var mapWorker = _mapper.Map<Worker>(worker);
 			_repository.Create(mapWorker);
 			return $"Created new item with this ID: {mapWorker.Id}";
 		}
@@ -37,11 +37,11 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,W
 		var _item = _repository.GetById(id);
 		if (_item is null)
 		{
-			return "Doctor is not found";
+			return "Worker is not found";
 		}
 		_repository.Delete(id);
 
-		return "Doctor is deleted";
+		return "Worker is deleted";
 	}
 
 	public WorkerResponse GetById(Guid id)
@@ -49,15 +49,14 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,W
 		var mapWorkerResponse = _repository.GetById(id);
 		if (mapWorkerResponse is null)
 			return null;
-		return mapWorkerResponse.MapToWorkerResponse();
+		return _mapper.Map<WorkerResponse>(mapWorkerResponse);
 	}
 
 	public IEnumerable<WorkerResponse> GetAll()
 	{
 		var getWorkers = _repository.GetAll();
 		if (getWorkers is not null)
-			//return _mapper.Map<IEnumerable<WorkerResponse>>(getWorkers);
-				return getWorkers.MapToWorkerResponsList();
+			return _mapper.Map<IEnumerable<WorkerResponse>>(getWorkers);
 		return null;
 	}
 
@@ -66,10 +65,10 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,W
 		var _item = _repository.GetById(request.Id);
 		if (_item is null)
 		{
-			return "Doctor is not found";
+			return "Worker is not found";
 		}
-		var mapWorker = request.MapToWorkerUpdate();
+		var mapWorker = _mapper.Map<Worker>(request);
 		_repository.Update(mapWorker);
-		return "Doctor is updated";
+		return "Worker is updated";
 	}
 }

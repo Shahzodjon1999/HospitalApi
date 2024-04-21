@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
@@ -27,7 +27,7 @@ namespace Hospital.Application.Services
 			}
 			else
 			{
-				var mapDoctor = doctor.MapToDoctor();
+				var mapDoctor = _mapper.Map<Doctor>(doctor);
 				_repository.Create(mapDoctor);
 							
                 return $"Created new item with this ID: {mapDoctor.Id}";
@@ -55,7 +55,7 @@ namespace Hospital.Application.Services
 				{
 					return null;
 				}
-				return mapDoctorResponse.MapToDoctorResponse();
+				return _mapper.Map<DoctorResponse>(mapDoctorResponse);
 			}
 			catch (Exception)
 			{
@@ -71,7 +71,6 @@ namespace Hospital.Application.Services
                 var getDoctors = _repository.GetAll();
                 if (getDoctors != null)
 					return _mapper.Map<IEnumerable<DoctorResponse>>(getDoctors);
-                    //return getDoctors.MapToDoctorResponsList();
                 return null;
             }
             catch (Exception)
@@ -87,7 +86,7 @@ namespace Hospital.Application.Services
 			{
 				return "Doctor is not found";
 			}
-			var mapDoctor = doctor.MapToDoctorUpdate();
+			var mapDoctor = _mapper.Map<Doctor>(doctor);
 			_repository.Update(mapDoctor);
 			return "Doctor is updated";
 		}

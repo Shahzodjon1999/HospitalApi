@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
@@ -28,7 +27,7 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 		{
 			if (item != null)
 			{
-				var getMapFloor = item.MapToFloor();
+				var getMapFloor =_mapper.Map<Floor>(item);
 				_repository.Create(getMapFloor);
 				return $"Created new item with this ID: {getMapFloor.Id}";
 			}
@@ -49,7 +48,7 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 		{
 			var getFloors = _repository.GetById(id);
 			if (getFloors != null)
-				return getFloors.MapToFloorResponse();
+				return _mapper.Map<FloorResponse>(getFloors);
 			return null;
 		}
 		catch (Exception)
@@ -66,7 +65,6 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 			var getFloors = _repository.GetAll();
 			if (getFloors != null)
 				return _mapper.Map<IEnumerable<FloorResponse>>(getFloors);
-				//return getAppointment.MapToFloorResponsList();
 			return null;
 		}
 		catch (Exception)
@@ -82,11 +80,11 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 			var _item = _repository.GetById(updateRequest.Id);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Floor is not found";
 			}
-			var getMapFloor = updateRequest.MapToFloorUpdate();
+			var getMapFloor = _mapper.Map<Floor>(updateRequest);
 			_repository.Update(getMapFloor);
-			return "Doctor is updated";
+			return "Floor is updated";
 		}
 		catch (Exception)
 		{
@@ -101,11 +99,11 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 			var _item = _repository.GetById(id);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Floor is not found";
 			}
 			_repository.Delete(id);
 
-			return "Doctor is deleted";
+			return "Floor is deleted";
 		}
 		catch (Exception)
 		{

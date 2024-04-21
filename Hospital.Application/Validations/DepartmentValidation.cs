@@ -7,7 +7,12 @@ public class DepartmentValidation:AbstractValidator<DepartmentRequest>
 {
     public DepartmentValidation()
     {
-        RuleFor(n => n.Name).NotEmpty().NotNull().MinimumLength(3).MaximumLength(12).WithMessage("You must be correct Name Length min 3 and Max 12");
-        RuleFor(i=>i.BranchID).NotEmpty().NotNull().Must(id=>id !=Guid.Empty).WithMessage("BranchID must have value"); ;
+        RuleFor(d => d.Name)
+             .NotEmpty().WithMessage("Name is required.")
+             .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.");
+
+        RuleFor(d => d.BranchID)
+            .NotEmpty().WithMessage("Branch ID is required.")
+            .NotEqual(Guid.Empty).WithMessage("Branch ID must have a value.");
     }
 }

@@ -10,21 +10,21 @@ public static class ServiceCollectionExtentions
     {
         services.AddAuthorization();
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(op =>
+        .AddJwtBearer(op =>
+        {
+            op.TokenValidationParameters = new TokenValidationParameters
             {
-                op.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidIssuer = AuthOptions.Issuer,
+                ValidateIssuer = true,
+                ValidIssuer = AuthOptions.Issuer,
 
-                    ValidateAudience = true,
-                    ValidAudience = AuthOptions.Audience,
+                ValidateAudience = true,
+                ValidAudience = AuthOptions.Audience,
 
-                    ValidateLifetime = true,
+                ValidateLifetime = true,
 
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey()
-                };
-            });
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey()
+            };
+        });
     }
 }

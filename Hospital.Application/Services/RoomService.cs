@@ -5,6 +5,7 @@ using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
@@ -45,7 +46,7 @@ public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomRespo
 		{
 			var getRoom = _repository.GetById(id);
 			if (getRoom != null)
-				return getRoom.MapToRoomResponse();
+				return _mapper.Map<RoomResponse>(getRoom);
 			return null;
 		}
 		catch (Exception)
@@ -62,7 +63,6 @@ public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomRespo
 			var getRooms = _repository.GetAll();
 			if (getRooms != null)
 				return _mapper.Map<IEnumerable<RoomResponse>>(getRooms);
-				//return getRooms.MapToRoomResponsList();
 			return null;
 		}
 		catch (Exception)
@@ -78,11 +78,11 @@ public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomRespo
 			var _item = _repository.GetById(item.Id);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Room is not found";
 			}
-			var getMapRoom = item.MapToRoomUpdate();
+			var getMapRoom = _mapper.Map<Room>(item);
 			_repository.Update(getMapRoom);
-			return "Doctor is updated";
+			return "Room is updated";
 		}
 		catch (Exception)
 		{
@@ -97,11 +97,11 @@ public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomRespo
 			var _item = _repository.GetById(id);
 			if (_item is null)
 			{
-				return "Doctor is not found";
+				return "Room is not found";
 			}
 			_repository.Delete(id);
 
-			return "Doctor is deleted";
+			return "Room is deleted";
 		}
 		catch (Exception)
 		{

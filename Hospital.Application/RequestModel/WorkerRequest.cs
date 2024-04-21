@@ -1,6 +1,4 @@
 ﻿using Hospital.Application.Entity;
-using Hospital.Domen.Model;
-using System.Text.Json.Serialization;
 
 namespace Hospital.Application.RequestModel;
 
