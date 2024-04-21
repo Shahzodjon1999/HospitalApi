@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
@@ -23,7 +23,12 @@ public class RoleService : IGenericService<RoleRequest, RoleUpdateRequest, RoleR
         {
             if (item != null)
             {
-                var getRole = item.MapToRole();
+                var getRole = _mapper.Map<Role>(item);
+                var checkRole = _repository.GetById(getRole.Id);
+                if (checkRole != null)
+                {
+                    return "Already has By this Id Role";
+                }
                 _repository.Create(getRole);
                 return $"Created new item with this ID: {getRole.Id}";
             }
@@ -64,7 +69,6 @@ public class RoleService : IGenericService<RoleRequest, RoleUpdateRequest, RoleR
             var getRoles = _repository.GetAll();
             if (getRoles != null)
                 return _mapper.Map<IEnumerable<RoleResponse>>(getRoles);
-
             return null;
         }
         catch (Exception)
@@ -79,7 +83,7 @@ public class RoleService : IGenericService<RoleRequest, RoleUpdateRequest, RoleR
         {
             var getRole = _repository.GetById(id);
             if (getRole != null)
-                return getRole.MapToRoleResponse();
+                return _mapper.Map<RoleResponse>(getRole);
             return null;
         }
         catch (Exception)
@@ -97,7 +101,7 @@ public class RoleService : IGenericService<RoleRequest, RoleUpdateRequest, RoleR
             {
                 return "Role is not found";
             }
-            var mapToAppointment = item.MapToRoleUpdate();
+            var mapToAppointment = _mapper.Map<Role>(item);
             _repository.Update(mapToAppointment);
             return "Role is updated";
         }

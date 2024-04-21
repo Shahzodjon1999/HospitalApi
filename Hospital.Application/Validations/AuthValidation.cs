@@ -23,8 +23,8 @@ public class AuthValidation:AbstractValidator<AuthRequest>
             .NotNull().WithMessage("IsBlocked cannot be null.")
             .Equal(true).WithMessage("IsBlocked must be true by default.");
 
-        RuleFor(p => p.RoleId)
-            .NotEmpty().WithMessage("Role ID is required.")
-            .NotEqual(Guid.Empty).WithMessage("Role ID must have a value.");
+        RuleFor(p => p.WorkerId)
+            .NotEmpty().WithMessage("Room ID is required.")
+            .NotEqual(Guid.Empty).WithMessage("Room ID must have a value.");
     }
 }

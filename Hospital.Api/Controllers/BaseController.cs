@@ -24,7 +24,7 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
             var getAll = _doctorService.GetAll();
             Log.Information("In the method GetAll() result=>{@getAll}", getAll);
             if (getAll is not null)          
-            return Ok(getAll);
+               return Ok(getAll);
             return Ok("You have not data");
         }
         catch (Exception ex)

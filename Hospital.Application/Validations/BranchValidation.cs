@@ -7,8 +7,16 @@ public class BranchValidation:AbstractValidator<BranchRequest>
 {
     public BranchValidation()
     {
-        RuleFor(n => n.Name).NotEmpty().NotNull().NotEqual("string").MinimumLength(3).MaximumLength(12).WithMessage("You must be write Name!!!");
-        RuleFor(x => x.Location).NotNull().NotEmpty().MinimumLength(3).MaximumLength(12).WithMessage("You must be write Location!!!");
-        RuleFor(x => x.HospitalID).Must(t => t != Guid.Empty).WithMessage("HospitalId must have value");
+        RuleFor(b => b.Name)
+              .NotEmpty().WithMessage("Name is required.")
+              .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.");
+
+        RuleFor(b => b.Location)
+            .NotEmpty().WithMessage("Location is required.")
+            .MaximumLength(100).WithMessage("Location cannot exceed 100 characters.");
+
+        RuleFor(b => b.HospitalID)
+            .NotEmpty().WithMessage("Hospital ID is required.")
+            .NotEqual(Guid.Empty).WithMessage("Hospital ID must have a value.");
     }
 }

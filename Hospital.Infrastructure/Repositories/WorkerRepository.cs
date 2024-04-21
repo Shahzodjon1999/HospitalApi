@@ -2,6 +2,7 @@
 using Hospital.Application.Repositories;
 using Hospital.Domen.Model;
 using Hospital.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hospital.Infrastructure.Repositories;
 
@@ -15,6 +16,6 @@ public class WorkerRepository : BaseRepository<Worker>, IWorkerRepository
     }
     public override IQueryable<Worker> GetAll()
     {
-        return _context.Workers;
+        return _context.Workers.Include(s => s.Salary).Include(a=>a.Auth).Include(b=>b.Role);
     }
 }

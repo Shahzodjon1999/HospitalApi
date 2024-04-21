@@ -1,5 +1,5 @@
-﻿using Hospital.Application.Contract;
-using Hospital.Application.RequestModel;
+﻿using Hospital.Application.RequestModel;
+using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -24,7 +24,7 @@ namespace Hospital.Api.Controllers
         {
             try
             {
-                UserSessionToken token = await _authService.Login(request.Username,request.Password);
+                AuthSessionToken token = await _authService.Login(request.Username,request.Password);
                
                 return Ok(token);
             }
@@ -40,7 +40,7 @@ namespace Hospital.Api.Controllers
         {
             try
             {
-                UserSessionToken token = await _authService.RefreshToken(refreshToken);
+                AuthSessionToken token = await _authService.RefreshToken(refreshToken);
                 return Ok(token);
             }
             catch (Exception ex)

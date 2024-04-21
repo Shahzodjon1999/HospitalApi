@@ -8,5 +8,6 @@ public class Role:EntityBase
 
     public bool Status { get; set; }
 
-    public Auth? Auths { get; set; }
+    public Worker? Worker { get; set; }
+    public Guid WorkerId { get; set; }
 }

@@ -15,7 +15,6 @@ public static class SalaryMap
             Id = Guid.NewGuid(),
             Amount = request.Amount,
             Bonus = request.Bonus,
-            WorkerId=request.WorkId,
         };
     }
     public static Salary MapToSalaryUpdate(this SalaryUpdateRequest request)
@@ -25,7 +24,6 @@ public static class SalaryMap
             Id = request.Id,
             Amount = request.Amount,
             Bonus = request.Bonus,
-            WorkerId = request.WorkerId,
         };
     }
 

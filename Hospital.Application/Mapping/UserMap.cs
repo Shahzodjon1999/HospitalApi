@@ -13,7 +13,6 @@ namespace Hospital.Application.Mapping
                 Login = userRequest.Login,
                 Password= userRequest.Password,
                 IsBlocked = userRequest.IsBlocked,
-                RoleId = userRequest.RoleId,
                 WorkerId = userRequest.WorkerId,
             };
         }

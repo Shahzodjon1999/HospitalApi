@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services
 {
@@ -25,7 +25,7 @@ namespace Hospital.Application.Services
 			{
 				if (item != null)
 				{
-					var getMapBranch = item.MapToBranch();
+					var getMapBranch = _mapper.Map<Branch>(item);
 					_repository.Create(getMapBranch);
 					return $"Created new item with this ID: {getMapBranch.Id}";
 				}
@@ -46,7 +46,7 @@ namespace Hospital.Application.Services
 			{
 				var getBranch = _repository.GetById(id);
 				if (getBranch != null)
-					return getBranch.MapToBranchResponse();
+					return _mapper.Map<BranchResponse>(getBranch);
 				return null;
 			}
 			catch (Exception)
@@ -63,7 +63,6 @@ namespace Hospital.Application.Services
 				var getBranchs = _repository.GetAll();
 				if (getBranchs != null)
 					return _mapper.Map<IEnumerable<BranchResponse>>(getBranchs);
-					//return getBranchs.MapToBranchResponsList();
 				return null;
 			}
 			catch (Exception)
@@ -81,7 +80,7 @@ namespace Hospital.Application.Services
 				{
 					return "Doctor is not found";
 				}
-				var getMapBranch = item.MapToBranchUpdate();
+				var getMapBranch = _mapper.Map<Branch>(item);
 				_repository.Update(getMapBranch);
 				return "Doctor is updated";
 			}

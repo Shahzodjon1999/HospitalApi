@@ -13,8 +13,4 @@ public record WorkerUpdateRequest:EntityBaseUpdateRequest
     public string Address { get; set; } = string.Empty;
 
     public DateTime DateOfBirth { get; set; }
-
-    public DateTime DateRegister { get; set; }
-
-    public Guid? RoleId { get; set; }
 }

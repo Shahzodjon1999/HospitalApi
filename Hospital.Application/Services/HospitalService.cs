@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
@@ -26,7 +25,6 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateReq
 		}
 		else
 		{
-			//var mapHospital = hospital.MapToHospital();
 			var autoMap = _mapper.Map<Domen.Model.Hospital>(hospital);
 
             _repository.Create(autoMap);
@@ -39,11 +37,11 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateReq
 		var _item = _repository.GetById(id);
 		if (_item is null)
 		{
-			return "Paitent is not found";
+			return "Hospital is not found";
 		}
 		_repository.Delete(id);
 
-		return "Paitent is deleted";
+		return "Hospital is deleted";
 	}
 
 	public HospitalResponse GetById(Guid id)
@@ -51,8 +49,7 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateReq
 		var mapHospitalRespository = _repository.GetById(id);
 		if (mapHospitalRespository is null)
 			return null;
-		//return _mapper.Map<HospitalResponse>(mapHospitalRespository);
-        return mapHospitalRespository.MapToHospitalResponse();
+        return _mapper.Map<HospitalResponse>(mapHospitalRespository);
     }
 
 	public IEnumerable<HospitalResponse> GetAll()
@@ -62,7 +59,6 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateReq
             var getHospitals = _repository.GetAll();
             if (getHospitals != null)
 				return _mapper.Map<IEnumerable<HospitalResponse>>(getHospitals);
-                //return getHospitals.MapToHospitalResponsList();
             return null;
         }
         catch (Exception)
@@ -78,8 +74,7 @@ public class HospitalService : IGenericService<HospitalRequest,HospitalUpdateReq
 		{
 			return "Paitent is not found";
 		}
-		var mapHospital = request.MapToHospitalUpdate();
-		//var autoMap = _mapper.Map<Domen.Model.Hospital>(request);
+		var mapHospital = _mapper.Map<Domen.Model.Hospital>(request);
 		_repository.Update(mapHospital);
 		return "Patient is updated";
 	}

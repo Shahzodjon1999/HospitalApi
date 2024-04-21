@@ -26,7 +26,6 @@ public static class WorkerMap
         {
             Id = Guid.NewGuid(),
             DateOfBirth = worker.DateOfBirth,
-            DateRegister = worker.DateRegister,
             Address = worker.Address,
             FirstName = worker.FirstName,
             LastName = worker.LastName,

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
@@ -26,7 +25,7 @@ namespace Hospital.Application.Services
 			{
 				if (item != null)
 				{
-					var getMapDepartment = item.MapToDepartment();
+					var getMapDepartment = _mapper.Map<Department>(item);
 					_repository.Create(getMapDepartment);
 					return $"Created new item with this ID: {getMapDepartment.Id}";
 				}
@@ -47,7 +46,7 @@ namespace Hospital.Application.Services
 			{
 				var getDepartment = _repository.GetById(id);
 				if (getDepartment != null)
-					return getDepartment.MapToDepartmentResponse();
+					return _mapper.Map<DepartmentResponse>(getDepartment);
 				return null;
 			}
 			catch (Exception)
@@ -64,7 +63,6 @@ namespace Hospital.Application.Services
 				var getDepartments = _repository.GetAll();
 				if (getDepartments != null)
 					return _mapper.Map<IEnumerable<DepartmentResponse>>(getDepartments);
-					//return getDepartments.MapToDepartmentResponsList();
 				return null;
 			}
 			catch (Exception)
@@ -82,7 +80,7 @@ namespace Hospital.Application.Services
 				{
 					return "Doctor is not found";
 				}
-				var getMapDepartment = updateRequest.MapToDepartmentUpdate();
+				var getMapDepartment =_mapper.Map<Department>(updateRequest);
 				_repository.Update(getMapDepartment);
 				return "Doctor is updated";
 			}

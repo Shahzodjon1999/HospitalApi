@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
-using Hospital.Application.Mapping;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
+using Hospital.Domen.Model;
 
 namespace Hospital.Application.Services;
 
@@ -26,7 +26,7 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 		{
 			return "The name cannot be empty";
 		}
-			var mapPatient = patient.MapToPatient();
+			var mapPatient = _mapper.Map<Patient>(patient);
 			_repository.Create(mapPatient);
 
 			//if (patient.DoctorIds.Any())
@@ -52,11 +52,11 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 		var _item = _repository.GetById(id);
 		if (_item is null)
 		{
-			return "Doctor is not found";
+			return "Patient is not found";
 		}
 		_repository.Delete(id);
 
-		return "Doctor is deleted";
+		return "Patient is deleted";
 	}
 
 	public PatientResponse GetById(Guid id)
@@ -66,7 +66,7 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 			var mapPatientResponse = _repository.GetById(id);
 			if (mapPatientResponse is null)
 				return null;
-			return mapPatientResponse.MapToPatinetResponse();
+			return _mapper.Map<PatientResponse>(mapPatientResponse);
 		}
 		catch (Exception)
 		{
@@ -82,7 +82,6 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
             var getPatients = _repository.GetAll();
             if (getPatients != null)
 				return _mapper.Map<IEnumerable<PatientResponse>>(getPatients);
-			// return getPatients.MapToPatientResponsList();
             return null;
         }
         catch (Exception)
@@ -96,10 +95,10 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 		var _item = _repository.GetById(patient.Id);
 		if (_item is null)
 		{
-			return "Doctor is not found";
+			return "Patient is not found";
 		}
-		var mapPatient = patient.MapToPatientUpdate();
+		var mapPatient = _mapper.Map<Patient>(patient);
 		_repository.Update(mapPatient);
-		return "Doctor is updated";
+		return "Patient is updated";
 	}
 }

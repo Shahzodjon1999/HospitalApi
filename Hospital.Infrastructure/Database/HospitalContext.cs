@@ -95,31 +95,20 @@ public class HospitalContext : DbContext, IHospitalContext
             .HasForeignKey(k => k.DepartmentId);
         });
 
-        modelBuilder.Entity<Role>(en =>
-        {
-            en.HasKey(id => id.Id);
-        });
-        modelBuilder.Entity<Worker>(en =>
-        {
-            en.HasKey(e => e.Id);
-        });
-        modelBuilder.Entity<Auth>(en =>
-        {
-            en.HasKey(id => id.Id);
-            en.HasOne(w => w.Role)
-            .WithOne()
-            .HasForeignKey<Auth>(k => k.RoleId);
-            en.HasOne(w => w.Worker)
-            .WithOne()
-            .HasForeignKey<Auth>(k => k.WorkerId);
-        });
-        modelBuilder.Entity<Salary>(en =>
-        {
-            en.HasKey(p => p.Id);
-            en.HasOne(w => w.Worker)
-            .WithOne(s => s.Salary)
-            .HasForeignKey<Salary>(k => k.WorkerId);
-        });
+        modelBuilder.Entity<Worker>()
+             .HasOne(w => w.Auth)
+             .WithOne(a => a.Worker)
+             .HasForeignKey<Auth>(a => a.WorkerId);
+
+        modelBuilder.Entity<Worker>()
+            .HasOne(w => w.Role)
+            .WithOne(r => r.Worker)
+            .HasForeignKey<Role>(r => r.WorkerId);
+
+        modelBuilder.Entity<Worker>()
+            .HasOne(w => w.Salary)
+            .WithOne(s => s.Worker)
+            .HasForeignKey<Salary>(s => s.WorkerId);
     }
 
     public DbSet<Auth> Auths { get; set; }
