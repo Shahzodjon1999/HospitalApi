@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital.Infrastructure.Migrations
 {
     [DbContext(typeof(HospitalContext))]
-    [Migration("20240421080449_createDbContext")]
+    [Migration("20240421120416_createDbContext")]
     partial class createDbContext
     {
         /// <inheritdoc />
@@ -152,9 +152,6 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("AuthId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
@@ -181,8 +178,6 @@ namespace Hospital.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AuthId");
 
                     b.HasIndex("DepartmentId");
 
@@ -246,13 +241,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("70d858da-6b61-4de7-b83c-4e32b8dd0717"),
+                            Id = new Guid("4baf9dce-46ca-448a-a935-7b37e2adc87a"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("f033a69d-3a01-452d-a4d3-0df6409c6511"),
+                            Id = new Guid("762dc1b2-1266-48f2-abbd-e98191ddcb19"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -470,19 +465,11 @@ namespace Hospital.Infrastructure.Migrations
 
             modelBuilder.Entity("Hospital.Domen.Model.Doctor", b =>
                 {
-                    b.HasOne("Hospital.Domen.Model.Auth", "Auth")
-                        .WithMany()
-                        .HasForeignKey("AuthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Hospital.Domen.Model.Department", "Department")
                         .WithMany("Doctors")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Auth");
 
                     b.Navigation("Department");
                 });

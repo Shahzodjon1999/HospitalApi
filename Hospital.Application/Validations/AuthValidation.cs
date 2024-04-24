@@ -10,6 +10,7 @@ public class AuthValidation:AbstractValidator<AuthRequest>
         RuleFor(u => u.Login)
             .NotEmpty().WithMessage("Login is required.")
             .NotNull().WithMessage("Login cannot be null.")
+            .NotEqual("string").WithMessage("You can not add string")
             .MinimumLength(3).WithMessage("Login must be at least 3 characters.")
             .MaximumLength(50).WithMessage("Login cannot exceed 50 characters.");
 

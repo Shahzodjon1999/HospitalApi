@@ -13,7 +13,7 @@ namespace Hospital.Application.Services
 		private readonly IAppointmentRepository _repository;
 		private readonly IMapper _mapper;
 
-        public AppointmentService(IAppointmentRepository repository, IMapper mapper)
+        public AppointmentService(IAppointmentRepository repository, IMapper mapper) 
         {
             _repository = repository;
             _mapper = mapper;

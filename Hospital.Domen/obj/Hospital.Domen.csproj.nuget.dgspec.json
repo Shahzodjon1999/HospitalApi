@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {}
+    "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {}
   },
   "projects": {
-    "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+    "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
         "projectName": "Hospital.Domen",
-        "projectPath": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hospital\\Hospital.Domen\\obj\\",
+        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

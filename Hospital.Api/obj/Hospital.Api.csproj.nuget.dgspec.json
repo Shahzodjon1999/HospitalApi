@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Hospital\\Hospital.Api\\Hospital.Api.csproj": {}
+    "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Hospital.Api.csproj": {}
   },
   "projects": {
-    "D:\\Hospital\\Hospital.Api\\Hospital.Api.csproj": {
+    "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Hospital.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hospital\\Hospital.Api\\Hospital.Api.csproj",
+        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Hospital.Api.csproj",
         "projectName": "Hospital.Api",
-        "projectPath": "D:\\Hospital\\Hospital.Api\\Hospital.Api.csproj",
+        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Hospital.Api.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hospital\\Hospital.Api\\obj\\",
+        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
-                "projectPath": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
+              "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
+                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
               },
-              "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
-                "projectPath": "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj"
+              "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
+                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj"
               }
             }
           }
@@ -121,14 +121,14 @@
         }
       }
     },
-    "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
+    "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
+        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
         "projectName": "Hospital.Application",
-        "projectPath": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
+        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hospital\\Hospital.Application\\obj\\",
+        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -150,8 +150,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
-                "projectPath": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
+              "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
               }
             }
           }
@@ -178,6 +178,14 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.3.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -212,14 +220,14 @@
         }
       }
     },
-    "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+    "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
         "projectName": "Hospital.Domen",
-        "projectPath": "D:\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hospital\\Hospital.Domen\\obj\\",
+        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -277,14 +285,14 @@
         }
       }
     },
-    "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
+    "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
+        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
         "projectName": "Hospital.Infrastructure",
-        "projectPath": "D:\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
+        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Hospital\\Hospital.Infrastructure\\obj\\",
+        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -306,8 +314,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
-                "projectPath": "D:\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
+              "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
+                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
               }
             }
           }

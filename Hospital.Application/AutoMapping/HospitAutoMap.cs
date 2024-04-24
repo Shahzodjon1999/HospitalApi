@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Hospital.Application.CQRS.Commands.Creates;
+using Hospital.Application.CQRS.Commands.Updates;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
@@ -65,5 +67,9 @@ public class HospitAutoMap: Profile
         CreateMap<SalaryRequest, Salary>();
 
         CreateMap<AuthRequest, Auth>();
+
+        CreateMap<CreateWorkerCommand, WorkerRequest>();
+
+        CreateMap<UpdateWorkerCommand,WorkerUpdateRequest>();
     }
 }

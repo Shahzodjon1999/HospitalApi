@@ -1,11 +1,12 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Application.InterfaceServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Serilog;
 
 namespace Hospital.Api.Controllers;
-
+[Authorize]
 [ApiController]
 public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : ControllerBase where TRequest:EntityBaseRequest where  TUpdateRequest:EntityBaseUpdateRequest where TResponse:EntityBaseResponse
 {
@@ -23,8 +24,8 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
         {
             var getAll = _doctorService.GetAll();
             Log.Information("In the method GetAll() result=>{@getAll}", getAll);
-            if (getAll is not null)          
-               return Ok(getAll);
+            if (getAll is not null)
+                return Ok(getAll);
             return Ok("You have not data");
         }
         catch (Exception ex)
@@ -57,12 +58,14 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
     {
         try
         {
+           
+
             Log.Information("In the method Create request=>{@request}", request);
             return _doctorService.Create(request);
         }
         catch (SqlException es)
         {
-            return $"Didn't find Id {request}";
+            return $"Didn't save data {request}";
         }
         catch (Exception ex)
         {

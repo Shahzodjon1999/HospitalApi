@@ -235,7 +235,6 @@ namespace Hospital.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Positions = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AuthId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -246,12 +245,6 @@ namespace Hospital.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Doctors", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Doctors_Auths_AuthId",
-                        column: x => x.AuthId,
-                        principalTable: "Auths",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Doctors_Departments_DepartmentId",
                         column: x => x.DepartmentId,
@@ -310,8 +303,8 @@ namespace Hospital.Infrastructure.Migrations
                 columns: new[] { "Id", "Location", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("70d858da-6b61-4de7-b83c-4e32b8dd0717"), "Абрешим", "Обласной болница" },
-                    { new Guid("f033a69d-3a01-452d-a4d3-0df6409c6511"), "Гулистон", "Гор болница" }
+                    { new Guid("4baf9dce-46ca-448a-a935-7b37e2adc87a"), "Абрешим", "Обласной болница" },
+                    { new Guid("762dc1b2-1266-48f2-abbd-e98191ddcb19"), "Гулистон", "Гор болница" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -344,11 +337,6 @@ namespace Hospital.Infrastructure.Migrations
                 name: "IX_DoctorPatients_PatientId",
                 table: "DoctorPatients",
                 column: "PatientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Doctors_AuthId",
-                table: "Doctors",
-                column: "AuthId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Doctors_DepartmentId",
@@ -385,6 +373,9 @@ namespace Hospital.Infrastructure.Migrations
                 name: "Appointments");
 
             migrationBuilder.DropTable(
+                name: "Auths");
+
+            migrationBuilder.DropTable(
                 name: "DepartmentPatients");
 
             migrationBuilder.DropTable(
@@ -403,16 +394,13 @@ namespace Hospital.Infrastructure.Migrations
                 name: "Patients");
 
             migrationBuilder.DropTable(
-                name: "Auths");
+                name: "Workers");
 
             migrationBuilder.DropTable(
                 name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "Rooms");
-
-            migrationBuilder.DropTable(
-                name: "Workers");
 
             migrationBuilder.DropTable(
                 name: "Branches");

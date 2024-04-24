@@ -18,7 +18,5 @@ public class Doctor : Person
 
     public List<Appointment>? Appointments { get; set; }
 
-    public Guid AuthId { get; set; }
-
-    public Auth? Auth { get; set; }
+    //public Auth? Auth { get; set; }
 }
