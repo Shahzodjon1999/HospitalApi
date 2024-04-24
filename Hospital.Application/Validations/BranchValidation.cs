@@ -9,9 +9,11 @@ public class BranchValidation:AbstractValidator<BranchRequest>
     {
         RuleFor(b => b.Name)
               .NotEmpty().WithMessage("Name is required.")
+              .NotEqual("string").WithMessage("You can not add string")
               .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.");
 
         RuleFor(b => b.Location)
+            .NotEqual("string").WithMessage("You can not add string")
             .NotEmpty().WithMessage("Location is required.")
             .MaximumLength(100).WithMessage("Location cannot exceed 100 characters.");
 

@@ -9,6 +9,7 @@ public class DepartmentValidation:AbstractValidator<DepartmentRequest>
     {
         RuleFor(d => d.Name)
              .NotEmpty().WithMessage("Name is required.")
+             .NotEqual("string").WithMessage("You can not add string")
              .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.");
 
         RuleFor(d => d.BranchID)

@@ -9,6 +9,7 @@ public class FloorValidation:AbstractValidator<FloorRequest>
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Name is required.")
+            .NotEqual("string").WithMessage("You can not add string")
             .NotNull().WithMessage("Name cannot be null.")
             .MinimumLength(3).WithMessage("Name must be at least 3 characters.")
             .MaximumLength(50).WithMessage("Name cannot exceed 50 characters.");

@@ -1,4 +1,8 @@
-﻿using Hospital.Application.InterfaceRepositoryes;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Hospital.Application.Authentication;
+using Hospital.Application.AutoMapping;
+using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
@@ -10,6 +14,10 @@ using Hospital.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Serilog;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 namespace Hospital.Infrastructure;
 
@@ -17,6 +25,15 @@ public static class ConfigurationServices
 {
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
+        //Added AutoMapping
+        services.AddAutoMapper(typeof(HospitAutoMap));
+
+        //addedSwagerConfigure
+        services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+    
+        //adding custom Auth
+        services.AddAuthToken();
+        //Added Sql server connection string
         services.AddDbContext<HospitalContext>(op => op.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
         services.AddScoped<IAppointmentRepository, AppointmentRepository>();
@@ -44,6 +61,39 @@ public static class ConfigurationServices
         services.AddScoped<IGenericService<RoleRequest,RoleUpdateRequest,RoleResponse>, RoleService>();
         services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
         services.AddScoped<AuthService>();
+        return services;
+    }
+
+    public static IServiceCollection AddAppValidation(this IServiceCollection services)
+    {
+        services.AddFluentValidationAutoValidation();
+
+        services.AddValidatorsFromAssembly(typeof(AppointmentRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(AuthRequest).Assembly);
+
+
+        services.AddValidatorsFromAssembly(typeof(BranchRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(DepartmentRequest).Assembly);
+
+
+        services.AddValidatorsFromAssembly(typeof(DoctorRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(FloorRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(HospitalRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(PatientRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(RoleRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(RoomRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(SalaryRequest).Assembly);
+
+        services.AddValidatorsFromAssembly(typeof(WorkerRequest).Assembly);
+
         return services;
     }
 }

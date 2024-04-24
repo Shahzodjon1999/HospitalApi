@@ -3,7 +3,6 @@ using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using NuGet.Common;
 using Serilog;
 
 namespace Hospital.Api.Controllers

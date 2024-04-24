@@ -1,4 +1,5 @@
-﻿using Hospital.Application.InterfaceServices;
+﻿using FluentValidation;
+using Hospital.Application.InterfaceServices;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
@@ -9,7 +10,7 @@ namespace Hospital.Api.Controllers;
 [Route("api/[controller]")]
 public class RoomController : BaseController<RoomRequest,RoomUpdateRequest,RoomResponse>
 {
-    public RoomController(IGenericService<RoomRequest,RoomUpdateRequest,RoomResponse> service):base(service)
+    public RoomController(IGenericService<RoomRequest, RoomUpdateRequest, RoomResponse> service) : base(service)
     {
         
     }

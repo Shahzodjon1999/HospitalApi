@@ -59,3 +59,69 @@
 2024-04-21 13:28:28.561 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
 2024-04-21 15:24:44.717 +05:00 [INF] In the method GetAll() result=>[{"FirstName":"Shahzodjon","LastName":"Jonizoqov","PhoneNumber":"+992927758499","Address":"Khujand","DateOfBirth":"2024-04-21T08:09:56.3670000","DateRegister":"2024-04-21T08:09:56.3670000","Maney":15000,"Role":"Admin","Id":"5a8f907d-4eff-4ce1-a899-a56fb93d3fc9","$type":"WorkerResponse"}]
 2024-04-21 15:25:30.379 +05:00 [INF] In the method GetAll() result=>[]
+2024-04-21 16:17:04.334 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 16:17:21.705 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 16:17:30.844 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Branch, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Hospital, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.BranchResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 16:17:50.256 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Department, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[System.Collections.Generic.List`1[[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.DepartmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 16:20:53.292 +05:00 [INF] In the method GetAll() result=>[]
+2024-04-21 16:25:33.243 +05:00 [INF] In the method GetAll() result=>[]
+2024-04-21 16:33:31.592 +05:00 [INF] In the method GetAll() result=>[]
+2024-04-21 16:34:33.493 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 16:38:25.820 +05:00 [INF] In the method Create request=>{"Name":"Филяли Балницаи калон ","Location":"Panjakent","HospitalID":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"BranchRequest"}
+2024-04-21 16:39:07.810 +05:00 [INF] In the method Create request=>{"Name":"Департамент 1","BranchID":"7a3d2561-dda0-4415-987d-4b30856cda35","$type":"DepartmentRequest"}
+2024-04-21 16:40:38.355 +05:00 [INF] In the method Create request=>{"FirstName":"Чонизоков","LastName":"Шаходчон","PhoneNumber":"+992927758499","Address":"Панчакент","DateOfBirth":"2024-04-21T11:39:31.4760000Z","DateRegister":"2024-04-21T11:39:31.4760000Z","Positions":"Херург","DepartmentId":"46b9a28c-2546-4cb6-8e56-89f3a3436d9a","$type":"DoctorRequest"}
+2024-04-21 16:40:38.448 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-21 16:41:20.382 +05:00 [INF] In the method Create request=>{"FirstName":"Чонизоков","LastName":"Шаходчон","PhoneNumber":"+992927758499","Address":"Панчакент","DateOfBirth":"2024-04-21T11:39:31.4760000Z","DateRegister":"2024-04-21T11:39:31.4760000Z","Positions":"Херург","DepartmentId":"46b9a28c-2546-4cb6-8e56-89f3a3436d9a","$type":"DoctorRequest"}
+2024-04-21 16:41:20.391 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-21 16:53:02.936 +05:00 [INF] In the method Create request=>{"FirstName":"Чонизоков","LastName":"Шаходчон","PhoneNumber":"+992927758499","Address":"Панчакент","DateOfBirth":"2024-04-21T11:39:31.4760000Z","DateRegister":"2024-04-21T11:39:31.4760000Z","Positions":"Херург","DepartmentId":"46b9a28c-2546-4cb6-8e56-89f3a3436d9a","$type":"DoctorRequest"}
+2024-04-21 16:53:03.016 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-21 16:53:05.337 +05:00 [INF] In the method Create request=>{"FirstName":"Чонизоков","LastName":"Шаходчон","PhoneNumber":"+992927758499","Address":"Панчакент","DateOfBirth":"2024-04-21T11:39:31.4760000Z","DateRegister":"2024-04-21T11:39:31.4760000Z","Positions":"Херург","DepartmentId":"46b9a28c-2546-4cb6-8e56-89f3a3436d9a","$type":"DoctorRequest"}
+2024-04-21 16:53:05.343 +05:00 [ERR] You have Error In the method Create()=>An error occurred while saving the entity changes. See the inner exception for details.
+2024-04-21 17:10:20.437 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:10:24.290 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 17:11:03.923 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:11:36.279 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:11:46.378 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:11:59.904 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 17:20:45.059 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:21:15.464 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:21:41.168 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 17:22:25.634 +05:00 [INF] In the method GetAll() result=>[{"Name":"Гор болница","Location":"Гулистон","Id":"f033a69d-3a01-452d-a4d3-0df6409c6511","$type":"HospitalResponse"},{"Name":"Обласной болница","Location":"Абрешим","Id":"70d858da-6b61-4de7-b83c-4e32b8dd0717","$type":"HospitalResponse"}]
+2024-04-21 17:34:41.335 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+2024-04-21 17:35:38.576 +05:00 [ERR] You have Error In the method GetAll()=>Error mapping types.
+
+Mapping types:
+IncludableQueryable`2 -> IEnumerable`1
+Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions+IncludableQueryable`2[[Hospital.Domen.Model.Appointment, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[Hospital.Domen.Model.Doctor, Hospital.Domen, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.IEnumerable`1[[Hospital.Application.ResponseModel.AppointmentResponse, Hospital.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]

@@ -1,4 +1,5 @@
-﻿using Hospital.Application.InterfaceServices;
+﻿using FluentValidation;
+using Hospital.Application.InterfaceServices;
 using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;

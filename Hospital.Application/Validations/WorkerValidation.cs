@@ -9,6 +9,7 @@ public class WorkerValidation:AbstractValidator<WorkerRequest>
     {
         RuleFor(w => w.FirstName)
             .NotEmpty().WithMessage("First name is required.")
+            .NotEqual("string").WithMessage("You can not add string")
             .NotNull().WithMessage("First name cannot be null.")
             .MinimumLength(3).WithMessage("First name must be at least 3 characters.")
             .MaximumLength(50).WithMessage("First name cannot exceed 50 characters.");
@@ -16,6 +17,7 @@ public class WorkerValidation:AbstractValidator<WorkerRequest>
         RuleFor(w => w.LastName)
             .NotEmpty().WithMessage("Last name is required.")
             .NotNull().WithMessage("Last name cannot be null.")
+            .NotEqual("string").WithMessage("You can not add string")
             .MinimumLength(3).WithMessage("Last name must be at least 3 characters.")
             .MaximumLength(50).WithMessage("Last name cannot exceed 50 characters.");
 
@@ -27,6 +29,7 @@ public class WorkerValidation:AbstractValidator<WorkerRequest>
         RuleFor(w => w.Address)
             .NotEmpty().WithMessage("Address is required.")
             .NotNull().WithMessage("Address cannot be null.")
+            .NotEqual("string").WithMessage("You can not add string")
             .MinimumLength(3).WithMessage("Address must be at least 3 characters.")
             .MaximumLength(100).WithMessage("Address cannot exceed 100 characters.");
 
