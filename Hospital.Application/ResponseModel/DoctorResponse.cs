@@ -1,5 +1,4 @@
 ﻿using Hospital.Application.Entity;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.ResponseModel;
 
@@ -18,8 +17,6 @@ public record DoctorResponse:EntityBaseResponse
     public DateTime DateRegister { get; set; }
 
     public string Positions { get; set; } = string.Empty;
-
-    public Department? Department { get; set; }
 
     public string DepartmentName { get; set; }=string.Empty;
 }

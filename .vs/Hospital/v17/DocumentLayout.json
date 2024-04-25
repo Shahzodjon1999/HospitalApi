@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\ITRunProjects\\Hospital\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|d:\\itrunprojects\\hospital\\hospital.api\\controllers\\workercqrscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|solutionrelative:hospital.api\\controllers\\workercqrscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|d:\\itrunprojects\\hospital\\hospital.application\\cqrs\\handlers\\deleteworkercommandhendler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|solutionrelative:hospital.application\\cqrs\\handlers\\deleteworkercommandhendler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|d:\\itrunprojects\\hospital\\hospital.application\\services\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|solutionrelative:hospital.application\\services\\workerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|d:\\itrunprojects\\hospital\\hospital.application\\cqrs\\handlers\\createworkercommandhendler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|solutionrelative:hospital.application\\cqrs\\handlers\\createworkercommandhendler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|d:\\itrunprojects\\hospital\\hospital.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|solutionrelative:hospital.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +14,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Hospital.Api\\Program.cs",
+              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Program.cs",
+              "RelativeToolTip": "Hospital.Api\\Program.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAgwBoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T05:13:06.935Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -41,56 +42,8 @@
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkerService.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Services\\WorkerService.cs",
-              "RelativeDocumentMoniker": "Hospital.Application\\Services\\WorkerService.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Services\\WorkerService.cs",
-              "RelativeToolTip": "Hospital.Application\\Services\\WorkerService.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAIAzwCQAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T17:23:33.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeleteWorkerCommandHendler.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\CQRS\\Handlers\\DeleteWorkerCommandHendler.cs",
-              "RelativeDocumentMoniker": "Hospital.Application\\CQRS\\Handlers\\DeleteWorkerCommandHendler.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\CQRS\\Handlers\\DeleteWorkerCommandHendler.cs",
-              "RelativeToolTip": "Hospital.Application\\CQRS\\Handlers\\DeleteWorkerCommandHendler.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAUwBUAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T17:18:30.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WorkerCQRSController.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\WorkerCQRSController.cs",
-              "RelativeDocumentMoniker": "Hospital.Api\\Controllers\\WorkerCQRSController.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\WorkerCQRSController.cs",
-              "RelativeToolTip": "Hospital.Api\\Controllers\\WorkerCQRSController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAUwDkAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T17:09:52.386Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateWorkerCommandHendler.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\CQRS\\Handlers\\CreateWorkerCommandHendler.cs",
-              "RelativeDocumentMoniker": "Hospital.Application\\CQRS\\Handlers\\CreateWorkerCommandHendler.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\CQRS\\Handlers\\CreateWorkerCommandHendler.cs",
-              "RelativeToolTip": "Hospital.Application\\CQRS\\Handlers\\CreateWorkerCommandHendler.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAawBsAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T17:09:52.403Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
