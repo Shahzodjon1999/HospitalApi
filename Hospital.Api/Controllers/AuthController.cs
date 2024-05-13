@@ -1,6 +1,7 @@
 ﻿using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Serilog;
@@ -47,7 +48,7 @@ namespace Hospital.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<string>> Create([FromBody] AuthRequest userRequest)
         {

@@ -68,6 +68,11 @@ public class HospitAutoMap: Profile
 
         CreateMap<AuthRequest, Auth>();
 
+        CreateMap<Position, PositionResponse>();
+        CreateMap<PositionUpdateRequest, Position>();
+        CreateMap<PositionRequest, Position>();
+
+
         CreateMap<CreateWorkerCommand, WorkerRequest>();
 
         CreateMap<UpdateWorkerCommand,WorkerUpdateRequest>();

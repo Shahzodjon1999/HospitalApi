@@ -48,6 +48,7 @@ public static class ConfigurationServices
         services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<ISalaryRepository, SalaryRepository>();
+        services.AddScoped<IPositionRepository, PositionRepository>();
 
         services.AddScoped<IGenericService<DoctorRequest,DoctorUpdateRequest,DoctorResponse>, DoctorService>();
         services.AddScoped<IGenericService<HospitalRequest,HospitalUpdateRequest,HospitalResponse>, HospitalService>();
@@ -60,6 +61,7 @@ public static class ConfigurationServices
         services.AddScoped<IGenericService<RoomRequest,RoomUpdateRequest,RoomResponse>, RoomService>();
         services.AddScoped<IGenericService<RoleRequest,RoleUpdateRequest,RoleResponse>, RoleService>();
         services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
+        services.AddScoped<IGenericService<PositionRequest, PositionUpdateRequest, PositionResponse>, PositionService>();
         services.AddScoped<AuthService>();
         return services;
     }

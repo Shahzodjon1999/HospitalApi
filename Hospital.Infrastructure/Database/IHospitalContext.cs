@@ -1,12 +1,12 @@
 ﻿using Hospital.Domen.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Data;
 
 namespace Hospital.Infrastructure.Database;
 
 public interface IHospitalContext
 {
     DbSet<Salary> Salarys { get; }
+    DbSet<Position> Positions { get; }
     DbSet<Auth> Auths { get; set; }
     DbSet<Domen.Model.Hospital> Hospitals { get; set; }
 
@@ -25,10 +25,6 @@ public interface IHospitalContext
     DbSet<Room> Rooms { get; set; }
 
     DbSet<Department> Departments { get; set; }
-
-    DbSet<DoctorPatient> DoctorPatients { get; set; }
-
-    DbSet<DepartmentPatient> DepartmentPatients { get; set; }
 
     DbSet<Role> Roles { get; set; }
 }

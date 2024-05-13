@@ -13,10 +13,5 @@ public class Doctor : Person
     [JsonIgnore]
     public Guid DepartmentId { get; set; }
 
-    [JsonIgnore]
-    public List<DoctorPatient>? DoctorPatients { get; set; }
-
     public List<Appointment>? Appointments { get; set; }
-
-    //public Auth? Auth { get; set; }
 }

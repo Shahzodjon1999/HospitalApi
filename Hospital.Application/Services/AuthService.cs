@@ -31,16 +31,18 @@ public class AuthService
     {
         var user = _repository.GetAll().FirstOrDefault(k => k.RefreshToken==refreshToken);
 
-        return await GeneratedJWt(user);
-
+        if (user is null)
+        {
+            throw new ArgumentException("Invalid Login and Password");
+        }
+        else
+        {
+            return await GeneratedJWt(user);
+        }
     }
 
     private async Task<AuthSessionToken> GeneratedJWt(Auth user)
     {
-        if (user is null)
-            throw new ArgumentException("Invalid Login and Password");
-        if (user is null) throw new ArgumentException("User doesn't have access to login");
-
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name,user.Login),

@@ -12,6 +12,8 @@ public record WorkerRequest : EntityBaseRequest
 
 	public string Address { get; set; } = string.Empty;
 
+	public Guid PositionId { get; set; }
+
 	public DateTime DateOfBirth { get; set; }
 
 	public DateTime DateRegister { get; set; }

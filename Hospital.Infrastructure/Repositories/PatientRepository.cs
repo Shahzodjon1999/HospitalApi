@@ -17,6 +17,6 @@ public class PatientRepository:BaseRepository<Patient>,IPatientRepository
 
     public override IQueryable<Patient> GetAll()
     {
-        return _context.Patients.Include(d => d.DoctorPatients).Include(d => d.DepartmentPatients);
+        return _context.Patients;
     }
 }

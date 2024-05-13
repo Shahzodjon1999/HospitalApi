@@ -2,6 +2,6 @@
 
 public enum PatientStatus
 {
-	SahtKasal,
-	SahtNe,
+    Mail,
+    Femail,
 }

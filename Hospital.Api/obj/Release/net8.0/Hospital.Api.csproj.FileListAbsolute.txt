@@ -819,3 +819,12 @@ D:\ITRunProjects\Hospital\Hospital.Api\obj\Release\net8.0\refint\Hospital.Api.dl
 D:\ITRunProjects\Hospital\Hospital.Api\obj\Release\net8.0\Hospital.Api.pdb
 D:\ITRunProjects\Hospital\Hospital.Api\obj\Release\net8.0\Hospital.Api.genruntimeconfig.cache
 D:\ITRunProjects\Hospital\Hospital.Api\obj\Release\net8.0\ref\Hospital.Api.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\MediatR.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\MediatR.Contracts.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.AspNetCore.OData.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.OData.Core.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.OData.Edm.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.OData.ModelBuilder.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.OpenApi.OData.Reader.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Microsoft.Spatial.dll
+D:\ITRunProjects\Hospital\Hospital.Api\bin\Release\net8.0\Swashbuckle.AspNetCore.Community.OData.dll

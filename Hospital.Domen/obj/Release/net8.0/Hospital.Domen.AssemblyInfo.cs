@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hospital.Domen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+353997ca72b7f2c39d4f31c419d0fdfefd6f44f0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bd3eb8c82428599dff959876c2e1b43fd4f3894")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hospital.Domen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hospital.Domen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
