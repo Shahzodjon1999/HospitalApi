@@ -17,23 +17,19 @@ public class HospitAutoMap: Profile
         CreateMap<HospitalUpdateRequest, Domen.Model.Hospital>();
         CreateMap<Domen.Model.Hospital, HospitalResponse>();
 
-        CreateMap<Appointment, AppointmentResponse>()
-            .ForMember(d=>d.DoctorName, d1=>d1.MapFrom(d=>d.Doctor.FirstName));
+        CreateMap<Appointment, AppointmentResponse>();
         CreateMap<AppointmentUpdateRequest, Appointment>();
         CreateMap<AppointmentRequest, Appointment>();
 
-        CreateMap<Branch, BranchResponse>()
-            .ForMember(h=>h.HospitalName,h=>h.MapFrom(h=>h.HospitalModel.Name));
+        CreateMap<Branch, BranchResponse>();
         CreateMap<BranchUpdateRequest, Branch>();
         CreateMap<BranchRequest, Branch>();
 
-        CreateMap<Department, DepartmentResponse>()
-            .ForMember(b => b.BranchName, b => b.MapFrom(b => b.Branch.Name));
+        CreateMap<Department, DepartmentResponse>();
         CreateMap<DepartmentUpdateRequest, Department>();
         CreateMap<DepartmentRequest, Department>();
 
-        CreateMap<Doctor, DoctorResponse>()
-            .ForMember(d => d.DepartmentName, n => n.MapFrom(d => d.Department.Name));
+        CreateMap<Doctor, DoctorResponse>();
         CreateMap<DoctorUpdateRequest, Doctor>();
         CreateMap<DoctorRequest, Doctor>();
 
@@ -46,14 +42,11 @@ public class HospitAutoMap: Profile
         CreateMap<PatientUpdateRequest, Patient>();
         CreateMap<PatientRequest, Patient>();
 
-        CreateMap<Room, RoomResponse>()
-            .ForMember(n=>n.FloorNumber, f=>f.MapFrom(n=>n.Floor.FloorNumber));
+        CreateMap<Room, RoomResponse>();
         CreateMap<RoomUpdateRequest, Room>();
         CreateMap<RoomRequest, Room>();
 
-        CreateMap<Worker, WorkerResponse>()
-            .ForMember(n => n.Maney, m => m.MapFrom(m => m.Salary.Amount))
-            .ForMember(n => n.Role, m => m.MapFrom(m => m.Role.Name));  
+        CreateMap<Worker, WorkerResponse>();
         CreateMap<WorkerUpdateRequest, Worker>()
             .ForMember(dest => dest.DateRegister, opt => opt.Ignore());
         CreateMap<WorkerRequest, Worker>();

@@ -17,6 +17,4 @@ public record DoctorResponse:EntityBaseResponse
     public DateTime DateRegister { get; set; }
 
     public string Positions { get; set; } = string.Empty;
-
-    public string DepartmentName { get; set; }=string.Empty;
 }

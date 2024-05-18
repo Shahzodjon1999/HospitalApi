@@ -98,6 +98,7 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 			return "Patient is not found";
 		}
 		var mapPatient = _mapper.Map<Patient>(patient);
+		mapPatient.RoomID = _item.RoomID;
 		_repository.Update(mapPatient);
 		return "Patient is updated";
 	}

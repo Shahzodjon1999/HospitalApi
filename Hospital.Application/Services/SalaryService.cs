@@ -99,6 +99,7 @@ public class SalaryService : IGenericService<SalaryRequest, SalaryUpdateRequest,
                 return "Salary is not found";
             }
             var mapSalary = _mapper.Map<Salary>(item);
+            mapSalary.WorkerId = _item.WorkerId;
             _repository.Update(mapSalary);
             return "Salary is updated";
         }

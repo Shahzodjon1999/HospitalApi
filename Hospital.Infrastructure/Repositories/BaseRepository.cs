@@ -75,16 +75,16 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : EntityBas
 		
 	}
 
-	public bool Update(T item)
+	public virtual bool Update(T item)
 	{
 		try
 		{
-            var itemResult = GetById(item.Id);
+			var itemResult = GetById(item.Id);
 
-            _context.Entry(itemResult).State = EntityState.Detached;
-            item.Id = item.Id;
-            _context.Entry(item).State = EntityState.Modified;
-            _context.SaveChanges();
+			_context.Entry(itemResult).State = EntityState.Detached;
+			item.Id = item.Id;
+			_context.Entry(item).State = EntityState.Modified;
+			_context.SaveChanges();
 
             return true;
         }

@@ -46,7 +46,6 @@ public static class AppointmentMap
             {
                 Id = item.Id,
 				Name= item.Name,
-                DoctorName=item.Doctor.FirstName,
                 AppointmentDate=item.AppointmentDate,
             };
             appointmentlist.Add(result);

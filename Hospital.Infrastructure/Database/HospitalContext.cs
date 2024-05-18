@@ -1,5 +1,4 @@
-﻿using Hospital.Application.Mapping;
-using Hospital.Domen.Abstract;
+﻿using Hospital.Domen.Abstract;
 using Hospital.Domen.Model;
 using Microsoft.EntityFrameworkCore;
 

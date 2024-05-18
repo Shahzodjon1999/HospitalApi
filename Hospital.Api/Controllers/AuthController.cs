@@ -48,7 +48,6 @@ namespace Hospital.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<string>> Create([FromBody] AuthRequest userRequest)
         {

@@ -102,6 +102,7 @@ public class RoleService : IGenericService<RoleRequest, RoleUpdateRequest, RoleR
                 return "Role is not found";
             }
             var mapToAppointment = _mapper.Map<Role>(item);
+            mapToAppointment.WorkerId = _item.WorkerId;
             _repository.Update(mapToAppointment);
             return "Role is updated";
         }

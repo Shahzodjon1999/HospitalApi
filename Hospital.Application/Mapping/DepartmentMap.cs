@@ -31,7 +31,6 @@ public static class DepartmentMap
 		return new DepartmentResponse
         {
 			Id = item.Id,
-            BranchName=item.Branch.Name,
 			Name= item.Name,
 		};
 	}
@@ -43,7 +42,6 @@ public static class DepartmentMap
             var result = new DepartmentResponse
             {
                 Id = item.Id,
-                BranchName = item.Branch.Name,
                 Name = item.Name,
             };
             departmentlist.Add(result);

@@ -21,7 +21,7 @@ public static class FloorMap
         return new Floor
         {
             Id = request.Id,
-            FloorNumber = request.FloorId,
+            FloorNumber = request.FloorNumber,
             Name = request.Name,
         };
     }

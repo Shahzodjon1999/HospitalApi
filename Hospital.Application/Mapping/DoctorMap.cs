@@ -2,7 +2,6 @@
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Domen.Model;
-using System.Numerics;
 
 namespace Hospital.Application.Mapping;
 
@@ -51,7 +50,6 @@ public static class DoctorMap
             DateRegister = doctor.DateRegister,
             PhoneNumber = doctor.PhoneNumber,
             Positions =doctor.Positions,
-            DepartmentName=doctor.Department.Name
 		};
 	}
     public static IEnumerable<DoctorResponse> MapToDoctorResponsList(this IQueryable<Doctor> branches)
@@ -68,8 +66,7 @@ public static class DoctorMap
                 DateOfBirth = item.DateOfBirth,
                 DateRegister = item.DateRegister,
                 PhoneNumber = item.PhoneNumber,
-                Positions = item.Positions,
-                DepartmentName = item.Department.Name
+                Positions = item.Positions
             };
             departmentlist.Add(result);
         }

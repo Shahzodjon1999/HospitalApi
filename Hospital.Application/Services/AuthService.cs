@@ -54,7 +54,7 @@ public class AuthService
             issuer:AuthOptions.Issuer,
             audience:AuthOptions.Audience,
             claims:claims,
-            expires:DateTime.UtcNow.Add(TimeSpan.FromMinutes(AuthOptions.lifeTime)),
+            expires:DateTime.Now.Add(TimeSpan.FromMinutes(AuthOptions.lifeTime)),
             signingCredentials:new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),SecurityAlgorithms.HmacSha256));
    
         var accessToken = new JwtSecurityTokenHandler().WriteToken(jwt);
