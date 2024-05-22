@@ -15,9 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Serilog;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
+using Swashbuckle.AspNetCore.SwaggerGen; 
 
 namespace Hospital.Infrastructure;
 
@@ -49,6 +47,7 @@ public static class ConfigurationServices
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<ISalaryRepository, SalaryRepository>();
         services.AddScoped<IPositionRepository, PositionRepository>();
+        services.AddScoped<IClientRepository, ClientRepository>();
 
         services.AddScoped<IGenericService<DoctorRequest,DoctorUpdateRequest,DoctorResponse>, DoctorService>();
         services.AddScoped<IGenericService<HospitalRequest,HospitalUpdateRequest,HospitalResponse>, HospitalService>();
@@ -62,7 +61,9 @@ public static class ConfigurationServices
         services.AddScoped<IGenericService<RoleRequest,RoleUpdateRequest,RoleResponse>, RoleService>();
         services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
         services.AddScoped<IGenericService<PositionRequest, PositionUpdateRequest, PositionResponse>, PositionService>();
+        services.AddScoped<IGenericService<ClientRequest, ClientUpdateRequest, ClientResponse>, ClientService>();
         services.AddScoped<AuthService>();
+        services.AddScoped<ClientService>();
         return services;
     }
 

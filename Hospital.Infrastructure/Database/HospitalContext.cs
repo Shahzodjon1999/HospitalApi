@@ -157,4 +157,5 @@ public class HospitalContext : DbContext, IHospitalContext
     public DbSet<Salary> Salarys { get; set; }
 
     public DbSet<Role> Roles { get; set; }
+    public DbSet<Client> Clients { get; set; }
 }

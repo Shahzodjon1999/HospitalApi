@@ -65,6 +65,9 @@ public class HospitAutoMap: Profile
         CreateMap<PositionUpdateRequest, Position>();
         CreateMap<PositionRequest, Position>();
 
+        CreateMap<Client, ClientResponse>();
+        CreateMap<ClientUpdateRequest, Client>();
+        CreateMap<ClientRequest, Client>();
 
         CreateMap<CreateWorkerCommand, WorkerRequest>();
 

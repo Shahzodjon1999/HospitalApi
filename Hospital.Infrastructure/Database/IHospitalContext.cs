@@ -5,8 +5,9 @@ namespace Hospital.Infrastructure.Database;
 
 public interface IHospitalContext
 {
-    DbSet<Salary> Salarys { get; }
-    DbSet<Position> Positions { get; }
+    DbSet<Client> Clients { get; set; }
+    DbSet<Salary> Salarys { get; set; }
+    DbSet<Position> Positions { get; set; }
     DbSet<Auth> Auths { get; set; }
     DbSet<Domen.Model.Hospital> Hospitals { get; set; }
 

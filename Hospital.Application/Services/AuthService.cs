@@ -13,18 +13,32 @@ namespace Hospital.Application.Services;
 public class AuthService 
 {
     private readonly IAuthRepository _repository;
+    private readonly IClientRepository _clientrepository;
+
     private readonly IMapper _mapper;
-    public AuthService(IAuthRepository repository, IMapper mapper)
+    public AuthService(IClientRepository clientrepository,IAuthRepository repository, IMapper mapper)
     {
         _repository = repository;
+        _clientrepository = clientrepository;
         _mapper = mapper;
     }
 
     public async Task<AuthSessionToken> Login(string login,string password)
     {
-        var user = _repository.GetAll().FirstOrDefault(k=>k.Login==login && k.Password==password);
+        var authWorker = _repository.GetAll().FirstOrDefault(k=>k.Login==login && k.Password==password);
+        if (authWorker != null)
+        {
+            return await GeneratedJWt(authWorker);
+        }
 
-        return await GeneratedJWt(user);
+        var authClient = _clientrepository.GetAll().FirstOrDefault(k => k.Login == login && k.Password == password);
+        
+        if (authClient != null)
+        {
+            return await GeneratedJWtForClient(authClient);
+        }
+
+        return null;
     }
 
     public async Task<AuthSessionToken> RefreshToken(string refreshToken)
@@ -69,7 +83,33 @@ public class AuthService
             RefreshToken = refreshToken
         };
     }
-  
+    private async Task<AuthSessionToken> GeneratedJWtForClient(Client user)
+    {
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name,user.Login),
+            new Claim("Id",user.Id.ToString()),
+        };
+
+        var jwt = new JwtSecurityToken(
+            issuer: AuthOptions.Issuer,
+            audience: AuthOptions.Audience,
+            claims: claims,
+            expires: DateTime.Now.Add(TimeSpan.FromMinutes(AuthOptions.lifeTime)),
+            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+
+        var accessToken = new JwtSecurityTokenHandler().WriteToken(jwt);
+        var refreshToken = Guid.NewGuid().ToString();
+
+        user.RefreshToken = refreshToken;
+        _clientrepository.Update(user);
+        return new AuthSessionToken
+        {
+            AccessToken = accessToken,
+            Role = "Client",
+            RefreshToken = refreshToken
+        };
+    }
     public string Create(AuthRequest auth)
     {
         if (string.IsNullOrEmpty(auth.Login))

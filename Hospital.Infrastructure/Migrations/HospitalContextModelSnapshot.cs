@@ -34,7 +34,19 @@ namespace Hospital.Infrastructure.Migrations
                     b.Property<Guid>("DoctorId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -79,12 +91,12 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("137b90fd-78d1-4e51-b782-71211a89d6f4"),
+                            Id = new Guid("5bd12d15-4a1c-4f4a-af0e-42ba914dc5b3"),
                             IsBlocked = false,
                             Login = "SupperAdmin123",
                             Password = "!@#123#@!",
                             RefreshToken = "",
-                            WorkerId = new Guid("ddf1c710-c42b-4900-b985-973d96c4f5b8")
+                            WorkerId = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51")
                         });
                 });
 
@@ -110,6 +122,55 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasIndex("HospitalID");
 
                     b.ToTable("Branches");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.Client", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateRegister")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Department", b =>
@@ -218,13 +279,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3fca271d-4f3b-4809-9980-42582a0e4c6d"),
+                            Id = new Guid("b3740b9b-38dd-417e-9fd0-01ddcc10a6ce"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("57f9270b-7183-4c4a-957b-ef4872599501"),
+                            Id = new Guid("3cff9e1f-717a-42be-a061-c13dbfa6d2cf"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -292,7 +353,7 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("59acaabf-040a-4da1-a1f8-94f791abeee9"),
+                            Id = new Guid("b2bd64c3-e072-4982-b399-a272ce786635"),
                             Name = "Admin"
                         });
                 });
@@ -320,9 +381,9 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1bddbe1b-bc07-4a6b-8ce7-780829183236"),
+                            Id = new Guid("f8b70e5a-bca6-493d-8e6d-d595cb844dd6"),
                             Name = "Admin",
-                            WorkerId = new Guid("ddf1c710-c42b-4900-b985-973d96c4f5b8")
+                            WorkerId = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51")
                         });
                 });
 
@@ -411,14 +472,14 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ddf1c710-c42b-4900-b985-973d96c4f5b8"),
+                            Id = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51"),
                             Address = "Panjakent",
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateRegister = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Shahzodjon",
                             LastName = "Jonizoqov",
                             PhoneNumber = "+992927758499",
-                            PositionId = new Guid("59acaabf-040a-4da1-a1f8-94f791abeee9")
+                            PositionId = new Guid("b2bd64c3-e072-4982-b399-a272ce786635")
                         });
                 });
 

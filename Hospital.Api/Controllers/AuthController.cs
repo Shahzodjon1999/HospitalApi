@@ -25,7 +25,10 @@ namespace Hospital.Api.Controllers
             try
             {
                 AuthSessionToken token = await _authService.Login(request.Username,request.Password);
-               
+                if (token == null)
+                {
+                    return Unauthorized();
+                }
                 return Ok(token);
             }
             catch (Exception ex)
@@ -65,7 +68,6 @@ namespace Hospital.Api.Controllers
                 Log.Error("You have Error In the method Create()=>{@ex}", ex.Message);
                 throw new Exception($"You have exception:{ex.Message} in the Method Create");
             }
-        }
-         
+        }         
     }
 }

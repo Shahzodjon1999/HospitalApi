@@ -412,3 +412,358 @@ GO
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Auths]
+    WHERE [Id] = ''137b90fd-78d1-4e51-b782-71211a89d6f4'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Hospitals]
+    WHERE [Id] = ''3fca271d-4f3b-4809-9980-42582a0e4c6d'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Hospitals]
+    WHERE [Id] = ''57f9270b-7183-4c4a-957b-ef4872599501'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Roles]
+    WHERE [Id] = ''1bddbe1b-bc07-4a6b-8ce7-780829183236'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Workers]
+    WHERE [Id] = ''ddf1c710-c42b-4900-b985-973d96c4f5b8'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Positions]
+    WHERE [Id] = ''59acaabf-040a-4da1-a1f8-94f791abeee9'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    ALTER TABLE [Appointments] ADD [Email] nvarchar(max) NOT NULL DEFAULT N'';
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    ALTER TABLE [Appointments] ADD [PhoneNumber] nvarchar(max) NOT NULL DEFAULT N'';
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    ALTER TABLE [Appointments] ADD [lastName] nvarchar(max) NOT NULL DEFAULT N'';
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
+        SET IDENTITY_INSERT [Hospitals] ON;
+    EXEC(N'INSERT INTO [Hospitals] ([Id], [Location], [Name])
+    VALUES (''411ef03d-ae2d-49d9-b199-109feb3ed48f'', N''Абрешим'', N''Обласной болница''),
+    (''cc240972-dee2-4bcf-a09a-928bd3e49485'', N''Гулистон'', N''Гор болница'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
+        SET IDENTITY_INSERT [Hospitals] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Positions]'))
+        SET IDENTITY_INSERT [Positions] ON;
+    EXEC(N'INSERT INTO [Positions] ([Id], [Name])
+    VALUES (''b65015d7-1718-4370-bb28-e74d3802d6e0'', N''Admin'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Positions]'))
+        SET IDENTITY_INSERT [Positions] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DateOfBirth', N'DateRegister', N'FirstName', N'LastName', N'PhoneNumber', N'PositionId') AND [object_id] = OBJECT_ID(N'[Workers]'))
+        SET IDENTITY_INSERT [Workers] ON;
+    EXEC(N'INSERT INTO [Workers] ([Id], [Address], [DateOfBirth], [DateRegister], [FirstName], [LastName], [PhoneNumber], [PositionId])
+    VALUES (''4864f4cd-4c2d-4258-ad24-ab363f3e063d'', N''Panjakent'', ''0001-01-01T00:00:00.0000000'', ''0001-01-01T00:00:00.0000000'', N''Shahzodjon'', N''Jonizoqov'', N''+992927758499'', ''b65015d7-1718-4370-bb28-e74d3802d6e0'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DateOfBirth', N'DateRegister', N'FirstName', N'LastName', N'PhoneNumber', N'PositionId') AND [object_id] = OBJECT_ID(N'[Workers]'))
+        SET IDENTITY_INSERT [Workers] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsBlocked', N'Login', N'Password', N'RefreshToken', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Auths]'))
+        SET IDENTITY_INSERT [Auths] ON;
+    EXEC(N'INSERT INTO [Auths] ([Id], [IsBlocked], [Login], [Password], [RefreshToken], [WorkerId])
+    VALUES (''841569fd-0659-4d33-8d66-8fe6cccfcc03'', CAST(0 AS bit), N''SupperAdmin123'', N''!@#123#@!'', N'''', ''4864f4cd-4c2d-4258-ad24-ab363f3e063d'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsBlocked', N'Login', N'Password', N'RefreshToken', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Auths]'))
+        SET IDENTITY_INSERT [Auths] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Roles]'))
+        SET IDENTITY_INSERT [Roles] ON;
+    EXEC(N'INSERT INTO [Roles] ([Id], [Name], [WorkerId])
+    VALUES (''e157f1c7-87ce-4b0e-87da-d2bc9eefea1c'', N''Admin'', ''4864f4cd-4c2d-4258-ad24-ab363f3e063d'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Roles]'))
+        SET IDENTITY_INSERT [Roles] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240521171915_AddSecoundMigration'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240521171915_AddSecoundMigration', N'8.0.0');
+END;
+GO
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Auths]
+    WHERE [Id] = ''841569fd-0659-4d33-8d66-8fe6cccfcc03'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Hospitals]
+    WHERE [Id] = ''411ef03d-ae2d-49d9-b199-109feb3ed48f'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Hospitals]
+    WHERE [Id] = ''cc240972-dee2-4bcf-a09a-928bd3e49485'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Roles]
+    WHERE [Id] = ''e157f1c7-87ce-4b0e-87da-d2bc9eefea1c'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Workers]
+    WHERE [Id] = ''4864f4cd-4c2d-4258-ad24-ab363f3e063d'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    EXEC(N'DELETE FROM [Positions]
+    WHERE [Id] = ''b65015d7-1718-4370-bb28-e74d3802d6e0'';
+    SELECT @@ROWCOUNT');
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    CREATE TABLE [Clients] (
+        [Id] uniqueidentifier NOT NULL,
+        [Login] nvarchar(max) NOT NULL,
+        [Password] nvarchar(max) NOT NULL,
+        [Email] nvarchar(max) NOT NULL,
+        [RefreshToken] nvarchar(max) NOT NULL,
+        [FirstName] nvarchar(max) NOT NULL,
+        [LastName] nvarchar(max) NOT NULL,
+        [PhoneNumber] nvarchar(max) NOT NULL,
+        [Address] nvarchar(max) NOT NULL,
+        [DateOfBirth] datetime2 NOT NULL,
+        [DateRegister] datetime2 NOT NULL,
+        CONSTRAINT [PK_Clients] PRIMARY KEY ([Id])
+    );
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
+        SET IDENTITY_INSERT [Hospitals] ON;
+    EXEC(N'INSERT INTO [Hospitals] ([Id], [Location], [Name])
+    VALUES (''3cff9e1f-717a-42be-a061-c13dbfa6d2cf'', N''Гулистон'', N''Гор болница''),
+    (''b3740b9b-38dd-417e-9fd0-01ddcc10a6ce'', N''Абрешим'', N''Обласной болница'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Location', N'Name') AND [object_id] = OBJECT_ID(N'[Hospitals]'))
+        SET IDENTITY_INSERT [Hospitals] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Positions]'))
+        SET IDENTITY_INSERT [Positions] ON;
+    EXEC(N'INSERT INTO [Positions] ([Id], [Name])
+    VALUES (''b2bd64c3-e072-4982-b399-a272ce786635'', N''Admin'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name') AND [object_id] = OBJECT_ID(N'[Positions]'))
+        SET IDENTITY_INSERT [Positions] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DateOfBirth', N'DateRegister', N'FirstName', N'LastName', N'PhoneNumber', N'PositionId') AND [object_id] = OBJECT_ID(N'[Workers]'))
+        SET IDENTITY_INSERT [Workers] ON;
+    EXEC(N'INSERT INTO [Workers] ([Id], [Address], [DateOfBirth], [DateRegister], [FirstName], [LastName], [PhoneNumber], [PositionId])
+    VALUES (''6f253175-a69f-4b28-ac5a-597d40803c51'', N''Panjakent'', ''0001-01-01T00:00:00.0000000'', ''0001-01-01T00:00:00.0000000'', N''Shahzodjon'', N''Jonizoqov'', N''+992927758499'', ''b2bd64c3-e072-4982-b399-a272ce786635'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Address', N'DateOfBirth', N'DateRegister', N'FirstName', N'LastName', N'PhoneNumber', N'PositionId') AND [object_id] = OBJECT_ID(N'[Workers]'))
+        SET IDENTITY_INSERT [Workers] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsBlocked', N'Login', N'Password', N'RefreshToken', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Auths]'))
+        SET IDENTITY_INSERT [Auths] ON;
+    EXEC(N'INSERT INTO [Auths] ([Id], [IsBlocked], [Login], [Password], [RefreshToken], [WorkerId])
+    VALUES (''5bd12d15-4a1c-4f4a-af0e-42ba914dc5b3'', CAST(0 AS bit), N''SupperAdmin123'', N''!@#123#@!'', N'''', ''6f253175-a69f-4b28-ac5a-597d40803c51'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsBlocked', N'Login', N'Password', N'RefreshToken', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Auths]'))
+        SET IDENTITY_INSERT [Auths] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Roles]'))
+        SET IDENTITY_INSERT [Roles] ON;
+    EXEC(N'INSERT INTO [Roles] ([Id], [Name], [WorkerId])
+    VALUES (''f8b70e5a-bca6-493d-8e6d-d595cb844dd6'', N''Admin'', ''6f253175-a69f-4b28-ac5a-597d40803c51'')');
+    IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Name', N'WorkerId') AND [object_id] = OBJECT_ID(N'[Roles]'))
+        SET IDENTITY_INSERT [Roles] OFF;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240522024453_addedClinetMigration'
+)
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240522024453_addedClinetMigration', N'8.0.0');
+END;
+GO
+
+COMMIT;
+GO
+
