@@ -41,6 +41,13 @@ public class HospitAutoMap: Profile
             .ForMember(p => p.RoomNumber, n => n.MapFrom(n => n.Room.RoomNumber));
         CreateMap<PatientUpdateRequest, Patient>();
         CreateMap<PatientRequest, Patient>();
+        CreateMap<Patient, PatientInfoResponse>()
+            .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => src.FirstName+"  "+src.LastName))
+            .ForMember(dest => dest.RoomNumber, opt => opt.MapFrom(src => src.Room.RoomNumber))
+            .ForMember(dest => dest.FloorNumber, opt => opt.MapFrom(src => src.Room.Floor.FloorNumber))
+            .ForMember(dest => dest.DepartmentName, opt => opt.MapFrom(src => src.Room.Floor.Department.Name))
+            .ForMember(dest => dest.BranchName, opt => opt.MapFrom(src => src.Room.Floor.Department.Branch.Name))
+            .ForMember(dest => dest.HospitalName, opt => opt.MapFrom(src => src.Room.Floor.Department.Branch.HospitalModel.Name));
 
         CreateMap<Room, RoomResponse>();
         CreateMap<RoomUpdateRequest, Room>();

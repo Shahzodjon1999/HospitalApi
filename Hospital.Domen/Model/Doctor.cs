@@ -6,8 +6,10 @@ namespace Hospital.Domen.Model;
 public class Doctor : Person
 {
 	public string Positions { get; set; } = string.Empty;
+    public byte[]? Image { get; set; }
+    public string Information { get; set; } = string.Empty;
 
-	[JsonIgnore]
+    [JsonIgnore]
 	public Department? Department { get; set; }
 
     [JsonIgnore]

@@ -61,7 +61,7 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
             Log.Information("In the method Create request=>{@request}", request);
             return _doctorService.Create(request);
         }
-        catch (SqlException es)
+        catch (SqlException)
         {
             return $"Didn't save data {request}";
         }

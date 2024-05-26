@@ -5,28 +5,32 @@ using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.UpdateRequestModel;
 using Hospital.Domen.Model;
+using Twilio.Types;
+using Twilio;
+using Hospital.Application.Sms;
+using System.Security.Policy;
 
 namespace Hospital.Application.Services;
 
 public class AppointmentService : IGenericService<AppointmentRequest, AppointmentUpdateRequest, AppointmentResponse>
 {
-	private readonly IAppointmentRepository _repository;
+    private readonly IAppointmentRepository _repository;
 	private readonly IMapper _mapper;
 
-        public AppointmentService(IAppointmentRepository repository, IMapper mapper) 
-        {
-            _repository = repository;
-            _mapper = mapper;
-        }
+    public AppointmentService(IAppointmentRepository repository, IMapper mapper)
+    {
+        _repository = repository;
+        _mapper = mapper;
+    }
 
-        public string Create(AppointmentRequest item)
-	    {
+    public string Create(AppointmentRequest item)
+	{
 		try
 		{
 			if (item != null)
 			{
 				var getMapAppointment = _mapper.Map<Appointment>(item);
-				_repository.Create(getMapAppointment);
+                _repository.Create(getMapAppointment);
 				return $"Created new item with this ID: {getMapAppointment.Id}";
 			}
 			else
@@ -80,6 +84,7 @@ public class AppointmentService : IGenericService<AppointmentRequest, Appointmen
 				return "Appointment is not found";
 			}
 			var mapToAppointment = _mapper.Map<Appointment>(updateRequest);
+			mapToAppointment.DoctorId = _item.DoctorId;
 			_repository.Update(mapToAppointment);
 			return "Appointment is updated";
 		}
@@ -107,4 +112,17 @@ public class AppointmentService : IGenericService<AppointmentRequest, Appointmen
 			throw;
 		}
 	}
+
+    public void SendSms()
+    {
+		var getClients = _repository.GetAll();
+
+		foreach (var item in getClients)
+		{
+            if (DateTime.Now > item.AppointmentDate.AddMinutes(30))
+            {
+				SmsSender.SendEmail(item.Email, "Доктор шумоя интизор аст", $"Шумо саоти {item.AppointmentDate} ба пеши духтур хозир шавед");
+            }
+        }
+    }
 }

@@ -91,12 +91,12 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5bd12d15-4a1c-4f4a-af0e-42ba914dc5b3"),
+                            Id = new Guid("91384768-2568-4327-b1f5-1e7edf4a51c4"),
                             IsBlocked = false,
                             Login = "SupperAdmin123",
                             Password = "!@#123#@!",
                             RefreshToken = "",
-                            WorkerId = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51")
+                            WorkerId = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5")
                         });
                 });
 
@@ -216,6 +216,13 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Information")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -279,13 +286,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3740b9b-38dd-417e-9fd0-01ddcc10a6ce"),
+                            Id = new Guid("5ef154d6-dab6-4c95-b501-05e88adc827e"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("3cff9e1f-717a-42be-a061-c13dbfa6d2cf"),
+                            Id = new Guid("860bde53-3f9f-4cdc-8741-eeea75ef5b3a"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -353,7 +360,7 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b2bd64c3-e072-4982-b399-a272ce786635"),
+                            Id = new Guid("b669a6d1-278c-42c0-a22d-bf030cc9caf0"),
                             Name = "Admin"
                         });
                 });
@@ -381,9 +388,9 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f8b70e5a-bca6-493d-8e6d-d595cb844dd6"),
+                            Id = new Guid("baca0d9f-835b-4267-a17b-445440256a03"),
                             Name = "Admin",
-                            WorkerId = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51")
+                            WorkerId = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5")
                         });
                 });
 
@@ -472,14 +479,14 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6f253175-a69f-4b28-ac5a-597d40803c51"),
+                            Id = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5"),
                             Address = "Panjakent",
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateRegister = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Shahzodjon",
                             LastName = "Jonizoqov",
                             PhoneNumber = "+992927758499",
-                            PositionId = new Guid("b2bd64c3-e072-4982-b399-a272ce786635")
+                            PositionId = new Guid("b669a6d1-278c-42c0-a22d-bf030cc9caf0")
                         });
                 });
 

@@ -1,4 +1,5 @@
 ﻿using Hospital.Application.Entity;
+using Microsoft.AspNetCore.Http;
 
 namespace Hospital.Application.RequestModelUpdate;
 
@@ -11,6 +12,9 @@ public record DoctorUpdateRequest:EntityBaseUpdateRequest
     public string PhoneNumber { get; set; } = string.Empty;
 
     public string Address { get; set; } = string.Empty;
+
+    public byte[]? Image { get; set; }
+    public string Information { get; set; } = string.Empty;
 
     public DateTime DateOfBirth { get; set; }
 

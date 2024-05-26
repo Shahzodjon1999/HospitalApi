@@ -8,6 +8,7 @@ using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
+using Hospital.Application.Sms;
 using Hospital.Application.UpdateRequestModel;
 using Hospital.Infrastructure.Database;
 using Hospital.Infrastructure.Repositories;
@@ -62,8 +63,13 @@ public static class ConfigurationServices
         services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
         services.AddScoped<IGenericService<PositionRequest, PositionUpdateRequest, PositionResponse>, PositionService>();
         services.AddScoped<IGenericService<ClientRequest, ClientUpdateRequest, ClientResponse>, ClientService>();
+        
+
+        services.AddScoped<PatientService>();
+
         services.AddScoped<AuthService>();
         services.AddScoped<ClientService>();
+
         return services;
     }
 
