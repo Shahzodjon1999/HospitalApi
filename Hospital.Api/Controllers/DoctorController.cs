@@ -12,32 +12,50 @@ namespace Hospital.Api.Controllers;
 public class DoctorController : BaseController<DoctorRequest,DoctorUpdateRequest,DoctorResponse>
 {
     private readonly IGenericService<DoctorRequest, DoctorUpdateRequest, DoctorResponse> _service;
-
+    private readonly IWebHostEnvironment _env;
     public DoctorController(IGenericService<DoctorRequest, DoctorUpdateRequest, DoctorResponse> service) : base(service)
     {
         _service = service;
     }
 
-    [HttpPost("Create")]
-    public override ActionResult<string> Create([FromBody] DoctorRequest request)
+    
+ 
+    [HttpPost("create")]
+    public async Task<ActionResult<string>> Create([FromForm] DoctorRequest request, [FromForm] IFormFile Image)
     {
         try
         {
-            if (request == null || request.Image == null || request.Image.Length == 0)
+            if (request == null || Image == null || Image.Length == 0)
             {
                 return BadRequest("Invalid doctor data or no image provided");
             }
+
+            var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var filePath = Path.Combine(uploadsFolder, Image.FileName);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await Image.CopyToAsync(stream);
+            }
+
+            request.Image = $"uploads/{Image.FileName}";
+
+            // Save doctorRequest to the database here using the service
             Log.Information("In the method Create request=>{@request}", request);
-            return _service.Create(request);
+            return Ok(_service.Create(request));
         }
         catch (SqlException)
         {
-            return $"Didn't save data {request}";
+            return BadRequest($"Didn't save data {request}");
         }
         catch (Exception ex)
         {
             Log.Error("You have Error In the method Create()=>{@ex}", ex.Message);
-            throw new Exception($"You have exception:{ex.Message} in the Method Create");
+            return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
 }

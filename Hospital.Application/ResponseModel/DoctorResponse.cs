@@ -1,5 +1,4 @@
 ﻿using Hospital.Application.Entity;
-using Microsoft.AspNetCore.Http;
 
 namespace Hospital.Application.ResponseModel;
 
