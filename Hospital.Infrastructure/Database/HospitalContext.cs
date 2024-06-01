@@ -8,7 +8,7 @@ public class HospitalContext : DbContext, IHospitalContext
 {
     public HospitalContext(DbContextOptions options) : base(options)
     {
-      Database.Migrate();
+      //Database.Migrate();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

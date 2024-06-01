@@ -9161,6 +9161,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Hospital.Application >= 1.0.0",
+      "Hospital.Domen >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.0",
@@ -9204,6 +9205,9 @@
           "projectReferences": {
             "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
               "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
+            },
+            "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+              "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
             }
           }
         }

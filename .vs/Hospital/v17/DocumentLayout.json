@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\ITRunProjects\\Hospital\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|d:\\itrunprojects\\hospital\\hospital.api\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|solutionrelative:hospital.api\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|d:\\itrunprojects\\hospital\\hospital.application\\requestmodel\\doctorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{071AC450-1D5F-49A5-958A-E11F80654C34}|Hospital.Application\\Hospital.Application.csproj|solutionrelative:hospital.application\\requestmodel\\doctorrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,32 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "Hospital.Api\\Controllers\\DoctorController.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "Hospital.Api\\Controllers\\DoctorController.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAwwBkAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T14:32:24.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DoctorRequest.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\RequestModel\\DoctorRequest.cs",
-              "RelativeDocumentMoniker": "Hospital.Application\\RequestModel\\DoctorRequest.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\RequestModel\\DoctorRequest.cs",
-              "RelativeToolTip": "Hospital.Application\\RequestModel\\DoctorRequest.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAADwvwoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T14:32:07.596Z",
-              "EditorCaption": ""
             }
           ]
         }

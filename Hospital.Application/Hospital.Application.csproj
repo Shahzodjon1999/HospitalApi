@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="RequestModel\DoctorRequest.cs~RF3720d0d.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Hospital.Domen\Hospital.Domen.csproj" />
   </ItemGroup>
 

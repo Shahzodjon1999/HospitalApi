@@ -9,6 +9,7 @@
       "Hospital.Infrastructure/1.0.0": {
         "dependencies": {
           "Hospital.Application": "1.0.0",
+          "Hospital.Domen": "1.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",

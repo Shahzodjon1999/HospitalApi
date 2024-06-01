@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hospital.Application\Hospital.Application.csproj" />
+    <ProjectReference Include="..\Hospital.Domen\Hospital.Domen.csproj" />
   </ItemGroup>
 
 </Project>

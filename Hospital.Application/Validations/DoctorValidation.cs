@@ -27,13 +27,13 @@ public class DoctorValidation : AbstractValidator<DoctorRequest>
             .NotNull().WithMessage("Address cannot be null.")
             .MinimumLength(3).WithMessage("Address must be at least 3 characters.")
             .MaximumLength(12).WithMessage("Address cannot exceed 12 characters.");
-
-        RuleFor(n => n.Positions)
+        RuleFor(n => n.Position)
             .NotEmpty().WithMessage("Position is required.")
-            .NotNull().WithMessage("Position cannot be null.")
             .NotEqual("string").WithMessage("You can not add string")
+            .NotNull().WithMessage("Position cannot be null.")
             .MinimumLength(3).WithMessage("Position must be at least 3 characters.")
             .MaximumLength(12).WithMessage("Position cannot exceed 12 characters.");
+
 
         RuleFor(n => n.DepartmentId)
             .NotEmpty().WithMessage("Department ID is required.")

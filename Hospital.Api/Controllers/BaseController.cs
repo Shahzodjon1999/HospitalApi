@@ -18,7 +18,7 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<TResponse>> GetAll()
+    public virtual ActionResult<IEnumerable<TResponse>> GetAll()
     {
         try
         {

@@ -18,7 +18,6 @@ public static class DoctorMap
 			DateOfBirth=doctor.DateOfBirth,
 			DateRegister=doctor.DateRegister,
 			PhoneNumber=doctor.PhoneNumber,
-			Positions=doctor.Positions,
             DepartmentId=doctor.DepartmentId,
 		};
 	}
@@ -34,7 +33,6 @@ public static class DoctorMap
             DateOfBirth = doctor.DateOfBirth,
             DateRegister = doctor.DateRegister,
             PhoneNumber = doctor.PhoneNumber,
-            Positions = doctor.Positions,
             DepartmentId= doctor.DepartmentId,
         };
     }
@@ -49,7 +47,6 @@ public static class DoctorMap
             DateOfBirth = doctor.DateOfBirth,
             DateRegister = doctor.DateRegister,
             PhoneNumber = doctor.PhoneNumber,
-            Positions =doctor.Positions,
 		};
 	}
     public static IEnumerable<DoctorResponse> MapToDoctorResponsList(this IQueryable<Doctor> branches)
@@ -66,7 +63,6 @@ public static class DoctorMap
                 DateOfBirth = item.DateOfBirth,
                 DateRegister = item.DateRegister,
                 PhoneNumber = item.PhoneNumber,
-                Positions = item.Positions
             };
             departmentlist.Add(result);
         }

@@ -91,12 +91,12 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("91384768-2568-4327-b1f5-1e7edf4a51c4"),
+                            Id = new Guid("c25dc038-3aa7-456c-8bd8-032b065bdf66"),
                             IsBlocked = false,
                             Login = "SupperAdmin123",
                             Password = "!@#123#@!",
                             RefreshToken = "",
-                            WorkerId = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5")
+                            WorkerId = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5")
                         });
                 });
 
@@ -216,8 +216,8 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Information")
                         .IsRequired()
@@ -231,7 +231,7 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Positions")
+                    b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -286,13 +286,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5ef154d6-dab6-4c95-b501-05e88adc827e"),
+                            Id = new Guid("68654943-68a7-4752-ab59-8a9d5728e29c"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("860bde53-3f9f-4cdc-8741-eeea75ef5b3a"),
+                            Id = new Guid("2b0242d3-8040-4510-8311-782a35ee6179"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -360,7 +360,7 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b669a6d1-278c-42c0-a22d-bf030cc9caf0"),
+                            Id = new Guid("ab07ffa4-6bf0-4f67-b536-4cdb8ed4b43b"),
                             Name = "Admin"
                         });
                 });
@@ -388,9 +388,9 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("baca0d9f-835b-4267-a17b-445440256a03"),
+                            Id = new Guid("a4d20872-f19a-4811-b4c5-2c1d5ccb5981"),
                             Name = "Admin",
-                            WorkerId = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5")
+                            WorkerId = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5")
                         });
                 });
 
@@ -479,14 +479,14 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d59c06ab-11d8-41d3-90e9-56e18b3204f5"),
+                            Id = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5"),
                             Address = "Panjakent",
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateRegister = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Shahzodjon",
                             LastName = "Jonizoqov",
                             PhoneNumber = "+992927758499",
-                            PositionId = new Guid("b669a6d1-278c-42c0-a22d-bf030cc9caf0")
+                            PositionId = new Guid("ab07ffa4-6bf0-4f67-b536-4cdb8ed4b43b")
                         });
                 });
 

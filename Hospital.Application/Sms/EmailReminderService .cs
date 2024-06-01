@@ -35,7 +35,7 @@ public class EmailReminderService: BackgroundService
                 string subject = "Appointment Reminder";
                 string body = "This is a reminder that your appointment is scheduled in 30 minutes. Please be on time.";
 
-                await SendEmail(item.Email, subject, body);
+               // await SendEmail(item.Email, subject, body);
 
                 // Update client record to indicate that email has been sent
                 //item.EmailSent = true;
@@ -44,8 +44,8 @@ public class EmailReminderService: BackgroundService
         }
     }
 
-    private async Task SendEmail(string recipientEmail, string subject, string body)
-    {
-        // Email sending logic remains the same
-    }
+    //private async Task SendEmail(string recipientEmail, string subject, string body)
+    //{
+    //    // Email sending logic remains the same
+    //}
 }

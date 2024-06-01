@@ -42,7 +42,7 @@ public class Program
         app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
         app.UseHttpsRedirection();
-
+        app.UseStaticFiles(); // This enables serving of static files from wwwroot
         app.UseAuthentication();
         app.UseAuthorization();
 
