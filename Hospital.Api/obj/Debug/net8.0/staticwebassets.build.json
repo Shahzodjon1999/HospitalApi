@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LgCG4zmtE11Y382xGC05s5EZFwFq2K0QdTqgENTVJno=",
+  "Hash": "IeODwsbe27qnMNG69LJHoxrBLqHblzyizbcJVvjetww=",
   "Source": "Hospital.Api",
   "BasePath": "_content/Hospital.Api",
   "Mode": "Default",
@@ -91,25 +91,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG"
-    },
-    {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\c4de8967-1d7b-4b19-9976-3b632c3e67d5.JPG",
-      "SourceId": "Hospital.Api",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
-      "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/c4de8967-1d7b-4b19-9976-3b632c3e67d5.JPG",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\c4de8967-1d7b-4b19-9976-3b632c3e67d5.JPG"
     },
     {
       "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
