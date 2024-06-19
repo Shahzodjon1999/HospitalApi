@@ -18,7 +18,6 @@ public class DoctorController : BaseController<DoctorRequest,DoctorUpdateRequest
     {
         _service = service;
     }
-
     [HttpPost]
     public override ActionResult<string> Create([FromForm] DoctorRequest userRequest)
     {
@@ -51,25 +50,80 @@ public class DoctorController : BaseController<DoctorRequest,DoctorUpdateRequest
                 // Save the file to the server
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                     file.CopyToAsync(fileStream);
+                    // Use await to ensure the async operation completes
+                    file.CopyToAsync(fileStream).Wait();
                 }
 
                 // Save only the file name to the userRequest object
                 userRequest.Image = uniqueFileName;
             }
-            Log.Information("In the method Create request=>{@request}", userRequest);
+
+            Log.Information("In the method Create request => {@request}", userRequest);
             return _service.Create(userRequest);
         }
-        catch (SqlException)
+        catch (SqlException ex)
         {
-            return $"Didn't save data {userRequest}";
+            Log.Error("SQL Error in Create method: {@ex}", ex);
+            return StatusCode(500, $"Database error: {ex.Message}");
         }
         catch (Exception ex)
         {
-            Log.Error("You have Error In the method Create()=>{@ex}", ex.Message);
-            throw new Exception($"You have exception:{ex.Message} in the Method Create");
+            Log.Error("Exception in Create method: {@ex}", ex);
+            return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
+
+    //[HttpPost]
+    //public override ActionResult<string> Create([FromForm] DoctorRequest userRequest)
+    //{
+    //    try
+    //    {
+    //        if (!ModelState.IsValid)
+    //        {
+    //            return BadRequest(ModelState);
+    //        }
+
+    //        // Handle the image upload
+    //        var files = Request.Form.Files;
+    //        if (files.Any())
+    //        {
+    //            var file = files.First();
+    //            var uploadsFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+
+    //            // Ensure the uploads folder exists
+    //            if (!Directory.Exists(uploadsFolderPath))
+    //            {
+    //                Directory.CreateDirectory(uploadsFolderPath);
+    //            }
+
+    //            // Generate a unique file name
+    //            var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+
+    //            // Full path to save the file
+    //            var filePath = Path.Combine(uploadsFolderPath, uniqueFileName);
+
+    //            // Save the file to the server
+    //            using (var fileStream = new FileStream(filePath, FileMode.Create))
+    //            {
+    //                 file.CopyToAsync(fileStream);
+    //            }
+
+    //            // Save only the file name to the userRequest object
+    //            userRequest.Image = uniqueFileName;
+    //        }
+    //        Log.Information("In the method Create request=>{@request}", userRequest);
+    //        return _service.Create(userRequest);
+    //    }
+    //    catch (SqlException)
+    //    {
+    //        return $"Didn't save data {userRequest}";
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Log.Error("You have Error In the method Create()=>{@ex}", ex.Message);
+    //        throw new Exception($"You have exception:{ex.Message} in the Method Create");
+    //    }
+    //}
 
 
     [HttpGet]

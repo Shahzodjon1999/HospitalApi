@@ -76,6 +76,13 @@ public class HospitAutoMap: Profile
         CreateMap<ClientUpdateRequest, Client>();
         CreateMap<ClientRequest, Client>();
 
+        CreateMap<QueueEntry, QueueEntryResponse>()
+            .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => src.Appointment.Name + " " + src.Appointment.lastName))
+            .ForMember(dest => dest.DoctorName, opt => opt.MapFrom(src => src.Appointment.Doctor.FirstName+" "+src.Appointment.Doctor.LastName))
+            .ForMember(dest => dest.AppointmentDate, opt => opt.MapFrom(src => src.Appointment.AppointmentDate));
+
+        CreateMap<QueueEntryRequest, QueueEntry>();
+
         CreateMap<CreateWorkerCommand, WorkerRequest>();
 
         CreateMap<UpdateWorkerCommand,WorkerUpdateRequest>();

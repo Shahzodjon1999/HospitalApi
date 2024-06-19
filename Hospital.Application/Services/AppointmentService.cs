@@ -3,12 +3,9 @@ using Hospital.Application.InterfaceRepositoryes;
 using Hospital.Application.InterfaceServices;
 using Hospital.Application.RequestModel;
 using Hospital.Application.ResponseModel;
+using Hospital.Application.Sms;
 using Hospital.Application.UpdateRequestModel;
 using Hospital.Domen.Model;
-using Twilio.Types;
-using Twilio;
-using Hospital.Application.Sms;
-using System.Security.Policy;
 
 namespace Hospital.Application.Services;
 
@@ -16,11 +13,12 @@ public class AppointmentService : IGenericService<AppointmentRequest, Appointmen
 {
     private readonly IAppointmentRepository _repository;
 	private readonly IMapper _mapper;
-
-    public AppointmentService(IAppointmentRepository repository, IMapper mapper)
+	private readonly QueueEntryService _queueEntryService;
+    public AppointmentService(IAppointmentRepository repository, IMapper mapper, QueueEntryService queueEntryService)
     {
         _repository = repository;
         _mapper = mapper;
+        _queueEntryService = queueEntryService;
     }
 
     public string Create(AppointmentRequest item)
@@ -31,6 +29,11 @@ public class AppointmentService : IGenericService<AppointmentRequest, Appointmen
 			{
 				var getMapAppointment = _mapper.Map<Appointment>(item);
                 _repository.Create(getMapAppointment);
+				QueueEntryRequest queueEntryRequest = new QueueEntryRequest()
+				{
+					AppointmentId = getMapAppointment.Id
+				};
+			   _queueEntryService.EnqueueAppointmentAsync(queueEntryRequest).Wait();
 				return $"Created new item with this ID: {getMapAppointment.Id}";
 			}
 			else
@@ -124,5 +127,9 @@ public class AppointmentService : IGenericService<AppointmentRequest, Appointmen
 				SmsSender.SendEmail(item.Email, "Доктор шумоя интизор аст", $"Шумо саоти {item.AppointmentDate} ба пеши духтур хозир шавед");
             }
         }
+    }
+    public async Task<bool> CheckAppointment(Guid doctorId, DateTime appointmentDate)
+    {
+        return await _repository.CheckAppointmentExistsAsync(doctorId, appointmentDate);
     }
 }

@@ -91,12 +91,12 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c25dc038-3aa7-456c-8bd8-032b065bdf66"),
+                            Id = new Guid("81d5ebd9-89ae-4216-ac56-73d7b007ab5b"),
                             IsBlocked = false,
                             Login = "SupperAdmin123",
                             Password = "!@#123#@!",
                             RefreshToken = "",
-                            WorkerId = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5")
+                            WorkerId = new Guid("2c0789a7-fe4c-46c1-868c-4e377cfd11f3")
                         });
                 });
 
@@ -286,13 +286,13 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("68654943-68a7-4752-ab59-8a9d5728e29c"),
+                            Id = new Guid("b41d5dce-0064-4e17-9352-8f39a0137c08"),
                             Location = "Абрешим",
                             Name = "Обласной болница"
                         },
                         new
                         {
-                            Id = new Guid("2b0242d3-8040-4510-8311-782a35ee6179"),
+                            Id = new Guid("98b21a89-d5e6-4cf7-b8a8-65b724b31be6"),
                             Location = "Гулистон",
                             Name = "Гор болница"
                         });
@@ -360,9 +360,31 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ab07ffa4-6bf0-4f67-b536-4cdb8ed4b43b"),
+                            Id = new Guid("b2fd7dad-05b8-4c9a-994b-06967c6ea25e"),
                             Name = "Admin"
                         });
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.QueueEntry", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AppointmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DequeueTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EnqueueTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.ToTable("QueueEntrys");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Role", b =>
@@ -388,9 +410,9 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a4d20872-f19a-4811-b4c5-2c1d5ccb5981"),
+                            Id = new Guid("5bb97926-a33b-48a7-b829-21232d7aa58c"),
                             Name = "Admin",
-                            WorkerId = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5")
+                            WorkerId = new Guid("2c0789a7-fe4c-46c1-868c-4e377cfd11f3")
                         });
                 });
 
@@ -479,14 +501,14 @@ namespace Hospital.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3c66848-7b97-4d61-90be-e1d263baaef5"),
+                            Id = new Guid("2c0789a7-fe4c-46c1-868c-4e377cfd11f3"),
                             Address = "Panjakent",
                             DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateRegister = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Shahzodjon",
                             LastName = "Jonizoqov",
                             PhoneNumber = "+992927758499",
-                            PositionId = new Guid("ab07ffa4-6bf0-4f67-b536-4cdb8ed4b43b")
+                            PositionId = new Guid("b2fd7dad-05b8-4c9a-994b-06967c6ea25e")
                         });
                 });
 
@@ -565,6 +587,17 @@ namespace Hospital.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Room");
+                });
+
+            modelBuilder.Entity("Hospital.Domen.Model.QueueEntry", b =>
+                {
+                    b.HasOne("Hospital.Domen.Model.Appointment", "Appointment")
+                        .WithMany()
+                        .HasForeignKey("AppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
                 });
 
             modelBuilder.Entity("Hospital.Domen.Model.Role", b =>
