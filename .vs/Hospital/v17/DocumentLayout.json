@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ITRunProjects\\Hospital\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|d:\\itrunprojects\\hospital\\hospital.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1CB9A19F-ACE0-461B-8CA0-385890AD0312}|Hospital.Api\\Hospital.Api.csproj|solutionrelative:hospital.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}|Hospital.Infrastructure\\Hospital.Infrastructure.csproj|d:\\itrunprojects\\hospital\\hospital.infrastructure\\repositories\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29974C2C-9DCF-4D53-8C69-D4EAD2622D5D}|Hospital.Infrastructure\\Hospital.Infrastructure.csproj|solutionrelative:hospital.infrastructure\\repositories\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +42,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PatientController.cs",
-              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\PatientController.cs",
-              "RelativeDocumentMoniker": "Hospital.Api\\Controllers\\PatientController.cs",
-              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\PatientController.cs*",
-              "RelativeToolTip": "Hospital.Api\\Controllers\\PatientController.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T11:13:13.532Z",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Hospital.Api\\appsettings.json",
+              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\appsettings.json",
+              "RelativeToolTip": "Hospital.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-20T05:33:48.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Hospital.Api\\Controllers\\PatientController.cs",
+              "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Hospital.Api\\Controllers\\PatientController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-14T11:13:13.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PatientRepository.cs",
               "DocumentMoniker": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Repositories\\PatientRepository.cs",
               "RelativeDocumentMoniker": "Hospital.Infrastructure\\Repositories\\PatientRepository.cs",
               "ToolTip": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Repositories\\PatientRepository.cs",
               "RelativeToolTip": "Hospital.Infrastructure\\Repositories\\PatientRepository.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAIAwwCcAAAAEAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAIA9wCcAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-14T11:13:13.548Z",
               "EditorCaption": ""
