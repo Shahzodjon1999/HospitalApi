@@ -11,28 +11,28 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Setup .Net 8
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v2
       with:
-         dotnet-version: '8.0.x'
+        dotnet-version: '8.0.x'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release
-test:
+
+  test:
     needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Setup .NET 6
-      uses: actions/setup-dotnet@v1
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Restore dependencies
       run: dotnet restore
     - name: Test
       run: dotnet test --configuration Release
-
 
   dockerize:
     needs: test
@@ -47,5 +47,5 @@ test:
       run: docker build -t $DOCKER_USERNAME/mathapi2 -f Math.WebApi/Dockerfile .
     - name: Push Docker image
       run: |
-        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        docker push $DOCKER_USERNAME/mathapi
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        docker push $DOCKER_USERNAME/mathapi2
