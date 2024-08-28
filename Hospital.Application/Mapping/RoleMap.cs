@@ -14,7 +14,6 @@ public static class RoleMap
         {
             Id = Guid.NewGuid(),
             Name = request.Name,
-            Status = request.Status,
         };
     }
     public static RoleResponse MapToRoleResponse(this Role role)
@@ -22,7 +21,6 @@ public static class RoleMap
         return new RoleResponse()
         {
             Name = role.Name,
-            Status= role.Status,
             Id= role.Id
         };
     }
@@ -32,7 +30,6 @@ public static class RoleMap
         {
             Id = request.Id,
             Name= request.Name,
-            Status= request.Status,
         };
     }
 }

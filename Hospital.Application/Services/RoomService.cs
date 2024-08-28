@@ -81,6 +81,7 @@ public class RoomService:IGenericService<RoomRequest,RoomUpdateRequest,RoomRespo
 				return "Room is not found";
 			}
 			var getMapRoom = _mapper.Map<Room>(item);
+			getMapRoom.FloorId = _item.FloorId;
 			_repository.Update(getMapRoom);
 			return "Room is updated";
 		}

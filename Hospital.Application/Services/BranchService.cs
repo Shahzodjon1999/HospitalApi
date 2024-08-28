@@ -81,7 +81,9 @@ namespace Hospital.Application.Services
 					return "Doctor is not found";
 				}
 				var getMapBranch = _mapper.Map<Branch>(item);
-				_repository.Update(getMapBranch);
+				getMapBranch.HospitalID = _item.HospitalID;
+
+                _repository.Update(getMapBranch);
 				return "Doctor is updated";
 			}
 			catch (Exception)

@@ -13,8 +13,4 @@ public class Patient : Person
     public Room? Room { get; set; }
     [JsonIgnore]
     public Guid RoomID { get; set; }
-    [JsonIgnore]
-    public List<DoctorPatient>? DoctorPatients { get; set; }
-    [JsonIgnore]
-    public List<DepartmentPatient>? DepartmentPatients { get; set; }
 }

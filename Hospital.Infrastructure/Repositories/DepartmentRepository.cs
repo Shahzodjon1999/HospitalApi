@@ -17,6 +17,6 @@ public class DepartmentRepository:BaseRepository<Department>,IDepartmentReposito
 
     public override IQueryable<Department> GetAll()
     {
-        return _context.Departments.Include(b => b.Branch).Include(b => b.Doctors);
+        return _context.Departments.Include(b => b.Branch);
     }
 }

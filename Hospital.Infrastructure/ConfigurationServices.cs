@@ -8,6 +8,7 @@ using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
+using Hospital.Application.Sms;
 using Hospital.Application.UpdateRequestModel;
 using Hospital.Infrastructure.Database;
 using Hospital.Infrastructure.Repositories;
@@ -15,9 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Serilog;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
+using Swashbuckle.AspNetCore.SwaggerGen; 
 
 namespace Hospital.Infrastructure;
 
@@ -48,6 +47,9 @@ public static class ConfigurationServices
         services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<ISalaryRepository, SalaryRepository>();
+        services.AddScoped<IPositionRepository, PositionRepository>();
+        services.AddScoped<IClientRepository, ClientRepository>();
+        services.AddScoped<IQueueEntryRepository, QueueEntryRepository>();
 
         services.AddScoped<IGenericService<DoctorRequest,DoctorUpdateRequest,DoctorResponse>, DoctorService>();
         services.AddScoped<IGenericService<HospitalRequest,HospitalUpdateRequest,HospitalResponse>, HospitalService>();
@@ -60,7 +62,17 @@ public static class ConfigurationServices
         services.AddScoped<IGenericService<RoomRequest,RoomUpdateRequest,RoomResponse>, RoomService>();
         services.AddScoped<IGenericService<RoleRequest,RoleUpdateRequest,RoleResponse>, RoleService>();
         services.AddScoped<IGenericService<SalaryRequest,SalaryUpdateRequest,SalaryResponse>, SalaryService>();
+        services.AddScoped<IGenericService<PositionRequest, PositionUpdateRequest, PositionResponse>, PositionService>();
+        services.AddScoped<IGenericService<ClientRequest, ClientUpdateRequest, ClientResponse>, ClientService>();
+        
+
+        services.AddScoped<PatientService>();
+        services.AddScoped<AppointmentService>();
+        services.AddScoped<QueueEntryService>();
+
         services.AddScoped<AuthService>();
+        services.AddScoped<ClientService>();
+
         return services;
     }
 

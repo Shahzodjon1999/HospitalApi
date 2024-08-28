@@ -17,5 +17,5 @@ public class Department:EntityBase
 	public List<Doctor>? Doctors { get; set; }
 
     [JsonIgnore]
-    public List<DepartmentPatient>? DepartmentPatients { get; set; }
+    public List<Floor>?	Floors { get; set; }
 }

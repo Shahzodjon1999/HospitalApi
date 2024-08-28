@@ -68,6 +68,7 @@ public class WorkerService : IGenericService<WorkerRequest,WorkerUpdateRequest,W
 			return "Worker is not found";
 		}
 		var mapWorker = _mapper.Map<Worker>(request);
+		mapWorker.PositionId=_item.PositionId;
 		_repository.Update(mapWorker);
 		return "Worker is updated";
 	}

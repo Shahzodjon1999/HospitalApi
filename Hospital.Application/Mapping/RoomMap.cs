@@ -30,7 +30,6 @@ public static class RoomMap
 		return new RoomResponse
 		{
 			Id = item.Id,
-            FloorNumber= item.Floor.FloorNumber,
 			RoomNumber= item.RoomNumber,
 		};
 	}
@@ -43,7 +42,6 @@ public static class RoomMap
             var result = new RoomResponse
             {
                 Id = item.Id,
-                FloorNumber = item.Floor.FloorNumber,
                 RoomNumber = item.RoomNumber,
             };
             roomlist.Add(result);

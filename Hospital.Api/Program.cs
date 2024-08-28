@@ -1,6 +1,7 @@
 using Hospital.Application.CQRS.Commands.Creates;
 using Hospital.Application.Middlewares;
 using Hospital.Infrastructure;
+using Microsoft.AspNetCore.OData;
 using Serilog;
 
 namespace Hospital.Api;
@@ -23,10 +24,13 @@ public class Program
         //add Configration Service for all services
         builder.Services.AddApplication(builder.Configuration);
 
-		builder.Services.AddControllers();
+		//Add Odata Options
+		builder.Services.AddControllers()
+			.AddOData(option=>option.Select().Filter().Count().OrderBy().Expand());
+
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
-		
+
         var app = builder.Build();
 
 		if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
@@ -38,7 +42,7 @@ public class Program
         app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
         app.UseHttpsRedirection();
-
+        app.UseStaticFiles(); // This enables serving of static files from wwwroot
         app.UseAuthentication();
         app.UseAuthorization();
 

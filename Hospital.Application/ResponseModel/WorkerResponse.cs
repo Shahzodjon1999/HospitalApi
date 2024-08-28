@@ -15,8 +15,4 @@ public record WorkerResponse:EntityBaseResponse
 	public DateTime DateOfBirth { get; set; }
 
 	public DateTime DateRegister { get; set; }
-
-	public double Maney { get; set; }
-
-	public string Role { get; set; } = string.Empty;
 }

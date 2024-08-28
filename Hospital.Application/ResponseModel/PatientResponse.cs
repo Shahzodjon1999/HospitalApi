@@ -1,6 +1,5 @@
 ﻿using Hospital.Application.Entity;
 using Hospital.Domen.Enam;
-using Hospital.Domen.Model;
 
 namespace Hospital.Application.ResponseModel;
 
@@ -22,6 +21,4 @@ public record PatientResponse:EntityBaseResponse
 
 	public int? RoomNumber { get; set; }
 	public PatientStatus State { get; set; }
-	public List<DepartmentPatient>? DepartmentPatients { get; set;}
-	public List<DoctorPatient>? DoctorPatients { get; set;}
 }

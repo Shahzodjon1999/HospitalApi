@@ -28,21 +28,6 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 		}
 			var mapPatient = _mapper.Map<Patient>(patient);
 			_repository.Create(mapPatient);
-
-			//if (patient.DoctorIds.Any())
-			//{
-			//	foreach (var doctorId in patient.DoctorIds)
-			//	{
-			//		var test = new DoctorPatient
-			//		{
-			//			DoctorId = doctorId,
-			//			PatientId = mapPatient.Id
-			//		};
-
-   //                  _doctorrepo.Create(test);
-   //             }
-			//}
-
 		return $"Created new item with this ID: {mapPatient.Id}";
 		
 	}
@@ -98,7 +83,23 @@ public class PatientService : IGenericService<PatientRequest,PatientUpdateReques
 			return "Patient is not found";
 		}
 		var mapPatient = _mapper.Map<Patient>(patient);
+		mapPatient.RoomID = _item.RoomID;
 		_repository.Update(mapPatient);
 		return "Patient is updated";
 	}
+
+	public IEnumerable<PatientInfoResponse> GetAllInfoPatient()
+	{
+        try
+        {
+            var getInfoPatients = _repository.GetAllInfoPatient();
+            if (getInfoPatients != null)
+                return _mapper.Map<IEnumerable<PatientInfoResponse>>(getInfoPatients);
+            return null;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 }

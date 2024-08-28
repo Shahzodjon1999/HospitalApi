@@ -81,6 +81,7 @@ namespace Hospital.Application.Services
 					return "Doctor is not found";
 				}
 				var getMapDepartment =_mapper.Map<Department>(updateRequest);
+				getMapDepartment.BranchID = _item.BranchID;
 				_repository.Update(getMapDepartment);
 				return "Doctor is updated";
 			}

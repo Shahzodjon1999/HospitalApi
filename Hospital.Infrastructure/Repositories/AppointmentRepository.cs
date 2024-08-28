@@ -14,8 +14,13 @@ public class AppointmentRepository:BaseRepository<Appointment>,IAppointmentRepos
     {
         _context = context;
     }
+
+    public async Task<bool> CheckAppointmentExistsAsync(Guid doctorId, DateTime appointmentDate)
+    {
+        return await _context.Appointments.AnyAsync(a => a.DoctorId == doctorId && a.AppointmentDate == appointmentDate);
+    }
     public override IQueryable<Appointment> GetAll()
     {
-        return _context.Appointments.Include(d=>(d as Appointment).Doctor);  
+        return _context.Appointments;  
     }
 }

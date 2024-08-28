@@ -83,6 +83,7 @@ public class FloorService:IGenericService<FloorRequest,FloorUpdateRequest,FloorR
 				return "Floor is not found";
 			}
 			var getMapFloor = _mapper.Map<Floor>(updateRequest);
+			getMapFloor.DepartmentId = _item.DepartmentId;
 			_repository.Update(getMapFloor);
 			return "Floor is updated";
 		}

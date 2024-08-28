@@ -21,7 +21,6 @@ public static class BranchMap
         return new Branch
         {
             Id = request.Id,
-            HospitalID =request.HospitalId,
             Location = request.Location,
         };
     }
@@ -32,7 +31,6 @@ public static class BranchMap
         {
 			Id= branch.Id,
 			Name= branch.Name,
-            HospitalName=branch.HospitalModel.Name,
 			Location= branch.Location,
 		};
 	}
@@ -46,7 +44,6 @@ public static class BranchMap
             {
                 Id = item.Id,
 				Name= item.Name,
-               HospitalName=item.HospitalModel.Name,
 				Location=item.Location,
             };
             branchlist.Add(result);

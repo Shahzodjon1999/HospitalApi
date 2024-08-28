@@ -18,7 +18,7 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<TResponse>> GetAll()
+    public virtual ActionResult<IEnumerable<TResponse>> GetAll()
     {
         try
         {
@@ -54,16 +54,14 @@ public abstract class BaseController<TRequest,TUpdateRequest,TResponse> : Contro
     }
 
     [HttpPost]
-    public ActionResult<string> Create([FromBody] TRequest request)
+    public virtual ActionResult<string> Create([FromBody] TRequest request)
     {
         try
         {
-           
-
             Log.Information("In the method Create request=>{@request}", request);
             return _doctorService.Create(request);
         }
-        catch (SqlException es)
+        catch (SqlException)
         {
             return $"Didn't save data {request}";
         }

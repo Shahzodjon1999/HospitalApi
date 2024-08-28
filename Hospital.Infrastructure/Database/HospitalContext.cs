@@ -8,7 +8,7 @@ public class HospitalContext : DbContext, IHospitalContext
 {
     public HospitalContext(DbContextOptions options) : base(options)
     {
-      //Database.Migrate();
+      Database.Migrate();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,7 +27,32 @@ public class HospitalContext : DbContext, IHospitalContext
 
             Location = "Гулистон",
         };
-
+        var position = new Position()
+        {
+            Name = "Admin",
+        };
+        var worker = new Worker()
+        {
+            FirstName="Shahzodjon",
+            LastName="Jonizoqov",
+            Address="Panjakent",
+            PhoneNumber="+992927758499",
+            PositionId=position.Id,
+            DateOfBirth=new DateTime(),
+            DateRegister=new DateTime(),
+        };
+        var auth = new Auth()
+        {
+            Login="SupperAdmin123",
+            Password="!@#123#@!",
+            WorkerId=worker.Id,
+        };
+        var role = new Role()
+        {
+            Name="Admin",
+            WorkerId=worker.Id
+        };
+      
         modelBuilder.Entity<Domen.Model.Hospital>(entity =>
         {
             entity.HasKey(p => p.Id);
@@ -49,7 +74,9 @@ public class HospitalContext : DbContext, IHospitalContext
             en.HasMany(d => d.Doctors)
             .WithOne(d => d.Department)
             .HasForeignKey(k => k.DepartmentId);
-
+            en.HasMany(f=>f.Floors)
+            .WithOne(d=>d.Department)
+            .HasForeignKey(k=>k.DepartmentId);
         });
         modelBuilder.Entity<Room>(en =>
         {
@@ -72,46 +99,42 @@ public class HospitalContext : DbContext, IHospitalContext
             .WithMany(s=>s.Appointments)
             .HasForeignKey(s=>s.DoctorId);
         });
-
-        modelBuilder.Entity<DoctorPatient>().HasKey(p => new { p.DoctorId, p.PatientId });
-        modelBuilder.Entity<DoctorPatient>(en =>
+        modelBuilder.Entity<Position>(en =>
         {
-            en.HasOne(p => p.Doctor)
-            .WithMany(m => m.DoctorPatients)
-            .HasForeignKey(k => k.DoctorId);
+            en.HasKey(i => i.Id);
+            en.HasData(position);
         });
-        modelBuilder.Entity<DoctorPatient>(en =>
+        modelBuilder.Entity<Worker>(en =>
         {
-            en.HasOne(p => p.Patient)
-            .WithMany(p => p.DoctorPatients)
-            .HasForeignKey(k => k.PatientId);
-        });
-
-        modelBuilder.Entity<DepartmentPatient>().HasKey(k => new { k.DepartmentId, k.PatientId });
-        modelBuilder.Entity<DepartmentPatient>(en =>
-        {
-            en.HasOne(d => d.Department)
-            .WithMany(m => m.DepartmentPatients)
-            .HasForeignKey(k => k.DepartmentId);
-        });
-
-        modelBuilder.Entity<Worker>()
-             .HasOne(w => w.Auth)
-             .WithOne(a => a.Worker)
-             .HasForeignKey<Auth>(a => a.WorkerId);
-
-        modelBuilder.Entity<Worker>()
-            .HasOne(w => w.Role)
+            en.HasOne(w => w.Auth)
+            .WithOne(a => a.Worker)
+            .HasForeignKey<Auth>(a => a.WorkerId);
+            en.HasOne(w => w.Role)
             .WithOne(r => r.Worker)
             .HasForeignKey<Role>(r => r.WorkerId);
-
-        modelBuilder.Entity<Worker>()
-            .HasOne(w => w.Salary)
+            en.HasOne(w => w.Salary)
             .WithOne(s => s.Worker)
             .HasForeignKey<Salary>(s => s.WorkerId);
+            en.HasOne(p => p.Position)
+            .WithMany(p=>p.Workers)
+            .HasForeignKey(i=>i.PositionId);
+
+            en.HasData(worker);
+        });
+        modelBuilder.Entity<Auth>(en =>
+        {
+            en.HasKey(k => k.Id);
+            en.HasData(auth);
+        });
+        modelBuilder.Entity<Role>(en =>
+        {
+            en.HasKey(k => k.Id);
+            en.HasData(role);
+        });
     }
 
     public DbSet<Auth> Auths { get; set; }
+    public DbSet<Position> Positions { get; set; }
 
     public DbSet<Domen.Model.Hospital> Hospitals { get; set; }
 
@@ -131,11 +154,9 @@ public class HospitalContext : DbContext, IHospitalContext
 
     public DbSet<Department> Departments { get; set; }
 
-    public DbSet<DoctorPatient> DoctorPatients { get; set; }
-
-    public DbSet<DepartmentPatient> DepartmentPatients { get; set; }
-
     public DbSet<Salary> Salarys { get; set; }
 
     public DbSet<Role> Roles { get; set; }
+    public DbSet<Client> Clients { get; set; }
+    public DbSet<QueueEntry> QueueEntrys { get; set; }
 }
