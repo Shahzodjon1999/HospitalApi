@@ -10,3 +10,15 @@ D:\ITRunProjects\Hospital\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.dll
 D:\ITRunProjects\Hospital\Hospital.Domen\obj\Debug\net8.0\refint\Hospital.Domen.dll
 D:\ITRunProjects\Hospital\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.pdb
 D:\ITRunProjects\Hospital\Hospital.Domen\obj\Debug\net8.0\ref\Hospital.Domen.dll
+D:\HospitalApi\Hospital.Domen\bin\Debug\net8.0\Hospital.Domen.deps.json
+D:\HospitalApi\Hospital.Domen\bin\Debug\net8.0\Hospital.Domen.dll
+D:\HospitalApi\Hospital.Domen\bin\Debug\net8.0\Hospital.Domen.pdb
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.GeneratedMSBuildEditorConfig.editorconfig
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.AssemblyInfoInputs.cache
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.AssemblyInfo.cs
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.csproj.CoreCompileInputs.cache
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.sourcelink.json
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.dll
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\refint\Hospital.Domen.dll
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\Hospital.Domen.pdb
+D:\HospitalApi\Hospital.Domen\obj\Debug\net8.0\ref\Hospital.Domen.dll

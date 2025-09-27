@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "prs1AjAB1iNvvJXnWBFld63m+46F81tNaPs4prb5Wrs=",
+  "Hash": "gdxqzhbHJ4Np/QCuBpd6Uf/bP79bA/e4G928KsZ9Row=",
   "Source": "Hospital.Api",
   "BasePath": "_content/Hospital.Api",
   "Mode": "Default",
@@ -10,163 +10,837 @@
     {
       "Name": "Hospital.Api\\wwwroot",
       "Source": "Hospital.Api",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\063840dd-573f-4f67-b4d7-55a416185d85.PNG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\063840dd-573f-4f67-b4d7-55a416185d85.PNG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/063840dd-573f-4f67-b4d7-55a416185d85.PNG",
+      "RelativePath": "uploads/063840dd-573f-4f67-b4d7-55a416185d85#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "t40biuy47v",
+      "Integrity": "bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\063840dd-573f-4f67-b4d7-55a416185d85.PNG"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
+      "RelativePath": "uploads/30933db7-dc45-4494-8639-2442f8e0dbb4#[.{fingerprint}]?.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "86egtefpes",
+      "Integrity": "wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\30933db7-dc45-4494-8639-2442f8e0dbb4.JPG"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
+      "RelativePath": "uploads/51ac09ec-7a74-43dc-ac6c-4e24214962e2#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "t40biuy47v",
+      "Integrity": "bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
+      "RelativePath": "uploads/6f000844-58fa-44a9-91d6-d789f64fc448#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "6bqp8euc9i",
+      "Integrity": "js6LvXFgnYe6BYNfldfCJfdX8I/fs9UQiPXFnToUDh8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\6f000844-58fa-44a9-91d6-d789f64fc448.jpg"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
+      "RelativePath": "uploads/7019a2e6-69d8-412a-8b1a-74d4f3716176#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "5ipweew5fc",
+      "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
+      "RelativePath": "uploads/7f66eb5c-5191-4a82-a23e-2a4482c468aa#[.{fingerprint}]?.JPG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "86egtefpes",
+      "Integrity": "wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
+      "RelativePath": "uploads/c57723e5-f270-4287-a5a9-3e61bcc75958#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "t40biuy47v",
+      "Integrity": "bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG"
     },
     {
-      "Identity": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\uploads\\da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
+      "Identity": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
       "SourceId": "Hospital.Api",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\ITRunProjects\\Hospital\\Hospital.Api\\wwwroot\\",
+      "ContentRoot": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\",
       "BasePath": "_content/Hospital.Api",
-      "RelativePath": "uploads/da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
+      "RelativePath": "uploads/da3fcc9c-f8a6-4419-9863-5978e227585a#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "t40biuy47v",
+      "Integrity": "bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\da3fcc9c-f8a6-4419-9863-5978e227585a.PNG"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/063840dd-573f-4f67-b4d7-55a416185d85.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\063840dd-573f-4f67-b4d7-55a416185d85.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/063840dd-573f-4f67-b4d7-55a416185d85.t40biuy47v.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\063840dd-573f-4f67-b4d7-55a416185d85.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t40biuy47v"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/063840dd-573f-4f67-b4d7-55a416185d85.PNG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/30933db7-dc45-4494-8639-2442f8e0dbb4.86egtefpes.JPG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6575894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "86egtefpes"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/30933db7-dc45-4494-8639-2442f8e0dbb4.JPG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\30933db7-dc45-4494-8639-2442f8e0dbb4.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6575894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/51ac09ec-7a74-43dc-ac6c-4e24214962e2.t40biuy47v.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t40biuy47v"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/51ac09ec-7a74-43dc-ac6c-4e24214962e2.PNG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6f000844-58fa-44a9-91d6-d789f64fc448.6bqp8euc9i.jpg",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37325"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"js6LvXFgnYe6BYNfldfCJfdX8I/fs9UQiPXFnToUDh8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6bqp8euc9i"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6f000844-58fa-44a9-91d6-d789f64fc448.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-js6LvXFgnYe6BYNfldfCJfdX8I/fs9UQiPXFnToUDh8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\6f000844-58fa-44a9-91d6-d789f64fc448.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37325"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"js6LvXFgnYe6BYNfldfCJfdX8I/fs9UQiPXFnToUDh8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-js6LvXFgnYe6BYNfldfCJfdX8I/fs9UQiPXFnToUDh8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7019a2e6-69d8-412a-8b1a-74d4f3716176.5ipweew5fc.jpg",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ipweew5fc"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7019a2e6-69d8-412a-8b1a-74d4f3716176.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "0"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7f66eb5c-5191-4a82-a23e-2a4482c468aa.86egtefpes.JPG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6575894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "86egtefpes"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\7f66eb5c-5191-4a82-a23e-2a4482c468aa.JPG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6575894"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wBAMxrNwkzFCFgBOwhlALYgEPstUh/+704FaIL412cc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c57723e5-f270-4287-a5a9-3e61bcc75958.t40biuy47v.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\c57723e5-f270-4287-a5a9-3e61bcc75958.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t40biuy47v"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c57723e5-f270-4287-a5a9-3e61bcc75958.PNG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/da3fcc9c-f8a6-4419-9863-5978e227585a.t40biuy47v.PNG",
+      "AssetFile": "D:\\HospitalApi\\Hospital.Api\\wwwroot\\uploads\\da3fcc9c-f8a6-4419-9863-5978e227585a.PNG",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1408970"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 27 Sep 2025 09:33:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t40biuy47v"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/da3fcc9c-f8a6-4419-9863-5978e227585a.PNG"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-bX+ABUy2z+0FhvSSLTkLm7jo4gzsEjCLwXOs+NQaLjg="
+        }
+      ]
     }
   ]
 }

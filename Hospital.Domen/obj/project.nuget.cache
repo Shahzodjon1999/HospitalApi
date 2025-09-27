@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3EogvgZW+S8=",
+  "dgSpecHash": "lgFBhm+70Fk=",
   "success": true,
-  "projectFilePath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+  "projectFilePath": "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

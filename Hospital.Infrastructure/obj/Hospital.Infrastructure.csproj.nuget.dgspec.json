@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {}
+    "D:\\HospitalApi\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
+    "D:\\HospitalApi\\Hospital.Application\\Hospital.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
+        "projectUniqueName": "D:\\HospitalApi\\Hospital.Application\\Hospital.Application.csproj",
         "projectName": "Hospital.Application",
-        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\obj\\",
+        "projectPath": "D:\\HospitalApi\\Hospital.Application\\Hospital.Application.csproj",
+        "packagesPath": "C:\\Users\\Sh_jonizokov\\.nuget\\packages\\",
+        "outputPath": "D:\\HospitalApi\\Hospital.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sh_jonizokov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -34,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
-                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
+              "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj": {
+                "projectPath": "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj"
               }
             }
           }
@@ -49,7 +48,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -104,25 +104,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
+    "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
+        "projectUniqueName": "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj",
         "projectName": "Hospital.Domen",
-        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\obj\\",
+        "projectPath": "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj",
+        "packagesPath": "C:\\Users\\Sh_jonizokov\\.nuget\\packages\\",
+        "outputPath": "D:\\HospitalApi\\Hospital.Domen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sh_jonizokov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -149,7 +148,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -170,25 +170,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
+    "D:\\HospitalApi\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
+        "projectUniqueName": "D:\\HospitalApi\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
         "projectName": "Hospital.Infrastructure",
-        "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\ITRunProjects\\Hospital\\Hospital.Infrastructure\\obj\\",
+        "projectPath": "D:\\HospitalApi\\Hospital.Infrastructure\\Hospital.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Sh_jonizokov\\.nuget\\packages\\",
+        "outputPath": "D:\\HospitalApi\\Hospital.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sh_jonizokov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -204,11 +203,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj": {
-                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Application\\Hospital.Application.csproj"
+              "D:\\HospitalApi\\Hospital.Application\\Hospital.Application.csproj": {
+                "projectPath": "D:\\HospitalApi\\Hospital.Application\\Hospital.Application.csproj"
               },
-              "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj": {
-                "projectPath": "D:\\ITRunProjects\\Hospital\\Hospital.Domen\\Hospital.Domen.csproj"
+              "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj": {
+                "projectPath": "D:\\HospitalApi\\Hospital.Domen\\Hospital.Domen.csproj"
               }
             }
           }
@@ -222,7 +221,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -269,7 +269,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
