@@ -48,7 +48,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build Docker image
-        run: docker build -t $DOCKER_USERNAME/hospitalapi-test -f Hospital/Dockerfile .
+        run: docker build -t $DOCKER_USERNAME/hospitalapi-test .
       - name: Push Docker image
         run:
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
