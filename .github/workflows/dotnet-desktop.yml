@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build and Test and Dockerize
 
 on:
   push:
@@ -37,3 +37,19 @@ jobs:
         run: dotnet restore
       - name: Test
         run: dotnet publish --configuration Release
+        
+  dockerize:
+    needs: test
+    runs-on: ubuntu-latest   
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME}}  
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}       
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t $DOCKER_USERNAME/hospitalapi-test -f Hospital/Dockerfile .
+      - name: Push Docker image
+        run:
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker push $DOCKER_USERNAME/hospitalapi-test
