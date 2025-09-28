@@ -50,6 +50,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t $DOCKER_USERNAME/hospitalapi-test .
       - name: Push Docker image
-        run:
+        run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           docker push $DOCKER_USERNAME/hospitalapi-test
