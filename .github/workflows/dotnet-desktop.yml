@@ -1,4 +1,4 @@
-name: Build and Test and Dockerize and Depoloy
+name: Build and Test and Dockerize and Deploy
 
 on:
   push:
@@ -31,9 +31,10 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-        run: dotnet restore
-        run: dotnet test --configuration Release
-      
+      - run: dotnet restore
+      - run: dotnet test --configuration Release
+     
+     
   dockerize:
     needs: test
     runs-on: ubuntu-latest   
