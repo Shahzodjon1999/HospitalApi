@@ -1,7 +1,9 @@
 using Hospital.Application.CQRS.Commands.Creates;
 using Hospital.Application.Middlewares;
 using Hospital.Infrastructure;
+using Hospital.Infrastructure.Database;
 using Microsoft.AspNetCore.OData;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace Hospital.Api;
@@ -33,7 +35,16 @@ public class Program
 
         var app = builder.Build();
 
-		if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+
+        // Применение миграций
+        using (var scope = app.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<HospitalContext>();
+            db.Database.Migrate();
+        }
+
+
+        if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 		{
 			app.UseSwagger();
 			app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProductsAPI v1"));

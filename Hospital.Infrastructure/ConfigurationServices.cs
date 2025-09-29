@@ -8,7 +8,6 @@ using Hospital.Application.RequestModel;
 using Hospital.Application.RequestModelUpdate;
 using Hospital.Application.ResponseModel;
 using Hospital.Application.Services;
-using Hospital.Application.Sms;
 using Hospital.Application.UpdateRequestModel;
 using Hospital.Infrastructure.Database;
 using Hospital.Infrastructure.Repositories;
