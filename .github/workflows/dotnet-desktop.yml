@@ -1,4 +1,4 @@
-name: Build and Test and Dockerize
+name: Build and Test and Dockerize and Depoloy
 
 on:
   push:
@@ -53,3 +53,15 @@ jobs:
         run: |
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
           docker push $DOCKER_USERNAME/hospitalapi-test
+      
+  deploy:    
+    name: Deploy Hospital api  
+    needs: dockerize
+    runs-on: ubuntu-latest         
+    steps:
+      - name: Depoloy .Net App
+        uses: actions/checkout@v4
+        with:
+          script: |
+            cd ~/app
+            docker-compose up -d --no-deps --build hospitalapi

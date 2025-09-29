@@ -1,0 +1,11 @@
+version: '3'
+
+
+services:
+   hospitalapi:
+      image: shahzod1999/hospitalapi-test
+      container_name: "hospitalapi"
+      restart: always
+      ports: 
+        - "80:5000"
+        
