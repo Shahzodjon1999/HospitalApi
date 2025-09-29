@@ -54,7 +54,9 @@ jobs:
   deploy:    
     name: Deploy Hospital api  
     needs: dockerize
-    runs-on: ubuntu-latest         
+    runs-on: ubuntu-latest
+    env:
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}    
     steps:
       - name: Deploy .NET app
         uses: actions/checkout@v4
