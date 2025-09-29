@@ -36,12 +36,12 @@ public class Program
         var app = builder.Build();
 
 
-        // Применение миграций
-        using (var scope = app.Services.CreateScope())
-        {
-            var db = scope.ServiceProvider.GetRequiredService<HospitalContext>();
-            db.Database.Migrate();
-        }
+        //// Применение миграций
+        //using (var scope = app.Services.CreateScope())
+        //{
+        //    var db = scope.ServiceProvider.GetRequiredService<HospitalContext>();
+        //    db.Database.Migrate();
+        //}
 
 
         if (app.Environment.IsDevelopment() || app.Environment.IsProduction())

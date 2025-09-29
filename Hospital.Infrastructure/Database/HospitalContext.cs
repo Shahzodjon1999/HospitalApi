@@ -8,7 +8,7 @@ public class HospitalContext : DbContext, IHospitalContext
 {
     public HospitalContext(DbContextOptions options) : base(options)
     {
-     // Database.Migrate();
+      Database.Migrate();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,11 +29,10 @@ public class HospitalContext : DbContext, IHospitalContext
         };
         var position = new Position()
         {
-            Id = Guid.NewGuid(),
             Name = "Admin",
         };
         var worker = new Worker()
-        {   Id = Guid.NewGuid(),
+        {   
             FirstName="Shahzodjon",
             LastName="Jonizoqov",
             Address="Panjakent",
@@ -44,14 +43,12 @@ public class HospitalContext : DbContext, IHospitalContext
         };
         var auth = new Auth()
         {
-            Id = Guid.NewGuid(),
             Login ="SupperAdmin123",
             Password="!@#123#@!",
             WorkerId=worker.Id,
         };
         var role = new Role()
         {
-            Id = Guid.NewGuid(),
             Name ="Admin",
             WorkerId=worker.Id
         };
