@@ -58,9 +58,9 @@ jobs:
     env:
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}    
     steps:
-      - name: Deploy .NET app
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          script: |
-            cd ~/app
-            docker-compose up -d --no-deps --build hospitalapi
+      - name: Deploy .NET app
+        run: |
+          cd $GITHUB_WORKSPACE
+          docker-compose up -d --no-deps --build hospitalapi
