@@ -56,8 +56,9 @@ jobs:
     needs: dockerize
     runs-on: ubuntu-latest         
     steps:
-      - uses: actions/checkout@v4
-      - name: Depoloy .Net App
-        run: |
-          cd ~/app
-          docker-compose up -d --no-deps --build hospitalapi
+      - name: Deploy .NET app
+        uses: actions/checkout@v4
+        with:
+          script: |
+            cd ~/app
+            docker-compose up -d --no-deps --build hospitalapi
