@@ -27,17 +27,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up .NET 8
-        uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      - name: Restore dependencies
         run: dotnet restore
-      - name: Test
-        run: dotnet publish --configuration Release
-        
+        run: dotnet test --configuration Release
+      
   dockerize:
     needs: test
     runs-on: ubuntu-latest   
@@ -59,9 +55,8 @@ jobs:
     needs: dockerize
     runs-on: ubuntu-latest         
     steps:
+      - uses: actions/checkout@v4
       - name: Depoloy .Net App
-        uses: actions/checkout@v4
-        with:
-          script: |
-            cd ~/app
-            docker-compose up -d --no-deps --build hospitalapi
+        run: |
+          cd ~/app
+          docker-compose up -d --no-deps --build hospitalapi
