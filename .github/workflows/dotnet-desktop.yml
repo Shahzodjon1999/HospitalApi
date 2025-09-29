@@ -59,5 +59,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Depoloy .Net App
         run: |
-          cd ~/app
+          cd $GITHUB_WORKSPACE
           docker-compose up -d --no-deps --build hospitalapi
