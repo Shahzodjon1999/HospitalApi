@@ -5,12 +5,15 @@ services:
     image: shahzod1999/hospitalapi-test
     container_name: hospitalapi
     restart: always
+    build: .
     ports:
-      - "80:5000"
+      - "4000:5000"
     depends_on:
       - db
     environment:
-      - ConnectionStrings__DefaultConnection=Server=db;Database=Hospital;User=sa;Password=${DB_PASSWORD};Encrypt=False;TrustServerCertificate=True
+      - ConnectionStrings__DefaultConnection=Server=db;Database=Hospital;User=sa;Password=hospital123;Encrypt=False;TrustServerCertificate=True
+    volumes:
+      - ./logs:/app/logs
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -19,14 +22,10 @@ services:
     ports:
       - "1433:1433"
     environment:
-      SA_PASSWORD: "${DB_PASSWORD}"
+      SA_PASSWORD: "hospital123"
       ACCEPT_EULA: "Y"
     volumes:
       - hospital_data:/var/opt/mssql
-    healthcheck:
-      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $${DB_PASSWORD} -Q 'SELECT 1'"]
-      interval: 10s
-      retries: 10
 
 volumes:
   hospital_data:
