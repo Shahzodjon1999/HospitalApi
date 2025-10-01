@@ -567,7 +567,6 @@ D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\staticwebassets\msbuild.build.Hospi
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Hospital.Api.props
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Hospital.Api.props
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\staticwebassets.pack.json
-D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\Hospital.838E9816.Up2Date
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\Hospital.Api.dll
 D:\HospitalApi\Hospital.Api\obj\Debug\net8.0\refint\Hospital.Api.dll
